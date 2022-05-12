@@ -9,17 +9,17 @@
     <jdbcConnection connectionURL="jdbc:mysql://localhost:3306/ecotiya_com" driverClass="com.mysql.cj.jdbc.Driver" password="8q_7PfepDM!Ect_7nvhh" userId="ecotiya" />
     
     <!-- エンティティモデルの生成 -->
-    <javaModelGenerator targetPackage="ecotiya.com.domain.model" targetProject="ecotiya.com/src/main/java" >
+    <javaModelGenerator targetPackage="com.app.ecotiya.domain.model" targetProject="ecotiya.com/src/main/java" >
     	<property name="enableSubPackages" value="true" />
  	</javaModelGenerator>
  	
  	<!-- マッパーXMLの生成 -->
-    <sqlMapGenerator targetPackage="ecotiya.com.domain.mapper" targetProject="ecotiya.com/src/main/resources">
+    <sqlMapGenerator targetPackage="com.app.ecotiya.domain.mapper" targetProject="ecotiya.com/src/main/resources">
     	<property name="enableSubPackages" value="true" />
     </sqlMapGenerator>
     
     <!-- マッパークラスの生成 -->
-    <javaClientGenerator targetPackage="ecotiya.com.domain.mapper" targetProject="ecotiya.com/src/main/java" type="XMLMAPPER" >
+    <javaClientGenerator targetPackage="com.app.ecotiya.domain.mapper" targetProject="ecotiya.com/src/main/java" type="XMLMAPPER" >
     	<property name="enableSubPackages" value="true" />
     </javaClientGenerator>
     
