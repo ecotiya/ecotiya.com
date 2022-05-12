@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+  <context id="MySQL" targetRuntime="MyBatis3">
+    <plugin type="org.mybatis.generator.plugins.EqualsHashCodePlugin"/>
+    <plugin type="org.mybatis.generator.plugins.MapperAnnotationPlugin"/>
+    
+    <!-- MySQL DBの接続先情報 -->
+    <jdbcConnection connectionURL="jdbc:mysql://localhost:3306/ecotiya_com" driverClass="com.mysql.cj.jdbc.Driver" password="8q_7PfepDM!Ect_7nvhh" userId="ecotiya" />
+    
+    <!-- エンティティモデルの生成 -->
+    <javaModelGenerator targetPackage="ecotiya.com.domain.model" targetProject="ecotiya.com/src/main/java" >
+    	<property name="enableSubPackages" value="true" />
+ 	</javaModelGenerator>
+ 	
+ 	<!-- マッパーXMLの生成 -->
+    <sqlMapGenerator targetPackage="ecotiya.com.domain.mapper" targetProject="ecotiya.com/src/main/resources">
+    	<property name="enableSubPackages" value="true" />
+    </sqlMapGenerator>
+    
+    <!-- マッパークラスの生成 -->
+    <javaClientGenerator targetPackage="ecotiya.com.domain.mapper" targetProject="ecotiya.com/src/main/java" type="XMLMAPPER" >
+    	<property name="enableSubPackages" value="true" />
+    </javaClientGenerator>
+    
+    <!-- テーブル情報 マスター系テーブル -->
+    <table schema="ecotiya_com" tableName="m_inquiry_kinds">
+      <property name="useActualColumnNames" value="false"/>
+    </table>
+    <table schema="ecotiya_com" tableName="m_site_comment_kinds">
+      <property name="useActualColumnNames" value="false"/>
+    </table>
+    <table schema="ecotiya_com" tableName="m_skill_division">
+      <property name="useActualColumnNames" value="false"/>
+    </table>
+    <table schema="ecotiya_com" tableName="m_skill_field">
+      <property name="useActualColumnNames" value="false"/>
+    </table>
+    
+    <!-- テーブル情報 トランザクション系テーブル -->
+    <table schema="ecotiya_com" tableName="t_career">
+      <property name="useActualColumnNames" value="false"/>
+    </table>
+    <table schema="ecotiya_com" tableName="t_inquiry_lists">
+      <property name="useActualColumnNames" value="false"/>
+    </table>
+    <table schema="ecotiya_com" tableName="t_site_comment">
+      <property name="useActualColumnNames" value="false"/>
+    </table>
+    <table schema="ecotiya_com" tableName="t_skill">
+      <property name="useActualColumnNames" value="false"/>
+    </table>
+    
+  </context>
+</generatorConfiguration>
