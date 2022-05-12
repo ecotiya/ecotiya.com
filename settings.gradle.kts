@@ -8,4 +8,3 @@
  */
 
 rootProject.name = "ecotiya.com"
-include("app")

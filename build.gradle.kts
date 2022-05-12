@@ -7,8 +7,15 @@
  */
 
 plugins {
-    // Apply the application plugin to add support for building a CLI application in Java.
-    application
+    id("org.springframework.boot") version "2.6.7"
+	id("io.spring.dependency-management") version "1.0.11.RELEASE"
+	id("java-library")
+}
+
+java {
+    toolchain {
+        languageVersion.set(JavaLanguageVersion.of(17))
+    }
 }
 
 repositories {
@@ -17,6 +24,8 @@ repositories {
 }
 
 dependencies {
+	implementation("org.springframework.boot:spring-boot-starter")
+
     // Use JUnit Jupiter for testing.
     testImplementation("org.junit.jupiter:junit-jupiter:5.8.1")
 
@@ -24,12 +33,9 @@ dependencies {
     implementation("com.google.guava:guava:30.1.1-jre")
 }
 
-application {
-    // Define the main class for the application.
-    mainClass.set("ecotiya.com.App")
-}
-
 tasks.named<Test>("test") {
     // Use JUnit Platform for unit tests.
     useJUnitPlatform()
 }
+
+
