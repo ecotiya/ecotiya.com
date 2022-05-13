@@ -1,8 +1,8 @@
 package com.app.ecotiya.domain.model;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
+import java.time.LocalDateTime;
 
 public class TCareerExample {
     /**
@@ -233,52 +233,52 @@ public class TCareerExample {
             return (Criteria) this;
         }
         
-        public Criteria andDatetimeEqualTo (Date value) {
+        public Criteria andDatetimeEqualTo (LocalDateTime value) {
             addCriterion ("datetime =", value, "datetime");
             return (Criteria) this;
         }
         
-        public Criteria andDatetimeNotEqualTo (Date value) {
+        public Criteria andDatetimeNotEqualTo (LocalDateTime value) {
             addCriterion ("datetime <>", value, "datetime");
             return (Criteria) this;
         }
         
-        public Criteria andDatetimeGreaterThan (Date value) {
+        public Criteria andDatetimeGreaterThan (LocalDateTime value) {
             addCriterion ("datetime >", value, "datetime");
             return (Criteria) this;
         }
         
-        public Criteria andDatetimeGreaterThanOrEqualTo (Date value) {
+        public Criteria andDatetimeGreaterThanOrEqualTo (LocalDateTime value) {
             addCriterion ("datetime >=", value, "datetime");
             return (Criteria) this;
         }
         
-        public Criteria andDatetimeLessThan (Date value) {
+        public Criteria andDatetimeLessThan (LocalDateTime value) {
             addCriterion ("datetime <", value, "datetime");
             return (Criteria) this;
         }
         
-        public Criteria andDatetimeLessThanOrEqualTo (Date value) {
+        public Criteria andDatetimeLessThanOrEqualTo (LocalDateTime value) {
             addCriterion ("datetime <=", value, "datetime");
             return (Criteria) this;
         }
         
-        public Criteria andDatetimeIn (List<Date> values) {
+        public Criteria andDatetimeIn (List<LocalDateTime> values) {
             addCriterion ("datetime in", values, "datetime");
             return (Criteria) this;
         }
         
-        public Criteria andDatetimeNotIn (List<Date> values) {
+        public Criteria andDatetimeNotIn (List<LocalDateTime> values) {
             addCriterion ("datetime not in", values, "datetime");
             return (Criteria) this;
         }
         
-        public Criteria andDatetimeBetween (Date value1, Date value2) {
+        public Criteria andDatetimeBetween (LocalDateTime value1, LocalDateTime value2) {
             addCriterion ("datetime between", value1, value2, "datetime");
             return (Criteria) this;
         }
         
-        public Criteria andDatetimeNotBetween (Date value1, Date value2) {
+        public Criteria andDatetimeNotBetween (LocalDateTime value1, LocalDateTime value2) {
             addCriterion ("datetime not between", value1, value2, "datetime");
             return (Criteria) this;
         }
@@ -433,52 +433,52 @@ public class TCareerExample {
             return (Criteria) this;
         }
         
-        public Criteria andCreatedAtEqualTo (Date value) {
+        public Criteria andCreatedAtEqualTo (LocalDateTime value) {
             addCriterion ("created_at =", value, "createdAt");
             return (Criteria) this;
         }
         
-        public Criteria andCreatedAtNotEqualTo (Date value) {
+        public Criteria andCreatedAtNotEqualTo (LocalDateTime value) {
             addCriterion ("created_at <>", value, "createdAt");
             return (Criteria) this;
         }
         
-        public Criteria andCreatedAtGreaterThan (Date value) {
+        public Criteria andCreatedAtGreaterThan (LocalDateTime value) {
             addCriterion ("created_at >", value, "createdAt");
             return (Criteria) this;
         }
         
-        public Criteria andCreatedAtGreaterThanOrEqualTo (Date value) {
+        public Criteria andCreatedAtGreaterThanOrEqualTo (LocalDateTime value) {
             addCriterion ("created_at >=", value, "createdAt");
             return (Criteria) this;
         }
         
-        public Criteria andCreatedAtLessThan (Date value) {
+        public Criteria andCreatedAtLessThan (LocalDateTime value) {
             addCriterion ("created_at <", value, "createdAt");
             return (Criteria) this;
         }
         
-        public Criteria andCreatedAtLessThanOrEqualTo (Date value) {
+        public Criteria andCreatedAtLessThanOrEqualTo (LocalDateTime value) {
             addCriterion ("created_at <=", value, "createdAt");
             return (Criteria) this;
         }
         
-        public Criteria andCreatedAtIn (List<Date> values) {
+        public Criteria andCreatedAtIn (List<LocalDateTime> values) {
             addCriterion ("created_at in", values, "createdAt");
             return (Criteria) this;
         }
         
-        public Criteria andCreatedAtNotIn (List<Date> values) {
+        public Criteria andCreatedAtNotIn (List<LocalDateTime> values) {
             addCriterion ("created_at not in", values, "createdAt");
             return (Criteria) this;
         }
         
-        public Criteria andCreatedAtBetween (Date value1, Date value2) {
+        public Criteria andCreatedAtBetween (LocalDateTime value1, LocalDateTime value2) {
             addCriterion ("created_at between", value1, value2, "createdAt");
             return (Criteria) this;
         }
         
-        public Criteria andCreatedAtNotBetween (Date value1, Date value2) {
+        public Criteria andCreatedAtNotBetween (LocalDateTime value1, LocalDateTime value2) {
             addCriterion ("created_at not between", value1, value2, "createdAt");
             return (Criteria) this;
         }
@@ -493,52 +493,52 @@ public class TCareerExample {
             return (Criteria) this;
         }
         
-        public Criteria andUpdatedAtEqualTo (Date value) {
+        public Criteria andUpdatedAtEqualTo (LocalDateTime value) {
             addCriterion ("updated_at =", value, "updatedAt");
             return (Criteria) this;
         }
         
-        public Criteria andUpdatedAtNotEqualTo (Date value) {
+        public Criteria andUpdatedAtNotEqualTo (LocalDateTime value) {
             addCriterion ("updated_at <>", value, "updatedAt");
             return (Criteria) this;
         }
         
-        public Criteria andUpdatedAtGreaterThan (Date value) {
+        public Criteria andUpdatedAtGreaterThan (LocalDateTime value) {
             addCriterion ("updated_at >", value, "updatedAt");
             return (Criteria) this;
         }
         
-        public Criteria andUpdatedAtGreaterThanOrEqualTo (Date value) {
+        public Criteria andUpdatedAtGreaterThanOrEqualTo (LocalDateTime value) {
             addCriterion ("updated_at >=", value, "updatedAt");
             return (Criteria) this;
         }
         
-        public Criteria andUpdatedAtLessThan (Date value) {
+        public Criteria andUpdatedAtLessThan (LocalDateTime value) {
             addCriterion ("updated_at <", value, "updatedAt");
             return (Criteria) this;
         }
         
-        public Criteria andUpdatedAtLessThanOrEqualTo (Date value) {
+        public Criteria andUpdatedAtLessThanOrEqualTo (LocalDateTime value) {
             addCriterion ("updated_at <=", value, "updatedAt");
             return (Criteria) this;
         }
         
-        public Criteria andUpdatedAtIn (List<Date> values) {
+        public Criteria andUpdatedAtIn (List<LocalDateTime> values) {
             addCriterion ("updated_at in", values, "updatedAt");
             return (Criteria) this;
         }
         
-        public Criteria andUpdatedAtNotIn (List<Date> values) {
+        public Criteria andUpdatedAtNotIn (List<LocalDateTime> values) {
             addCriterion ("updated_at not in", values, "updatedAt");
             return (Criteria) this;
         }
         
-        public Criteria andUpdatedAtBetween (Date value1, Date value2) {
+        public Criteria andUpdatedAtBetween (LocalDateTime value1, LocalDateTime value2) {
             addCriterion ("updated_at between", value1, value2, "updatedAt");
             return (Criteria) this;
         }
         
-        public Criteria andUpdatedAtNotBetween (Date value1, Date value2) {
+        public Criteria andUpdatedAtNotBetween (LocalDateTime value1, LocalDateTime value2) {
             addCriterion ("updated_at not between", value1, value2, "updatedAt");
             return (Criteria) this;
         }
@@ -631,7 +631,7 @@ public class TCareerExample {
      * This class was generated by MyBatis Generator.
      * This class corresponds to the database table t_career
      *
-     * @mbg.generated do_not_delete_during_merge Thu May 12 21:56:48 JST 2022
+     * @mbg.generated do_not_delete_during_merge
      */
     public static class Criteria extends GeneratedCriteria {
         protected Criteria() {
