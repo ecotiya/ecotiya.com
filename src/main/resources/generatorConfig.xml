@@ -21,7 +21,13 @@
     </commentGenerator>
     
     <!-- MySQL DBの接続先情報 -->
-    <jdbcConnection connectionURL="jdbc:mysql://localhost:3306/ecotiya_com" driverClass="com.mysql.cj.jdbc.Driver" password="8q_7PfepDM!Ect_7nvhh" userId="ecotiya" />
+    <jdbcConnection 
+    	connectionURL="jdbc:mysql://localhost:3306/ecotiya_com"
+    	driverClass="com.mysql.cj.jdbc.Driver"
+    	password="8q_7PfepDM!Ect_7nvhh"
+    	userId="ecotiya" >
+    	<property name="nullCatalogMeansCurrent" value="true" />
+    </jdbcConnection>
     
     <javaTypeResolver>
     	<property name="useJSR310Types" value="true"/>
@@ -46,32 +52,20 @@
     	<property name="enableSubPackages" value="true" />
     </javaClientGenerator>
     
-    <!-- テーブル情報 マスター系テーブル -->
-    <table schema="ecotiya_com" tableName="m_inquiry_kinds">
-      <property name="mapUnderscoreToCamelCase" value="true"/>
-    </table>
-    <table schema="ecotiya_com" tableName="m_site_comment_kinds">
-      <property name="mapUnderscoreToCamelCase" value="true"/>
-    </table>
-    <table schema="ecotiya_com" tableName="m_skill_division">
-      <property name="mapUnderscoreToCamelCase" value="true"/>
-    </table>
-    <table schema="ecotiya_com" tableName="m_skill_field">
-      <property name="mapUnderscoreToCamelCase" value="true"/>
-    </table>
-    
-    <!-- テーブル情報 トランザクション系テーブル -->
-    <table schema="ecotiya_com" tableName="t_career">
-      <property name="mapUnderscoreToCamelCase" value="true"/>
-    </table>
-    <table schema="ecotiya_com" tableName="t_inquiry_lists">
-      <property name="mapUnderscoreToCamelCase" value="true"/>
-    </table>
-    <table schema="ecotiya_com" tableName="t_site_comment">
-      <property name="mapUnderscoreToCamelCase" value="true"/>
-    </table>
-    <table schema="ecotiya_com" tableName="t_skill">
-      <property name="mapUnderscoreToCamelCase" value="true"/>
+    <!-- 自動生成対象のスキーマ情報 -->
+    <table schema="ecotiya_com"
+    	tableName="%"
+        enableInsert="true"
+        enableSelectByPrimaryKey="true"
+        enableSelectByExample="false"
+        enableUpdateByPrimaryKey="true"
+        enableUpdateByExample="false"
+        enableDeleteByPrimaryKey="true"
+        enableDeleteByExample="false"
+        enableCountByExample="false"
+        selectByExampleQueryId="false"
+        modelType="flat">
+        <property name="useActualColumnNames" value="false"/>
     </table>
     
   </context>
