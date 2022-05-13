@@ -2,8 +2,21 @@
 <!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
 <generatorConfiguration>
   <context id="MySQL" targetRuntime="MyBatis3">
+  
+  	<!-- エンティティモデルにequalsメソッドとhashCodeメソッドを追加するためのプラグイン -->
     <plugin type="org.mybatis.generator.plugins.EqualsHashCodePlugin"/>
+    
+    <!-- マッパクラスのアノテーションを制御するためのプラグイン -->
     <plugin type="org.mybatis.generator.plugins.MapperAnnotationPlugin"/>
+    
+    <!-- マッパーXMLをマージさせないためのプラグイン -->
+    <plugin type="org.mybatis.generator.plugins.UnmergeableXmlMappersPlugin"/>
+    
+    <!-- コメント生成の制御 -->
+    <commentGenerator>
+    	<property name="suppressDate" value="true" />
+        <property name="addRemarkComments" value="false" />
+    </commentGenerator>
     
     <!-- MySQL DBの接続先情報 -->
     <jdbcConnection connectionURL="jdbc:mysql://localhost:3306/ecotiya_com" driverClass="com.mysql.cj.jdbc.Driver" password="8q_7PfepDM!Ect_7nvhh" userId="ecotiya" />
@@ -11,6 +24,7 @@
     <!-- エンティティモデルの生成 -->
     <javaModelGenerator targetPackage="com.app.ecotiya.domain.model" targetProject="ecotiya.com/src/main/java" >
     	<property name="enableSubPackages" value="true" />
+    	<property name="trimStrings" value="true" />
  	</javaModelGenerator>
  	
  	<!-- マッパーXMLの生成 -->
