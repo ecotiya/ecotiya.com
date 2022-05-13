@@ -2,3 +2,9 @@ spring:
   data:
     rest:
       base-path: /api
+      
+  datasource:
+    url: jdbc:mysql://localhost:3306/ecotiya_com
+    username: ecotiya
+    password: 8q_7PfepDM!Ect_7nvhh
+    driver-class-name: com.mysql.cj.jdbc.Driver
