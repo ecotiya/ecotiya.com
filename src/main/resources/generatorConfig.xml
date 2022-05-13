@@ -28,21 +28,21 @@
 	</javaTypeResolver>
     
     <!-- エンティティモデルの生成 -->
-    <javaModelGenerator targetPackage="com.app.ecotiya.domain.model" targetProject="ecotiya.com/src/main/java" >
+    <javaModelGenerator targetPackage="com.app.ecotiya.domain.entity" targetProject="ecotiya.com/src/main/java" >
     	<property name="constructorBased" value="false"/>
     	<property name="enableSubPackages" value="true" />
     	<property name="trimStrings" value="true" />
     	<property name="immutable" value="false"/>
-    	<property name="rootClass" value="com.app.ecotiya.domain.model.AppBaseEntity"/>
+    	<property name="rootClass" value="com.app.ecotiya.domain.entity.base.AppBaseEntity"/>
  	</javaModelGenerator>
  	
  	<!-- マッパーXMLの生成 -->
-    <sqlMapGenerator targetPackage="com.app.ecotiya.domain.mapper" targetProject="ecotiya.com/src/main/resources">
+    <sqlMapGenerator targetPackage="com.app.ecotiya.domain.repository" targetProject="ecotiya.com/src/main/resources">
     	<property name="enableSubPackages" value="true" />
     </sqlMapGenerator>
     
     <!-- マッパークラスの生成 -->
-    <javaClientGenerator targetPackage="com.app.ecotiya.domain.mapper" targetProject="ecotiya.com/src/main/java" type="XMLMAPPER" >
+    <javaClientGenerator targetPackage="com.app.ecotiya.domain.repository" targetProject="ecotiya.com/src/main/java" type="XMLMAPPER" >
     	<property name="enableSubPackages" value="true" />
     </javaClientGenerator>
     
