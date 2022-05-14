@@ -1,1 +1,1 @@
-# ecotiya.com
+# ecotiya

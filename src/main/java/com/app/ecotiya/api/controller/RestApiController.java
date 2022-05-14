@@ -6,19 +6,19 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class RestApiController {
 
-  /** メインページを表示するために必要なデータを取得します。 */
+  /** ���C���y�[�W��\�����邽�߂ɕK�v�ȃf�[�^���擾���܂��B */
   @GetMapping("/")
   public String mainApp() {
     return "mainApp";
   }
 
-  /** お問い合わせページを表示するために必要なデータを取得します。 */
+  /** ���₢���킹�y�[�W��\�����邽�߂ɕK�v�ȃf�[�^���擾���܂��B */
   @GetMapping("/contact")
   public String contact() {
     return "contact";
   }
 
-  /** お問い合わせページの内容をデータベースに保存及び、メール送信を行います。 */
+  /** ���₢���킹�y�[�W�̓��e���f�[�^�x�[�X�ɕۑ��y�сA���[�����M���s���܂��B */
   @GetMapping("/contact/post")
   public String postContact() {
     return "postContact";
