@@ -5,17 +5,26 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class RestApiController {
-  //    @RequestMapping (value = "/")
-  //    public String index () {
-  //        return "index";
-  //    }
 
+  /** メインページを表示するために必要なデータを取得します。 */
   @GetMapping("/")
-  public String showAll() {
-    return "Hello World.";
+  public String mainApp() {
+    return "mainApp";
   }
 
-  // TODO testコード
+  /** お問い合わせページを表示するために必要なデータを取得します。 */
+  @GetMapping("/contact")
+  public String contact() {
+    return "contact";
+  }
+
+  /** お問い合わせページの内容をデータベースに保存及び、メール送信を行います。 */
+  @GetMapping("/contact/post")
+  public String postContact() {
+    return "postContact";
+  }
+
+  // TODO
   @GetMapping("/hello")
   public String hello() {
     return "Hello World.";

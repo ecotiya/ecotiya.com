@@ -22,4 +22,16 @@ public class AppBaseEntity {
   public void setUpdatedAt(LocalDateTime updatedAt) {
     this.updatedAt = updatedAt;
   }
+
+  // getter,setter
+  public void initCreateEntity() {
+    LocalDateTime now = LocalDateTime.now();
+    this.createdAt = now;
+    this.updatedAt = now;
+  }
+
+  public void initUpdateEntity() {
+    LocalDateTime now = LocalDateTime.now();
+    this.updatedAt = now;
+  }
 }

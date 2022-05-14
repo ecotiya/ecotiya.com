@@ -23,6 +23,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.app.ecotiya.api.config.DbConfig;
 import com.app.ecotiya.domain.entity.MInquiryKinds;
+import com.app.ecotiya.domain.repository.MInquiryKindsMapper;
 
 @SpringBootTest
 @Transactional
