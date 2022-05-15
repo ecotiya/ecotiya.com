@@ -89,7 +89,7 @@
 				<is_open_after_saved>true</is_open_after_saved>
 			</export_html_setting>
 			<export_image_setting>
-				<output_file_path></output_file_path>
+				<output_file_path>doc\ecotiya_com.png</output_file_path>
 				<category_dir_path></category_dir_path>
 				<with_category_image>true</with_category_image>
 				<is_open_after_saved>true</is_open_after_saved>
@@ -138,7 +138,7 @@
 			</connections>
 			<display>false</display>
 			<creation_date>2022-05-14 13:43:34</creation_date>
-			<updated_date>2022-05-15 21:38:54</updated_date>
+			<updated_date>2022-05-15 21:43:10</updated_date>
 			<model_property>
 				<name>プロジェクト名</name>
 				<value>ecotiya</value>
