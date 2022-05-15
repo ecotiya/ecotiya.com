@@ -36,7 +36,6 @@
     	<property name="enableSubPackages" value="true" />
     	<property name="trimStrings" value="true" />
     	<property name="immutable" value="false"/>
-    	<property name="rootClass" value="com.app.ecotiya.domain.entity.base.AppBaseEntity"/>
  	</javaModelGenerator>
  	
  	<!-- マッパーXMLの生成 -->
@@ -55,16 +54,15 @@
         enableInsert="true"
         enableSelectByPrimaryKey="true"
         enableSelectByExample="false"
-        enableUpdateByPrimaryKey="true"
+        enableUpdateByPrimaryKey="false"
         enableUpdateByExample="false"
-        enableDeleteByPrimaryKey="true"
+        enableDeleteByPrimaryKey="false"
         enableDeleteByExample="false"
         enableCountByExample="false"
         selectByExampleQueryId="false"
         modelType="flat">
         <property name="useActualColumnNames" value="false"/>
-        <columnOverride column="created_at" isGeneratedAlways="true" />
-        <columnOverride column="delflg" javaType="boolean" />
+        <domainObjectRenamingRule searchString="^(?i)t|m(.*)" replaceString="" />
     </table>
     
   </context>

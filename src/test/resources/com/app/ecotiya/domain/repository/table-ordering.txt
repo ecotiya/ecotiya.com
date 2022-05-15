@@ -1,7 +1,6 @@
+m_career
 m_inquiry_kinds
-m_site_comment_kinds
+m_site_comment
 m_skill_division
-t_career
 t_inquiry_lists
-t_site_comment
 t_skill

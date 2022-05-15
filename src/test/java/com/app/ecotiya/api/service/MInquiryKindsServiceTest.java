@@ -3,8 +3,6 @@ package com.app.ecotiya.api.service;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.when;
 
-import java.time.LocalDateTime;
-
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -34,15 +32,12 @@ public class MInquiryKindsServiceTest {
     MInquiryKinds mInquiryKinds = new MInquiryKinds();
     mInquiryKinds.setInquiryKindCode("test");
     mInquiryKinds.setInquiryKindName("テスト");
-    mInquiryKinds.setCreatedAt(LocalDateTime.of(2022, 05, 14, 05, 14, 00));
-    mInquiryKinds.setUpdatedAt(LocalDateTime.of(2022, 05, 14, 05, 14, 00));
 
     when(mapper.insert(Mockito.any(MInquiryKinds.class))).thenReturn(1);
     MInquiryKinds actual = service.register(mInquiryKinds);
     assertEquals(mInquiryKinds.getInquiryKindCode(), actual.getInquiryKindCode());
     assertEquals(mInquiryKinds.getInquiryKindName(), actual.getInquiryKindName());
-    assertEquals(mInquiryKinds.getCreatedAt(), actual.getCreatedAt());
-    assertEquals(mInquiryKinds.getUpdatedAt(), actual.getUpdatedAt());
+
     Mockito.verify(mapper, Mockito.times(1)).insert(mInquiryKinds);
   }
 }

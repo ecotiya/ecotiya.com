@@ -11,10 +11,6 @@
     <typeAliases>
         <package name="com.app.ecotiya.domain.entity" />
     </typeAliases>
-    
-    <plugins>
-        <plugin interceptor="app.ecotiya.com.domain.entity.base.BaseEntityInterceptor" />
-    </plugins>
 
     <environments default="development">
         <environment id="development">
