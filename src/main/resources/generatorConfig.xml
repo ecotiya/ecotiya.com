@@ -11,9 +11,6 @@
     <!-- マッパクラスのアノテーションを制御するためのプラグイン -->
     <plugin type="org.mybatis.generator.plugins.MapperAnnotationPlugin"/>
     
-    <!-- マッパーXMLをマージさせないためのプラグイン -->
-    <plugin type="org.mybatis.generator.plugins.UnmergeableXmlMappersPlugin"/>
-    
     <!-- コメント生成の制御(更新日付削除＆コメントは必須) -->
     <commentGenerator>
     	<property name="suppressDate" value="true" />
@@ -66,6 +63,8 @@
         selectByExampleQueryId="false"
         modelType="flat">
         <property name="useActualColumnNames" value="false"/>
+        <columnOverride column="created_at" isGeneratedAlways="true" />
+        <columnOverride column="delflg" javaType="boolean" />
     </table>
     
   </context>

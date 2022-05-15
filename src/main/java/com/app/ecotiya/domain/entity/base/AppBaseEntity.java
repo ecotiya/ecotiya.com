@@ -6,6 +6,7 @@ public class AppBaseEntity {
 
   private LocalDateTime createdAt;
   private LocalDateTime updatedAt;
+  private boolean delflg;
 
   public LocalDateTime getCreatedAt() {
     return createdAt;
@@ -21,6 +22,14 @@ public class AppBaseEntity {
 
   public void setUpdatedAt(LocalDateTime updatedAt) {
     this.updatedAt = updatedAt;
+  }
+
+  public boolean isDelflg() {
+    return delflg;
+  }
+
+  public void setDelflg(boolean delflg) {
+    this.delflg = delflg;
   }
 
   // getter,setter
