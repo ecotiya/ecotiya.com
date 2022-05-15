@@ -62,7 +62,6 @@
         selectByExampleQueryId="false"
         modelType="flat">
         <property name="useActualColumnNames" value="false"/>
-        <domainObjectRenamingRule searchString="^(?i)t|m(.*)" replaceString="" />
     </table>
     
   </context>

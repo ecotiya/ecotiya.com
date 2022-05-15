@@ -4,6 +4,7 @@ import java.io.File;
 
 import javax.sql.DataSource;
 
+import org.dbunit.database.DatabaseConfig;
 import org.dbunit.database.DatabaseConnection;
 import org.dbunit.database.IDatabaseConnection;
 import org.dbunit.dataset.IDataSet;
@@ -37,6 +38,8 @@ public class EcotiyaBaseTest {
   @BeforeEach
   public void setup() throws Exception {
     this.dbconn = new DatabaseConnection(this.ds.getConnection());
+    DatabaseConfig databaseConfig = dbconn.getConfig();
+    databaseConfig.setProperty(DatabaseConfig.FEATURE_ALLOW_EMPTY_FIELDS, Boolean.TRUE); // 空文字許可
     this.inputCsvDataSet =
         new CsvDataSet(new File("src/test/resources/com/app/ecotiya/domain/repository/"));
     DatabaseOperation.CLEAN_INSERT.execute(dbconn, inputCsvDataSet);
