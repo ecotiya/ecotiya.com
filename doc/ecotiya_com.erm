@@ -44,7 +44,7 @@
 				<output_path>doc\ecotiya_com.sql</output_path>
 				<encoding>UTF-8</encoding>
 				<line_feed>CR+LF</line_feed>
-				<is_open_after_saved>true</is_open_after_saved>
+				<is_open_after_saved>false</is_open_after_saved>
 				<environment_id>0</environment_id>
 				<category_id>null</category_id>
 				<ddl_target>
@@ -78,7 +78,7 @@
 				<template_path></template_path>
 				<used_default_template_lang>ja</used_default_template_lang>
 				<image_output></image_output>
-				<is_open_after_saved>true</is_open_after_saved>
+				<is_open_after_saved>false</is_open_after_saved>
 				<is_put_diagram>true</is_put_diagram>
 				<is_use_logical_name>true</is_use_logical_name>
 			</export_excel_setting>
@@ -92,7 +92,7 @@
 				<output_file_path>doc\ecotiya_com.png</output_file_path>
 				<category_dir_path></category_dir_path>
 				<with_category_image>true</with_category_image>
-				<is_open_after_saved>true</is_open_after_saved>
+				<is_open_after_saved>false</is_open_after_saved>
 			</export_image_setting>
 			<export_java_setting>
 				<java_output></java_output>
@@ -138,7 +138,7 @@
 			</connections>
 			<display>false</display>
 			<creation_date>2022-05-14 13:43:34</creation_date>
-			<updated_date>2022-05-15 21:43:10</updated_date>
+			<updated_date>2022-05-16 11:40:25</updated_date>
 			<model_property>
 				<name>プロジェクト名</name>
 				<value>ecotiya</value>
@@ -187,12 +187,28 @@
 			<args></args>
 			<char_semantics>false</char_semantics>
 			<description></description>
+			<logical_name>年月日</logical_name>
+			<physical_name>career_date</physical_name>
+			<type>date</type>
+		</word>
+		<word>
+			<id>1</id>
+			<length>null</length>
+			<decimal>null</decimal>
+			<array>false</array>
+			<array_dimension>null</array_dimension>
+			<unsigned>false</unsigned>
+			<zerofill>false</zerofill>
+			<binary>false</binary>
+			<args></args>
+			<char_semantics>false</char_semantics>
+			<description></description>
 			<logical_name>経歴ID</logical_name>
 			<physical_name>career_id</physical_name>
 			<type>integer</type>
 		</word>
 		<word>
-			<id>1</id>
+			<id>2</id>
 			<length>255</length>
 			<decimal>null</decimal>
 			<array>false</array>
@@ -208,7 +224,7 @@
 			<type>varchar(n)</type>
 		</word>
 		<word>
-			<id>2</id>
+			<id>3</id>
 			<length>255</length>
 			<decimal>null</decimal>
 			<array>false</array>
@@ -224,7 +240,7 @@
 			<type>varchar(n)</type>
 		</word>
 		<word>
-			<id>3</id>
+			<id>4</id>
 			<length>null</length>
 			<decimal>null</decimal>
 			<array>false</array>
@@ -240,7 +256,7 @@
 			<type>text</type>
 		</word>
 		<word>
-			<id>4</id>
+			<id>5</id>
 			<length>null</length>
 			<decimal>null</decimal>
 			<array>false</array>
@@ -256,7 +272,7 @@
 			<type>text</type>
 		</word>
 		<word>
-			<id>5</id>
+			<id>6</id>
 			<length>255</length>
 			<decimal>null</decimal>
 			<array>false</array>
@@ -272,7 +288,7 @@
 			<type>varchar(n)</type>
 		</word>
 		<word>
-			<id>6</id>
+			<id>7</id>
 			<length>null</length>
 			<decimal>null</decimal>
 			<array>false</array>
@@ -285,22 +301,6 @@
 			<description></description>
 			<logical_name>登録日時</logical_name>
 			<physical_name>create_at</physical_name>
-			<type>datetime</type>
-		</word>
-		<word>
-			<id>7</id>
-			<length>null</length>
-			<decimal>null</decimal>
-			<array>false</array>
-			<array_dimension>null</array_dimension>
-			<unsigned>false</unsigned>
-			<zerofill>false</zerofill>
-			<binary>false</binary>
-			<args></args>
-			<char_semantics>false</char_semantics>
-			<description></description>
-			<logical_name>年月日</logical_name>
-			<physical_name>datetime</physical_name>
 			<type>datetime</type>
 		</word>
 		<word>
@@ -778,7 +778,7 @@
 					</sequence>
 				</normal_column>
 				<normal_column>
-					<word_id>4</word_id>
+					<word_id>5</word_id>
 					<id>6</id>
 					<description></description>
 					<unique_key_name></unique_key_name>
@@ -811,7 +811,7 @@
 					</sequence>
 				</normal_column>
 				<normal_column>
-					<word_id>6</word_id>
+					<word_id>7</word_id>
 					<id>7</id>
 					<description></description>
 					<unique_key_name></unique_key_name>
@@ -1170,7 +1170,7 @@
 			<option></option>
 			<columns>
 				<normal_column>
-					<word_id>1</word_id>
+					<word_id>2</word_id>
 					<id>14</id>
 					<description></description>
 					<unique_key_name></unique_key_name>
@@ -1203,7 +1203,7 @@
 					</sequence>
 				</normal_column>
 				<normal_column>
-					<word_id>2</word_id>
+					<word_id>3</word_id>
 					<id>15</id>
 					<description></description>
 					<unique_key_name></unique_key_name>
@@ -1236,7 +1236,7 @@
 					</sequence>
 				</normal_column>
 				<normal_column>
-					<word_id>3</word_id>
+					<word_id>4</word_id>
 					<id>16</id>
 					<description></description>
 					<unique_key_name></unique_key_name>
@@ -1337,7 +1337,7 @@
 			<option></option>
 			<columns>
 				<normal_column>
-					<word_id>0</word_id>
+					<word_id>1</word_id>
 					<id>18</id>
 					<description></description>
 					<unique_key_name></unique_key_name>
@@ -1370,13 +1370,13 @@
 					</sequence>
 				</normal_column>
 				<normal_column>
-					<word_id>7</word_id>
+					<word_id>0</word_id>
 					<id>19</id>
 					<description></description>
 					<unique_key_name></unique_key_name>
 					<logical_name></logical_name>
 					<physical_name></physical_name>
-					<type>datetime</type>
+					<type>date</type>
 					<constraint></constraint>
 					<default_value></default_value>
 					<auto_increment>false</auto_increment>
@@ -1436,7 +1436,7 @@
 					</sequence>
 				</normal_column>
 				<normal_column>
-					<word_id>5</word_id>
+					<word_id>6</word_id>
 					<id>21</id>
 					<description></description>
 					<unique_key_name></unique_key_name>

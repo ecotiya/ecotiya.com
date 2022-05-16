@@ -18,7 +18,7 @@ DROP TABLE IF EXISTS m_skill_division;
 CREATE TABLE m_career
 (
 	career_id int NOT NULL COMMENT '経歴ID',
-	datetime datetime NOT NULL COMMENT '年月日',
+	career_date date NOT NULL COMMENT '年月日',
 	title varchar(255) NOT NULL COMMENT 'タイトル',
 	contents varchar(255) NOT NULL COMMENT '内容',
 	PRIMARY KEY (career_id)

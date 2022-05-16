@@ -2,6 +2,8 @@ package com.app.ecotiya.domain.repository;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+import java.util.List;
+
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,23 +12,20 @@ import org.springframework.context.annotation.Import;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.app.ecotiya.api.config.DbConfig;
-import com.app.ecotiya.domain.entity.MInquiryKinds;
+import com.app.ecotiya.domain.entity.MSiteComment;
 import com.app.ecotiya.domain.repository.base.EcotiyaBaseMapperTest;
 
 @SpringBootTest
 @Transactional
 @Import(DbConfig.class)
-public class MInquiryKindsMapperTest extends EcotiyaBaseMapperTest {
+public class MSiteCommentMapperTest extends EcotiyaBaseMapperTest {
 
-  @Autowired private MInquiryKindsMapper mapper;
+  @Autowired private MSiteCommentMapper mSiteCommentMapper;
 
-  @DisplayName("INSERT TEST: Check if the data is inserted as expected.")
+  @DisplayName("SELECT TEST: Check if all records retrieved.")
   @Test
-  public void testInsert() {
-    MInquiryKinds mInquiryKinds = new MInquiryKinds();
-    mInquiryKinds.setInquiryKindCode("test");
-    mInquiryKinds.setInquiryKindName("テスト");
-
-    assertEquals(1, mapper.insert(mInquiryKinds));
+  public void testSelectAll() {
+    List<MSiteComment> mSiteComments = mSiteCommentMapper.selectAll();
+    assertEquals(4, mSiteComments.size());
   }
 }

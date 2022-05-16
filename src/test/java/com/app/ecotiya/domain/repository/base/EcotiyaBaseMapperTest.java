@@ -22,7 +22,7 @@ import com.app.ecotiya.api.config.DbConfig;
 @SpringBootTest
 @Transactional
 @Import(DbConfig.class)
-public class EcotiyaBaseTest {
+public class EcotiyaBaseMapperTest {
 
   @Autowired private DataSource ds;
 
