@@ -17,7 +17,6 @@
     "noEmit": true,                               /* コンパイル結果を出力するか否か */
     "jsx": "react-jsx",                           /* コンパイルファイルの出力形式  */
     "baseUrl": "src",                             /* beseUrlを起点としたパス指定を可能にする */
-    "outDir": "./dist",                           /* コンパイルファイル出力ディレクトリ */
 
     /* ========== コンパイル時の構文チェック ========== */
     "strict": true,                               /* 複数のエラーチェックをONにするか否か */
@@ -28,10 +27,10 @@
     "noFallthroughCasesInSwitch": true,           /* switch文のcase内でbreakが無い場合にコンパイルエラーにするか否か */
   },
   "include": [                                     /* コンパイル対象ファイルを指定 */
-    "src"
+    "src/**/*"
   ],
   "exclude": [                                     /* コンパイル対象外ファイルを指定 */
     "node_modules",
-    "./dist",
+    "src/reportWebVitals.ts"
   ]
 }
