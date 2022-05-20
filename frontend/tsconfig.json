@@ -33,6 +33,5 @@
   "exclude": [                                     /* コンパイル対象外ファイルを指定 */
     "node_modules",
     "./dist",
-    "src/reportWebVitals.ts"
   ]
 }

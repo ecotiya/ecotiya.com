@@ -1,36 +1,37 @@
 module.exports = {
-    "env": {
-        "browser": true,
-        "es2021": true
+    env: {
+        browser: true,
+        es2021: true,
     },
-    "extends": [
-        "plugin:react/recommended",
-        "airbnb",
+    extends: [
+        'plugin:react/recommended',
+        'airbnb',
         'airbnb/hooks',
         'plugin:import/errors',
         'plugin:import/warnings',
         'plugin:import/typescript',
         'plugin:@typescript-eslint/recommended',
         'plugin:@typescript-eslint/recommended-requiring-type-checking',
+        'prettier',
     ],
-    "parser": "@typescript-eslint/parser",
-    "parserOptions": {
-        "ecmaFeatures": {
-            "jsx": true
+    parser: '@typescript-eslint/parser',
+    parserOptions: {
+        ecmaFeatures: {
+            jsx: true,
         },
-        "ecmaVersion": '12',
-        "project": './tsconfig.eslint.json',
-        "sourceType": "module",
-        "tsconfigRootDir": '__dirname',
+        ecmaVersion: 12,
+        project: './tsconfig.eslint.json',
+        sourceType: 'module',
+        tsconfigRootDir: __dirname,
     },
-    "plugins": [
-        "react",
-        "@typescript-eslint",
-        "import",
-        "jsx-a11y",
-        "react-hooks",
+    plugins: [
+        '@typescript-eslint',
+        'import',
+        'jsx-a11y',
+        'react',
+        'react-hooks',
     ],
-    "root": true,
+    root: true,
     rules: {
         // occur error in `import React from 'react'` with react-scripts 4.0.1
         'no-use-before-define': 'off',
