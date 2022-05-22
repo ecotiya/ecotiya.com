@@ -53,6 +53,9 @@
     ]
   },
   "devDependencies": {
+    "@emotion/react": "^11.9.0",
+    "@emotion/styled": "^11.8.1",
+    "@mui/material": "^5.8.0",
     "@types/prettier": "^2.6.1",
     "@types/stylelint": "^14.0.0",
     "@types/testing-library__jest-dom": "^5.14.3",
