@@ -131,3 +131,6 @@ dist
 .history/
 
 
+# sample
+public/sample
+src/sample
