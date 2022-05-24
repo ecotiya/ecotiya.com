@@ -6,7 +6,7 @@ import AppBar from '../atoms/AppBar';
 import Toolbar from '../atoms/Toolbar';
 
 const rightLink = {
-  fontSize: 20,
+  fontSize: 25,
   color: 'common.white',
   ml: 3,
 };
@@ -16,7 +16,7 @@ function Header() {
     <div>
       <AppBar position="fixed">
         <Toolbar sx={{ justifyContent: 'space-between' }}>
-          <Box sx={{ flex: 1, justifyContent: 'flex-start' }}>
+          {/* <Box sx={{ flex: 1, justifyContent: 'flex-start' }}>
             <Link
               variant="h3"
               underline="none"
@@ -26,12 +26,21 @@ function Header() {
             >
               ecotiya
             </Link>
-          </Box>
+          </Box> */}
           <Box sx={{ flex: 1, display: 'flex', justifyContent: 'flex-end' }}>
             <Link
               color="inherit"
-              variant="h3"
-              underline="none"
+              variant="subtitle1"
+              underline="hover"
+              href="/"
+              sx={rightLink}
+            >
+              Home
+            </Link>
+            <Link
+              color="inherit"
+              variant="subtitle1"
+              underline="hover"
               href="/about"
               sx={rightLink}
             >
@@ -39,8 +48,8 @@ function Header() {
             </Link>
             <Link
               color="inherit"
-              variant="h3"
-              underline="none"
+              variant="subtitle1"
+              underline="hover"
               href="/contact"
               sx={rightLink}
             >
