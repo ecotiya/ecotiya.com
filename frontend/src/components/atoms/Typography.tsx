@@ -10,9 +10,9 @@ const markClassesMapping: {
 } = {
   center: {
     h1: '',
-    h2: 'OnePirateTypography-markedH2Center',
-    h3: 'OnePirateTypography-markedH3Center',
-    h4: 'OnePirateTypography-markedH4Center',
+    h2: 'HomeTypography-markedH2Center',
+    h3: 'HomeTypography-markedH3Center',
+    h4: 'HomeTypography-markedH4Center',
     h5: '',
     h6: '',
   },
@@ -22,7 +22,7 @@ const markClassesMapping: {
     h3: '',
     h4: '',
     h5: '',
-    h6: 'OnePirateTypography-markedH6Left',
+    h6: 'HomeTypography-markedH6Left',
   },
   none: {
     h1: '',
