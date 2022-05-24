@@ -1,25 +1,21 @@
+/* eslint-disable react/function-component-definition */
+/* eslint-disable arrow-body-style */
+/* eslint-disable react/jsx-no-useless-fragment */
 import React from 'react';
-import logo from './logo.svg';
+import Home from './components/templates/Home';
 import './App.css';
 
-// eslint-disable-next-line prefer-arrow/prefer-arrow-functions
-function App() {
+const App = () => {
   return (
-    <div className="app">
-      <header className="app-header">
-        <img src={logo} className="app-logo" alt="logo" />
-        <p>Hello, World!</p>
-        <a
-          className="app-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Home />
+    </>
   );
-}
+};
+
+// 参照するコンポーネント
+// Home
+// About
+// Contact
 
 export default App;
