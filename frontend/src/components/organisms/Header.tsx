@@ -1,70 +1,49 @@
 /* eslint-disable prefer-arrow/prefer-arrow-functions */
 import * as React from 'react';
 import Box from '@mui/material/Box';
-import Link from '@mui/material/Link';
-import { ThemeProvider, createTheme } from '@mui/material/styles';
+import HomeIcon from '@mui/icons-material/Home';
+import MailOutlineIcon from '@mui/icons-material/MailOutline';
+import InfoIcon from '@mui/icons-material/Info';
+import Button from '@mui/material/Button';
 import AppBar from '../atoms/AppBar';
 import Toolbar from '../atoms/Toolbar';
-
-const whiteTheme = createTheme({
-  palette: {
-    primary: {
-      main: '#ffffff',
-    },
-  },
-});
-
-const rightLink = {
-  fontSize: 25,
-  color: 'common.brack',
-  ml: 3,
-};
 
 function Header() {
   return (
     <div>
-      <ThemeProvider theme={whiteTheme}>
-        <AppBar position="fixed" color="primary">
-          <Toolbar sx={{ justifyContent: 'space-between' }}>
-            <Box sx={{ flex: 1, justifyContent: 'flex-start' }}>
-              <img
-                src="/logo_transparent.png"
-                alt="ecotiya Logo"
-                width="81px"
-              />
-            </Box>
-            <Box sx={{ flex: 1, display: 'flex', justifyContent: 'flex-end' }}>
-              <Link
-                color="inherit"
-                variant="subtitle1"
-                underline="hover"
-                href="/"
-                sx={rightLink}
-              >
-                Home
-              </Link>
-              <Link
-                color="inherit"
-                variant="subtitle1"
-                underline="hover"
-                href="/about"
-                sx={rightLink}
-              >
-                About
-              </Link>
-              <Link
-                color="inherit"
-                variant="subtitle1"
-                underline="hover"
-                href="/contact"
-                sx={rightLink}
-              >
-                Contact
-              </Link>
-            </Box>
-          </Toolbar>
-        </AppBar>
-      </ThemeProvider>
+      <AppBar position="fixed" sx={{ bgcolor: 'white' }}>
+        <Toolbar sx={{ justifyContent: 'space-between' }}>
+          <Box sx={{ flex: 1, justifyContent: 'flex-start' }}>
+            <img src="/logo_transparent.png" alt="ecotiya Logo" width="78px" />
+          </Box>
+          <Box sx={{ flex: 1, display: 'flex', justifyContent: 'flex-end' }}>
+            <Button
+              startIcon={<HomeIcon />}
+              size="large"
+              href="/"
+              sx={{ mx: 1 }}
+            >
+              Home
+            </Button>
+            <Button
+              startIcon={<InfoIcon />}
+              size="large"
+              href="/about"
+              sx={{ mx: 1 }}
+            >
+              About
+            </Button>
+            <Button
+              startIcon={<MailOutlineIcon />}
+              size="large"
+              href="/contact"
+              sx={{ mx: 1 }}
+            >
+              Contact
+            </Button>
+          </Box>
+        </Toolbar>
+      </AppBar>
       <Toolbar />
     </div>
   );
