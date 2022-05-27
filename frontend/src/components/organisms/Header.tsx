@@ -30,6 +30,7 @@ import {
   AccountBox as AccountBoxIcon,
   DirectionsRun as DirectionsRunIcon,
   Bolt as BoltIcon,
+  Twitter as TwitterIcon,
 } from '@mui/icons-material';
 
 import Toolbar from '../atoms/Toolbar';
@@ -65,6 +66,11 @@ const headersData = [
     label: 'Contact',
     href: '/contact',
     icon: <MailOutlineIcon />,
+  },
+  {
+    label: 'Twitter',
+    href: 'https://twitter.com/ecotiya',
+    icon: <TwitterIcon />,
   },
 ];
 
@@ -223,6 +229,15 @@ function Header() {
         >
           Contact
         </Button>
+        <Button
+          startIcon={<TwitterIcon />}
+          size="large"
+          href="https://twitter.com/ecotiya"
+          sx={{ mx: 0.5 }}
+          disableRipple
+        >
+          Twitter
+        </Button>
       </Box>
     </Toolbar>
   );
@@ -235,7 +250,6 @@ function Header() {
         {...{
           // component: RouterLink,
           to: href,
-          color: 'inherit',
           style: { textDecoration: 'none' },
           key: label,
         }}
