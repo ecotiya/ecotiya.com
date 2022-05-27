@@ -1,3 +1,6 @@
+/* eslint-disable @typescript-eslint/no-unsafe-member-access */
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
+/* eslint-disable @typescript-eslint/no-unsafe-call */
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
 /* eslint-disable react/jsx-no-bind */
 /* eslint-disable react/jsx-props-no-spreading */
@@ -34,20 +37,34 @@ import AppBar from '../atoms/AppBar';
 
 const headersData = [
   {
-    label: 'Listings',
-    href: '/listings',
+    label: 'Home',
+    href: '/',
+    icon: <HomeIcon />,
   },
   {
-    label: 'Mentors',
-    href: '/mentors',
+    label: 'Vision',
+    href: '/vision',
+    icon: <PsychologyIcon />,
   },
   {
-    label: 'My Account',
-    href: '/account',
+    label: 'Profile',
+    href: '/profile',
+    icon: <AccountBoxIcon />,
   },
   {
-    label: 'Log Out',
-    href: '/logout',
+    label: 'Career',
+    href: '/career',
+    icon: <DirectionsRunIcon />,
+  },
+  {
+    label: 'Skill',
+    href: '/skill',
+    icon: <BoltIcon />,
+  },
+  {
+    label: 'Contact',
+    href: '/contact',
+    icon: <MailOutlineIcon />,
   },
 ];
 
@@ -58,6 +75,14 @@ function Header() {
   // モバイル用の変数
   const [drawerOpen, setDrawerOpen] = React.useState<boolean>(false);
   const [mobileView, setMobileView] = React.useState<boolean>(false);
+
+  // モバイル判定用、今はサイズで判定しておく
+  // const userAgent =
+  //   typeof navigator === 'undefined' ? 'SSR' : navigator.userAgent;
+  // const isMobile =
+  //   /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+  //     userAgent,
+  //   );
 
   // 画面サイズで、PC表示とモバイル表示の切り替えを行う。
   React.useEffect(() => {
@@ -205,7 +230,7 @@ function Header() {
 
   // モバイル用 =============================== Start
   const getDrawerChoices = () =>
-    headersData.map(({ label, href }) => (
+    headersData.map(({ label, href, icon }) => (
       <Link
         {...{
           // component: RouterLink,
@@ -215,7 +240,10 @@ function Header() {
           key: label,
         }}
       >
-        <MenuItem>{label}</MenuItem>
+        <MenuItem>
+          {icon}
+          {label}
+        </MenuItem>
       </Link>
     ));
 
