@@ -147,7 +147,7 @@ function Header() {
   const displayDesktop = () => (
     <Toolbar sx={{ justifyContent: 'space-between' }}>
       <Box sx={{ flex: 1, justifyContent: 'flex-start' }}>
-        <img src="/logo_transparent.png" alt="ecotiya Logo" width="78px" />
+        <img src="/logo_transparent.png" alt="ecotiya Logo" width="128px" />
       </Box>
       <Box sx={{ flex: 1, display: 'flex', justifyContent: 'flex-end' }}>
         <Button startIcon={<HomeIcon />} size="large" href="/" sx={{ mx: 0.5 }}>
@@ -277,7 +277,7 @@ function Header() {
         </Drawer>
 
         <Box sx={{ flex: 1, justifyContent: 'flex-start' }}>
-          <img src="/logo_transparent.png" alt="ecotiya Logo" width="78px" />
+          <img src="/logo_transparent.png" alt="ecotiya Logo" width="128px" />
         </Box>
       </Toolbar>
     );

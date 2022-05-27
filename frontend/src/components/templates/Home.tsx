@@ -13,8 +13,14 @@ export default function Home() {
     >
       {/* Increase the network loading priority of the background image. */}
       <img style={{ display: 'none' }} alt="increase priority" />
-      <Typography color="inherit" align="center" variant="h3" marked="center">
-        ecotiya -楽しむが価値-
+      <Typography
+        color="inherit"
+        align="center"
+        variant="h3"
+        marked="center"
+        sx={{ mb: 4, mt: { sx: 4, sm: 10 } }}
+      >
+        楽しむが価値
       </Typography>
       <Typography
         color="inherit"
