@@ -41,7 +41,11 @@ export default function Career() {
             </Typography>
             <Timeline>
               <TimelineItem>
-                <TimelineOppositeContent>
+                <TimelineOppositeContent
+                  style={{
+                    flex: '0.1',
+                  }}
+                >
                   <Typography variant="body2" color="textSecondary">
                     2016
                   </Typography>
@@ -62,7 +66,11 @@ export default function Career() {
                 </TimelineContent>
               </TimelineItem>
               <TimelineItem>
-                <TimelineOppositeContent>
+                <TimelineOppositeContent
+                  style={{
+                    flex: '0.1',
+                  }}
+                >
                   <Typography variant="body2" color="textSecondary">
                     2017
                   </Typography>
@@ -83,6 +91,15 @@ export default function Career() {
                 </TimelineContent>
               </TimelineItem>
               <TimelineItem>
+                <TimelineOppositeContent
+                  style={{
+                    flex: '0.1',
+                  }}
+                >
+                  <Typography variant="body2" color="textSecondary">
+                    2018
+                  </Typography>
+                </TimelineOppositeContent>
                 <TimelineSeparator>
                   <TimelineDot color="primary" variant="outlined">
                     <HotelIcon />
@@ -99,6 +116,15 @@ export default function Career() {
                 </TimelineContent>
               </TimelineItem>
               <TimelineItem>
+                <TimelineOppositeContent
+                  style={{
+                    flex: '0.1',
+                  }}
+                >
+                  <Typography variant="body2" color="textSecondary">
+                    2019
+                  </Typography>
+                </TimelineOppositeContent>
                 <TimelineSeparator>
                   <TimelineDot color="secondary">
                     <RepeatIcon />
