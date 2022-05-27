@@ -4,6 +4,7 @@
 import React from 'react';
 import CssBaseline from '@mui/material/CssBaseline';
 import Header from './components/organisms/Header';
+import Footer from './components/organisms/Footer';
 import Home from './components/templates/Home';
 import Career from './components/templates/Career';
 import Contact from './components/templates/Contact';
@@ -29,6 +30,7 @@ function App() {
       <Home />
       <Career />
       <Contact />
+      <Footer />
     </div>
   );
 }
