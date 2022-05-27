@@ -4,6 +4,7 @@
 import React from 'react';
 import Header from './components/organisms/Header';
 import Home from './components/templates/Home';
+import Contact from './components/templates/Contact';
 import './App.css';
 
 const App = () => {
@@ -11,6 +12,7 @@ const App = () => {
     <>
       <Header />
       <Home />
+      <Contact />
     </>
   );
 };
