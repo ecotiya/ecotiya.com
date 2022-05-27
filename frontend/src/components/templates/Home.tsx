@@ -1,35 +1,44 @@
 /* eslint-disable prefer-arrow/prefer-arrow-functions */
 import * as React from 'react';
-import Typography from '../atoms/Typography';
-import HomeLayout from './HomeLayout';
+import { makeStyles } from '@mui/styles';
+
+const useStyles = makeStyles({
+  root: {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    height: '100vh',
+    fontFamily: 'Nunito',
+  },
+  colorText: {
+    color: '#5AFF3D',
+  },
+  container: {
+    textAlign: 'center',
+  },
+  title: {
+    outline: '#000000',
+    color: '#fff',
+    fontSize: '4.5rem',
+  },
+  subtitle: {
+    color: '#fff',
+    fontSize: '2rem',
+  },
+});
 
 export default function Home() {
+  const classes = useStyles();
+
   return (
-    <HomeLayout
-      sxBackground={{
-        backgroundColor: '#007bbb', // Average color of the background image.
-        backgroundPosition: 'center',
-      }}
-    >
-      {/* Increase the network loading priority of the background image. */}
-      <img style={{ display: 'none' }} alt="increase priority" />
-      <Typography
-        color="inherit"
-        align="center"
-        variant="h3"
-        marked="center"
-        sx={{ mb: 4, mt: { sx: 4, sm: 10 } }}
-      >
-        楽しむが価値
-      </Typography>
-      <Typography
-        color="inherit"
-        align="center"
-        variant="h5"
-        sx={{ mb: 4, mt: { sx: 4, sm: 10 } }}
-      >
-        ようこそ、ゲストさん
-      </Typography>
-    </HomeLayout>
+    <div className={classes.root}>
+      <div className={classes.container}>
+        <h1 className={classes.title}>
+          Welcome to <br />
+          My <span className={classes.colorText}>Page.</span>
+        </h1>
+        <h5 className={classes.subtitle}>ようこそ、ゲストさん</h5>
+      </div>
+    </div>
   );
 }

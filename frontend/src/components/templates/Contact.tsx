@@ -77,6 +77,8 @@ export default function Contact() {
                     label="お問い合わせ種別"
                     value={inquiryKind}
                     onChange={handleChange}
+                    variant="outlined"
+                    sx={{ textAlign: 'left' }}
                   >
                     {inquiryKinds.map((option) => (
                       <MenuItem key={option.value} value={option.value}>
