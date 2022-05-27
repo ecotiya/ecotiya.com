@@ -5,6 +5,7 @@ import React from 'react';
 import CssBaseline from '@mui/material/CssBaseline';
 import Header from './components/organisms/Header';
 import Home from './components/templates/Home';
+import Career from './components/templates/Career';
 import Contact from './components/templates/Contact';
 import './App.css';
 import { makeStyles } from '@mui/styles';
@@ -26,6 +27,7 @@ function App() {
       <CssBaseline />
       <Header />
       <Home />
+      <Career />
       <Contact />
     </div>
   );

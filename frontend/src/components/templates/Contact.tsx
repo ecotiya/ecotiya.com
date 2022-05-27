@@ -35,10 +35,10 @@ export default function Contact() {
     <div className="app">
       <Typography gutterBottom variant="h3" align="center" />
       <Grid>
-        <Card style={{ maxWidth: 1000, padding: '20px 5px', margin: '0 auto' }}>
+        <Card style={{ maxWidth: 1500, padding: '20px 5px', margin: '0 auto' }}>
           <CardContent>
             <Typography gutterBottom variant="h5">
-              お問い合わせ
+              【お問い合わせ】
             </Typography>
             <Typography
               variant="body2"
