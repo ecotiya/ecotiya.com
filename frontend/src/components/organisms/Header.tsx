@@ -10,6 +10,7 @@ import {
   Drawer,
   Grow,
   IconButton,
+  Link,
   Paper,
   Popper,
   MenuItem,
@@ -31,11 +32,31 @@ import {
 import Toolbar from '../atoms/Toolbar';
 import AppBar from '../atoms/AppBar';
 
+const headersData = [
+  {
+    label: 'Listings',
+    href: '/listings',
+  },
+  {
+    label: 'Mentors',
+    href: '/mentors',
+  },
+  {
+    label: 'My Account',
+    href: '/account',
+  },
+  {
+    label: 'Log Out',
+    href: '/logout',
+  },
+];
+
 function Header() {
-  // 使用変数定義
-  // open…about押下時のメニュー表示フラグ
-  // mobileView…PC or スマホでの表示切り替えフラグ
+  // デスクトップ用の変数
   const [open, setOpen] = React.useState<boolean>(false);
+
+  // モバイル用の変数
+  const [drawerOpen, setDrawerOpen] = React.useState<boolean>(false);
   const [mobileView, setMobileView] = React.useState<boolean>(false);
 
   // 画面サイズで、PC表示とモバイル表示の切り替えを行う。
@@ -43,12 +64,21 @@ function Header() {
     const setResponsiveness = () =>
       window.innerWidth < 900 ? setMobileView(true) : setMobileView(false);
 
+    const resetOpenState = () => setOpen(false);
+    const resetDrawerOpenState = () => setDrawerOpen(false);
+
     setResponsiveness();
+    resetOpenState();
+    resetDrawerOpenState();
 
     window.addEventListener('resize', () => setResponsiveness());
+    window.addEventListener('resize', () => resetOpenState());
+    window.addEventListener('resize', () => resetDrawerOpenState());
 
     return () => {
       window.removeEventListener('resize', () => setResponsiveness());
+      window.removeEventListener('resize', () => resetOpenState());
+      window.removeEventListener('resize', () => resetDrawerOpenState());
     };
   }, []);
 
@@ -174,16 +204,32 @@ function Header() {
   // デスクトップ用 =========================== End
 
   // モバイル用 =============================== Start
+  const getDrawerChoices = () =>
+    headersData.map(({ label, href }) => (
+      <Link
+        {...{
+          // component: RouterLink,
+          to: href,
+          color: 'inherit',
+          style: { textDecoration: 'none' },
+          key: label,
+        }}
+      >
+        <MenuItem>{label}</MenuItem>
+      </Link>
+    ));
+
   const displayMobile = () => {
-    const handleDrawerOpen = () => setOpen(true);
-    const handleDrawerClose = () => setOpen(false);
+    const handleDrawerOpen = () => setDrawerOpen(true);
+    const handleDrawerClose = () => setDrawerOpen(false);
 
     return (
       <Toolbar>
         <IconButton
           {...{
             edge: 'start',
-            // color: 'inherit',
+            color: 'primary',
+            size: 'large',
             'aria-label': 'menu',
             'aria-haspopup': 'true',
             onClick: handleDrawerOpen,
@@ -195,11 +241,11 @@ function Header() {
         <Drawer
           {...{
             anchor: 'left',
-            open,
+            open: drawerOpen,
             onClose: handleDrawerClose,
           }}
         >
-          {/* <div className={drawerContainer}>{getDrawerChoices()}</div> */}
+          <div>{getDrawerChoices()}</div>
         </Drawer>
 
         <Box sx={{ flex: 1, justifyContent: 'flex-start' }}>
