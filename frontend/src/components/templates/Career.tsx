@@ -33,118 +33,120 @@ export default function Career() {
   const classes = useStyles();
 
   return (
-    <Box style={{ maxWidth: 1500, padding: '35px 5px', margin: '0 auto' }}>
-      <Grid>
-        <Card>
-          <CardContent>
-            <Typography gutterBottom variant="h5" align="center">
-              【経歴】
-            </Typography>
-            <Divider style={{ margin: '20px' }} />
-            <Timeline>
-              <TimelineItem>
-                <TimelineOppositeContent
-                  style={{
-                    flex: '0.1',
-                  }}
-                >
-                  <Typography variant="body2" color="textSecondary">
-                    2016
-                  </Typography>
-                </TimelineOppositeContent>
-                <TimelineSeparator>
-                  <TimelineDot>
-                    <HotelIcon />
-                  </TimelineDot>
-                  <TimelineConnector />
-                </TimelineSeparator>
-                <TimelineContent>
-                  <Paper elevation={3} className={classes.paper}>
-                    <Typography variant="h6" component="h1">
-                      タイトルテスト1
+    <section id="career">
+      <Box style={{ maxWidth: 1500, padding: '35px 5px', margin: '0 auto' }}>
+        <Grid>
+          <Card>
+            <CardContent>
+              <Typography gutterBottom variant="h5" align="center">
+                【経歴】
+              </Typography>
+              <Divider style={{ margin: '20px' }} />
+              <Timeline>
+                <TimelineItem>
+                  <TimelineOppositeContent
+                    style={{
+                      flex: '0.1',
+                    }}
+                  >
+                    <Typography variant="body2" color="textSecondary">
+                      2016
                     </Typography>
-                    <Typography>内容１</Typography>
-                  </Paper>
-                </TimelineContent>
-              </TimelineItem>
-              <TimelineItem>
-                <TimelineOppositeContent
-                  style={{
-                    flex: '0.1',
-                  }}
-                >
-                  <Typography variant="body2" color="textSecondary">
-                    2017
-                  </Typography>
-                </TimelineOppositeContent>
-                <TimelineSeparator>
-                  <TimelineDot>
-                    <LaptopMacIcon />
-                  </TimelineDot>
-                  <TimelineConnector />
-                </TimelineSeparator>
-                <TimelineContent>
-                  <Paper elevation={3} className={classes.paper}>
-                    <Typography variant="h6" component="h1">
-                      タイトルテスト2
+                  </TimelineOppositeContent>
+                  <TimelineSeparator>
+                    <TimelineDot>
+                      <HotelIcon />
+                    </TimelineDot>
+                    <TimelineConnector />
+                  </TimelineSeparator>
+                  <TimelineContent>
+                    <Paper elevation={3} className={classes.paper}>
+                      <Typography variant="h6" component="h1">
+                        タイトルテスト1
+                      </Typography>
+                      <Typography>内容１</Typography>
+                    </Paper>
+                  </TimelineContent>
+                </TimelineItem>
+                <TimelineItem>
+                  <TimelineOppositeContent
+                    style={{
+                      flex: '0.1',
+                    }}
+                  >
+                    <Typography variant="body2" color="textSecondary">
+                      2017
                     </Typography>
-                    <Typography>内容2</Typography>
-                  </Paper>
-                </TimelineContent>
-              </TimelineItem>
-              <TimelineItem>
-                <TimelineOppositeContent
-                  style={{
-                    flex: '0.1',
-                  }}
-                >
-                  <Typography variant="body2" color="textSecondary">
-                    2018
-                  </Typography>
-                </TimelineOppositeContent>
-                <TimelineSeparator>
-                  <TimelineDot color="primary" variant="outlined">
-                    <HotelIcon />
-                  </TimelineDot>
-                  <TimelineConnector className={classes.secondaryTail} />
-                </TimelineSeparator>
-                <TimelineContent>
-                  <Paper elevation={3} className={classes.paper}>
-                    <Typography variant="h6" component="h1">
-                      タイトルテスト3
+                  </TimelineOppositeContent>
+                  <TimelineSeparator>
+                    <TimelineDot>
+                      <LaptopMacIcon />
+                    </TimelineDot>
+                    <TimelineConnector />
+                  </TimelineSeparator>
+                  <TimelineContent>
+                    <Paper elevation={3} className={classes.paper}>
+                      <Typography variant="h6" component="h1">
+                        タイトルテスト2
+                      </Typography>
+                      <Typography>内容2</Typography>
+                    </Paper>
+                  </TimelineContent>
+                </TimelineItem>
+                <TimelineItem>
+                  <TimelineOppositeContent
+                    style={{
+                      flex: '0.1',
+                    }}
+                  >
+                    <Typography variant="body2" color="textSecondary">
+                      2018
                     </Typography>
-                    <Typography>内容3</Typography>
-                  </Paper>
-                </TimelineContent>
-              </TimelineItem>
-              <TimelineItem>
-                <TimelineOppositeContent
-                  style={{
-                    flex: '0.1',
-                  }}
-                >
-                  <Typography variant="body2" color="textSecondary">
-                    2019
-                  </Typography>
-                </TimelineOppositeContent>
-                <TimelineSeparator>
-                  <TimelineDot color="secondary">
-                    <RepeatIcon />
-                  </TimelineDot>
-                </TimelineSeparator>
-                <TimelineContent>
-                  <Paper elevation={3} className={classes.paper}>
-                    <Typography variant="h6" component="h1">
-                      タイトル4
+                  </TimelineOppositeContent>
+                  <TimelineSeparator>
+                    <TimelineDot color="primary" variant="outlined">
+                      <HotelIcon />
+                    </TimelineDot>
+                    <TimelineConnector className={classes.secondaryTail} />
+                  </TimelineSeparator>
+                  <TimelineContent>
+                    <Paper elevation={3} className={classes.paper}>
+                      <Typography variant="h6" component="h1">
+                        タイトルテスト3
+                      </Typography>
+                      <Typography>内容3</Typography>
+                    </Paper>
+                  </TimelineContent>
+                </TimelineItem>
+                <TimelineItem>
+                  <TimelineOppositeContent
+                    style={{
+                      flex: '0.1',
+                    }}
+                  >
+                    <Typography variant="body2" color="textSecondary">
+                      2019
                     </Typography>
-                    <Typography>内容4</Typography>
-                  </Paper>
-                </TimelineContent>
-              </TimelineItem>
-            </Timeline>
-          </CardContent>
-        </Card>
-      </Grid>
-    </Box>
+                  </TimelineOppositeContent>
+                  <TimelineSeparator>
+                    <TimelineDot color="secondary">
+                      <RepeatIcon />
+                    </TimelineDot>
+                  </TimelineSeparator>
+                  <TimelineContent>
+                    <Paper elevation={3} className={classes.paper}>
+                      <Typography variant="h6" component="h1">
+                        タイトル4
+                      </Typography>
+                      <Typography>内容4</Typography>
+                    </Paper>
+                  </TimelineContent>
+                </TimelineItem>
+              </Timeline>
+            </CardContent>
+          </Card>
+        </Grid>
+      </Box>
+    </section>
   );
 }

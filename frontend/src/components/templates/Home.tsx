@@ -31,14 +31,16 @@ export default function Home() {
   const classes = useStyles();
 
   return (
-    <div className={classes.root}>
-      <div className={classes.container}>
-        <h1 className={classes.title}>
-          Welcome to <br />
-          My <span className={classes.colorText}>Page.</span>
-        </h1>
-        <h5 className={classes.subtitle}>ようこそ、ゲストさん</h5>
+    <section id="home">
+      <div className={classes.root}>
+        <div className={classes.container}>
+          <h1 className={classes.title}>
+            Welcome to <br />
+            My <span className={classes.colorText}>Page.</span>
+          </h1>
+          <h5 className={classes.subtitle}>ようこそ、ゲストさん</h5>
+        </div>
       </div>
-    </div>
+    </section>
   );
 }

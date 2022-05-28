@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/restrict-plus-operands */
 /* eslint-disable @typescript-eslint/no-unsafe-member-access */
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
 /* eslint-disable @typescript-eslint/no-unsafe-call */
@@ -6,6 +7,8 @@
 /* eslint-disable react/jsx-props-no-spreading */
 /* eslint-disable prefer-arrow/prefer-arrow-functions */
 import * as React from 'react';
+import { HashLink } from 'react-router-hash-link';
+
 import {
   Box,
   Button,
@@ -38,27 +41,27 @@ import AppBar from '../atoms/AppBar';
 const headersData = [
   {
     label: 'Home',
-    href: '/',
+    href: '#home',
     icon: <HomeIcon />,
   },
   {
     label: 'Profile',
-    href: '/profile',
+    href: '#profile',
     icon: <AccountBoxIcon />,
   },
   {
     label: 'Career',
-    href: '/career',
+    href: '#career',
     icon: <DirectionsRunIcon />,
   },
   {
     label: 'Skill',
-    href: '/skill',
+    href: '#skill',
     icon: <BoltIcon />,
   },
   {
     label: 'Contact',
-    href: '/contact',
+    href: '#contact',
     icon: <MailOutlineIcon />,
   },
   {
@@ -69,6 +72,12 @@ const headersData = [
 ];
 
 function Header() {
+  const scrollWithOffset = (el: HTMLElement) => {
+    const yCoordinate = el.getBoundingClientRect().top + window.pageYOffset;
+    const yOffset = -80;
+    window.scrollTo({ top: yCoordinate + yOffset, behavior: 'smooth' });
+  };
+
   // デスクトップ用の変数
   const [open, setOpen] = React.useState<boolean>(false);
 
@@ -144,9 +153,16 @@ function Header() {
         </a>
       </Box>
       <Box sx={{ flex: 1, display: 'flex', justifyContent: 'flex-end' }}>
-        <Button startIcon={<HomeIcon />} size="large" href="/" sx={{ mx: 0.5 }}>
-          Home
-        </Button>
+        <HashLink to="#home" scroll={(el) => scrollWithOffset(el)}>
+          <Button
+            startIcon={<HomeIcon />}
+            size="large"
+            href="/"
+            sx={{ mx: 0.5 }}
+          >
+            Home
+          </Button>
+        </HashLink>
         <div>
           <Button
             startIcon={<InfoIcon />}
@@ -186,18 +202,33 @@ function Header() {
                       aria-labelledby="composition-button"
                       onKeyDown={handleListKeyDown}
                     >
-                      <MenuItem onClick={handleClose}>
-                        <AccountBoxIcon />
-                        Profile
-                      </MenuItem>
-                      <MenuItem onClick={handleClose}>
-                        <DirectionsRunIcon />
-                        Career
-                      </MenuItem>
-                      <MenuItem onClick={handleClose}>
-                        <BoltIcon />
-                        Skill
-                      </MenuItem>
+                      <HashLink
+                        to="#profile"
+                        scroll={(el) => scrollWithOffset(el)}
+                      >
+                        <MenuItem onClick={handleClose}>
+                          <AccountBoxIcon />
+                          Profile
+                        </MenuItem>
+                      </HashLink>
+                      <HashLink
+                        to="#career"
+                        scroll={(el) => scrollWithOffset(el)}
+                      >
+                        <MenuItem onClick={handleClose}>
+                          <DirectionsRunIcon />
+                          Career
+                        </MenuItem>
+                      </HashLink>
+                      <HashLink
+                        to="#skill"
+                        scroll={(el) => scrollWithOffset(el)}
+                      >
+                        <MenuItem onClick={handleClose}>
+                          <BoltIcon />
+                          Skill
+                        </MenuItem>
+                      </HashLink>
                     </MenuList>
                   </ClickAwayListener>
                 </Paper>
@@ -205,14 +236,11 @@ function Header() {
             )}
           </Popper>
         </div>
-        <Button
-          startIcon={<MailOutlineIcon />}
-          size="large"
-          href="/contact"
-          sx={{ mx: 0.5 }}
-        >
-          Contact
-        </Button>
+        <HashLink to="#contact" scroll={(el) => scrollWithOffset(el)}>
+          <Button startIcon={<MailOutlineIcon />} size="large" sx={{ mx: 0.5 }}>
+            Contact
+          </Button>
+        </HashLink>
         <Button
           startIcon={<TwitterIcon />}
           size="large"
@@ -230,19 +258,19 @@ function Header() {
   // モバイル用 =============================== Start
   const getDrawerChoices = () =>
     headersData.map(({ label, href, icon }) => (
-      <Link
-        {...{
-          // component: RouterLink,
-          to: href,
-          style: { textDecoration: 'none' },
-          key: label,
-        }}
-      >
-        <MenuItem>
-          {icon}
-          {label}
-        </MenuItem>
-      </Link>
+      <HashLink {...{ to: href }} scroll={(el) => scrollWithOffset(el)}>
+        <Link
+          {...{
+            style: { textDecoration: 'none' },
+            key: label,
+          }}
+        >
+          <MenuItem>
+            {icon}
+            {label}
+          </MenuItem>
+        </Link>
+      </HashLink>
     ));
 
   const displayMobile = () => {

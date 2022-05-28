@@ -1,9 +1,8 @@
-/* eslint-disable import/no-unresolved */
-/* eslint-disable prefer-arrow/prefer-arrow-functions */
-/* eslint-disable import/order */
-/* eslint-disable react/jsx-no-useless-fragment */
-import React from 'react';
+/* eslint-disable react/function-component-definition */
+import { FC } from 'react';
+
 import CssBaseline from '@mui/material/CssBaseline';
+import { makeStyles } from '@mui/styles';
 import Header from './components/organisms/Header';
 import Footer from './components/organisms/Footer';
 import Home from './components/templates/Home';
@@ -11,7 +10,6 @@ import Profile from './components/templates/Profile';
 import Career from './components/templates/Career';
 import Skill from './components/templates/Skill';
 import Contact from './components/templates/Contact';
-import { makeStyles } from '@mui/styles';
 
 const useStyles = makeStyles({
   root: {
@@ -22,7 +20,7 @@ const useStyles = makeStyles({
   },
 });
 
-function App() {
+const App: FC = () => {
   const classes = useStyles();
 
   return (
@@ -37,11 +35,6 @@ function App() {
       <Footer />
     </div>
   );
-}
-
-// 参照するコンポーネント
-// Home
-// About
-// Contact
+};
 
 export default App;
