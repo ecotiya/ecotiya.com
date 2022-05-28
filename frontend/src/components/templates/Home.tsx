@@ -1,5 +1,4 @@
 /* eslint-disable prefer-arrow/prefer-arrow-functions */
-import * as React from 'react';
 import { makeStyles } from '@mui/styles';
 
 const useStyles = makeStyles({

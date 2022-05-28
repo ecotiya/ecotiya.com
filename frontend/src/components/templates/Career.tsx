@@ -14,10 +14,7 @@ import HotelIcon from '@mui/icons-material/Hotel';
 import RepeatIcon from '@mui/icons-material/Repeat';
 import Paper from '@mui/material/Paper';
 import Typography from '@mui/material/Typography';
-import Grid from '@mui/material/Grid';
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import Box from '@mui/material/Box';
+import { Box, Card, CardContent } from '@mui/material';
 
 import ViewTitle from '../molecules/ViewTitle';
 
@@ -36,114 +33,112 @@ export default function Career() {
   return (
     <section id="career">
       <Box style={{ maxWidth: 1500, padding: '35px 5px', margin: '0 auto' }}>
-        <Grid>
-          <Card>
-            <CardContent>
-              <ViewTitle title="【経歴】" subtitle="" />
-              <Timeline>
-                <TimelineItem>
-                  <TimelineOppositeContent
-                    style={{
-                      flex: '0.1',
-                    }}
-                  >
-                    <Typography variant="body2" color="textSecondary">
-                      2016
+        <Card>
+          <CardContent>
+            <ViewTitle title="【経歴】" subtitle="" />
+            <Timeline>
+              <TimelineItem>
+                <TimelineOppositeContent
+                  style={{
+                    flex: '0.1',
+                  }}
+                >
+                  <Typography variant="body2" color="textSecondary">
+                    2016
+                  </Typography>
+                </TimelineOppositeContent>
+                <TimelineSeparator>
+                  <TimelineDot>
+                    <HotelIcon />
+                  </TimelineDot>
+                  <TimelineConnector />
+                </TimelineSeparator>
+                <TimelineContent>
+                  <Paper elevation={3} className={classes.paper}>
+                    <Typography variant="h6" component="h1">
+                      タイトルテスト1
                     </Typography>
-                  </TimelineOppositeContent>
-                  <TimelineSeparator>
-                    <TimelineDot>
-                      <HotelIcon />
-                    </TimelineDot>
-                    <TimelineConnector />
-                  </TimelineSeparator>
-                  <TimelineContent>
-                    <Paper elevation={3} className={classes.paper}>
-                      <Typography variant="h6" component="h1">
-                        タイトルテスト1
-                      </Typography>
-                      <Typography>内容１</Typography>
-                    </Paper>
-                  </TimelineContent>
-                </TimelineItem>
-                <TimelineItem>
-                  <TimelineOppositeContent
-                    style={{
-                      flex: '0.1',
-                    }}
-                  >
-                    <Typography variant="body2" color="textSecondary">
-                      2017
+                    <Typography>内容１</Typography>
+                  </Paper>
+                </TimelineContent>
+              </TimelineItem>
+              <TimelineItem>
+                <TimelineOppositeContent
+                  style={{
+                    flex: '0.1',
+                  }}
+                >
+                  <Typography variant="body2" color="textSecondary">
+                    2017
+                  </Typography>
+                </TimelineOppositeContent>
+                <TimelineSeparator>
+                  <TimelineDot>
+                    <LaptopMacIcon />
+                  </TimelineDot>
+                  <TimelineConnector />
+                </TimelineSeparator>
+                <TimelineContent>
+                  <Paper elevation={3} className={classes.paper}>
+                    <Typography variant="h6" component="h1">
+                      タイトルテスト2
                     </Typography>
-                  </TimelineOppositeContent>
-                  <TimelineSeparator>
-                    <TimelineDot>
-                      <LaptopMacIcon />
-                    </TimelineDot>
-                    <TimelineConnector />
-                  </TimelineSeparator>
-                  <TimelineContent>
-                    <Paper elevation={3} className={classes.paper}>
-                      <Typography variant="h6" component="h1">
-                        タイトルテスト2
-                      </Typography>
-                      <Typography>内容2</Typography>
-                    </Paper>
-                  </TimelineContent>
-                </TimelineItem>
-                <TimelineItem>
-                  <TimelineOppositeContent
-                    style={{
-                      flex: '0.1',
-                    }}
-                  >
-                    <Typography variant="body2" color="textSecondary">
-                      2018
+                    <Typography>内容2</Typography>
+                  </Paper>
+                </TimelineContent>
+              </TimelineItem>
+              <TimelineItem>
+                <TimelineOppositeContent
+                  style={{
+                    flex: '0.1',
+                  }}
+                >
+                  <Typography variant="body2" color="textSecondary">
+                    2018
+                  </Typography>
+                </TimelineOppositeContent>
+                <TimelineSeparator>
+                  <TimelineDot color="primary" variant="outlined">
+                    <HotelIcon />
+                  </TimelineDot>
+                  <TimelineConnector className={classes.secondaryTail} />
+                </TimelineSeparator>
+                <TimelineContent>
+                  <Paper elevation={3} className={classes.paper}>
+                    <Typography variant="h6" component="h1">
+                      タイトルテスト3
                     </Typography>
-                  </TimelineOppositeContent>
-                  <TimelineSeparator>
-                    <TimelineDot color="primary" variant="outlined">
-                      <HotelIcon />
-                    </TimelineDot>
-                    <TimelineConnector className={classes.secondaryTail} />
-                  </TimelineSeparator>
-                  <TimelineContent>
-                    <Paper elevation={3} className={classes.paper}>
-                      <Typography variant="h6" component="h1">
-                        タイトルテスト3
-                      </Typography>
-                      <Typography>内容3</Typography>
-                    </Paper>
-                  </TimelineContent>
-                </TimelineItem>
-                <TimelineItem>
-                  <TimelineOppositeContent
-                    style={{
-                      flex: '0.1',
-                    }}
-                  >
-                    <Typography variant="body2" color="textSecondary">
-                      2019
+                    <Typography>内容3</Typography>
+                  </Paper>
+                </TimelineContent>
+              </TimelineItem>
+              <TimelineItem>
+                <TimelineOppositeContent
+                  style={{
+                    flex: '0.1',
+                  }}
+                >
+                  <Typography variant="body2" color="textSecondary">
+                    2019
+                  </Typography>
+                </TimelineOppositeContent>
+                <TimelineSeparator>
+                  <TimelineDot color="secondary">
+                    <RepeatIcon />
+                  </TimelineDot>
+                </TimelineSeparator>
+                <TimelineContent>
+                  <Paper elevation={3} className={classes.paper}>
+                    <Typography variant="h6" component="h1">
+                      タイトル4
                     </Typography>
-                  </TimelineOppositeContent>
-                  <TimelineSeparator>
-                    <TimelineDot color="secondary">
-                      <RepeatIcon />
-                    </TimelineDot>
-                  </TimelineSeparator>
-                  <TimelineContent>
-                    <Paper elevation={3} className={classes.paper}>
-                      <Typography variant="h6" component="h1">
-                        タイトル4
-                      </Typography>
-                      <Typography>内容4</Typography>
-                    </Paper>
-                  </TimelineContent>
-                </TimelineItem>
-              </Timeline>
-            </CardContent>
-          </Card>
-        </Grid>
+                    <Typography>内容4</Typography>
+                  </Paper>
+                </TimelineContent>
+              </TimelineItem>
+            </Timeline>
+          </CardContent>
+        </Card>
       </Box>
     </section>
   );
