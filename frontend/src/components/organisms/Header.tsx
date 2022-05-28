@@ -26,7 +26,6 @@ import {
   Info as InfoIcon,
   MailOutline as MailOutlineIcon,
   KeyboardArrowDown as KeyboardArrowDownIcon,
-  Psychology as PsychologyIcon,
   AccountBox as AccountBoxIcon,
   DirectionsRun as DirectionsRunIcon,
   Bolt as BoltIcon,
@@ -41,11 +40,6 @@ const headersData = [
     label: 'Home',
     href: '/',
     icon: <HomeIcon />,
-  },
-  {
-    label: 'Vision',
-    href: '/vision',
-    icon: <PsychologyIcon />,
   },
   {
     label: 'Profile',
@@ -81,14 +75,6 @@ function Header() {
   // モバイル用の変数
   const [drawerOpen, setDrawerOpen] = React.useState<boolean>(false);
   const [mobileView, setMobileView] = React.useState<boolean>(false);
-
-  // モバイル判定用、今はサイズで判定しておく
-  // const userAgent =
-  //   typeof navigator === 'undefined' ? 'SSR' : navigator.userAgent;
-  // const isMobile =
-  //   /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
-  //     userAgent,
-  //   );
 
   // 画面サイズで、PC表示とモバイル表示の切り替えを行う。
   React.useEffect(() => {
@@ -200,10 +186,6 @@ function Header() {
                       aria-labelledby="composition-button"
                       onKeyDown={handleListKeyDown}
                     >
-                      <MenuItem onClick={handleClose}>
-                        <PsychologyIcon />
-                        Vision
-                      </MenuItem>
                       <MenuItem onClick={handleClose}>
                         <AccountBoxIcon />
                         Profile
