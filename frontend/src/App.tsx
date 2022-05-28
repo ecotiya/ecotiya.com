@@ -5,11 +5,7 @@ import CssBaseline from '@mui/material/CssBaseline';
 import { makeStyles } from '@mui/styles';
 import Header from './components/organisms/Header';
 import Footer from './components/organisms/Footer';
-import Home from './components/templates/Home';
-import Profile from './components/templates/Profile';
-import Career from './components/templates/Career';
-import Skill from './components/templates/Skill';
-import Contact from './components/templates/Contact';
+import Landing from './components/pages/Landing';
 
 const useStyles = makeStyles({
   root: {
@@ -27,11 +23,7 @@ const App: FC = () => {
     <div className={classes.root}>
       <CssBaseline />
       <Header />
-      <Home />
-      <Profile />
-      <Career />
-      <Skill />
-      <Contact />
+      <Landing />
       <Footer />
     </div>
   );
