@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable @typescript-eslint/restrict-plus-operands */
 /* eslint-disable @typescript-eslint/no-unsafe-member-access */
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
@@ -64,20 +65,9 @@ const headersData = [
     href: '#contact',
     icon: <MailOutlineIcon />,
   },
-  {
-    label: 'Twitter',
-    href: 'https://twitter.com/ecotiya',
-    icon: <TwitterIcon />,
-  },
 ];
 
 function Header() {
-  const scrollWithOffset = (el: HTMLElement) => {
-    const yCoordinate = el.getBoundingClientRect().top + window.pageYOffset;
-    const yOffset = -80;
-    window.scrollTo({ top: yCoordinate + yOffset, behavior: 'smooth' });
-  };
-
   // デスクトップ用の変数
   const [open, setOpen] = React.useState<boolean>(false);
 
@@ -107,6 +97,16 @@ function Header() {
       window.removeEventListener('resize', () => resetDrawerOpenState());
     };
   }, []);
+
+  // HashLink用のイベント(移動場所が若干ずれるので、対応)
+  const scrollWithOffset = (el: HTMLElement) => {
+    const yCoordinate = el.getBoundingClientRect().top + window.pageYOffset;
+    const yOffset = -80;
+    window.scrollTo({ top: yCoordinate + yOffset, behavior: 'smooth' });
+    if (mobileView) {
+      setDrawerOpen(false);
+    }
+  };
 
   // デスクトップ用 =========================== Start
   const anchorRef = React.useRef<HTMLButtonElement>(null);
@@ -300,6 +300,12 @@ function Header() {
           }}
         >
           <div>{getDrawerChoices()}</div>
+          <Link href="https://twitter.com/ecotiya">
+            <MenuItem>
+              <TwitterIcon />
+              Twitter
+            </MenuItem>
+          </Link>
         </Drawer>
 
         <Box sx={{ flex: 1, justifyContent: 'flex-start' }}>
