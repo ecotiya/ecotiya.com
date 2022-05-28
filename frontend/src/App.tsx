@@ -9,8 +9,8 @@ import Footer from './components/organisms/Footer';
 import Home from './components/templates/Home';
 import Profile from './components/templates/Profile';
 import Career from './components/templates/Career';
+import Skill from './components/templates/Skill';
 import Contact from './components/templates/Contact';
-import './App.css';
 import { makeStyles } from '@mui/styles';
 
 const useStyles = makeStyles({
@@ -32,6 +32,7 @@ function App() {
       <Home />
       <Profile />
       <Career />
+      <Skill />
       <Contact />
       <Footer />
     </div>
