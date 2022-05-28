@@ -1,6 +1,8 @@
-import { Box, Card, CardContent, Divider, Grid } from '@mui/material';
+import { Box, Card, CardContent, Grid } from '@mui/material';
 import Typography from '@mui/material/Typography';
 import Avatar from '@mui/material/Avatar';
+
+import ViewTitle from '../molecules/ViewTitle';
 
 const user = {
   avatar: '',
@@ -17,10 +19,7 @@ export default function Profile() {
       <Box style={{ maxWidth: 1500, padding: '35px 5px', margin: '0 auto' }}>
         <Card>
           <CardContent>
-            <Typography gutterBottom variant="h5" align="center">
-              【私について】
-            </Typography>
-            <Divider style={{ margin: '20px' }} />
+            <ViewTitle title="【私について】" subtitle="" />
             <Grid container spacing={1}>
               <Grid item lg={4} md={6} xs={12}>
                 <Box

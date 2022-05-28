@@ -1,6 +1,6 @@
 /* eslint-disable prefer-arrow/prefer-arrow-functions */
 import * as React from 'react';
-import { Box, Card, CardContent, Divider } from '@mui/material';
+import { Box, Card, CardContent } from '@mui/material';
 import Typography from '@mui/material/Typography';
 import Paper from '@mui/material/Paper';
 import Table from '@mui/material/Table';
@@ -14,6 +14,8 @@ import { styled } from '@mui/material/styles';
 import Rating from '@mui/material/Rating';
 import StarIcon from '@mui/icons-material/Star';
 import Grid from '@mui/material/Grid';
+
+import ViewTitle from '../molecules/ViewTitle';
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
@@ -81,10 +83,7 @@ export default function Skill() {
       <Box style={{ maxWidth: 1500, padding: '35px 5px', margin: '0 auto' }}>
         <Card>
           <CardContent>
-            <Typography gutterBottom variant="h5" align="center">
-              【スキルセット】
-            </Typography>
-            <Divider style={{ margin: '20px' }} />
+            <ViewTitle title="【スキルセット】" subtitle="" />
             <Grid container spacing={1}>
               {/* Backendテーブル =============================================================== START */}
               <Grid item lg={4} md={6} xs={12}>

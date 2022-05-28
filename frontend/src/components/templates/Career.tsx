@@ -17,8 +17,9 @@ import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
-import Divider from '@mui/material/Divider';
 import Box from '@mui/material/Box';
+
+import ViewTitle from '../molecules/ViewTitle';
 
 const useStyles = makeStyles({
   paper: {
@@ -38,10 +39,7 @@ export default function Career() {
         <Grid>
           <Card>
             <CardContent>
-              <Typography gutterBottom variant="h5" align="center">
-                【経歴】
-              </Typography>
-              <Divider style={{ margin: '20px' }} />
+              <ViewTitle title="【経歴】" subtitle="" />
               <Timeline>
                 <TimelineItem>
                   <TimelineOppositeContent
