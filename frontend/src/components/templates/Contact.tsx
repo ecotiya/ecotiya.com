@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable react/no-unescaped-entities */
 /* eslint-disable react/jsx-props-no-spreading */
 /* eslint-disable prefer-arrow/prefer-arrow-functions */
@@ -16,7 +17,8 @@ import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import Slide from '@mui/material/Slide';
 import { TransitionProps } from '@mui/material/transitions';
-import '../../App.css';
+import Divider from '@mui/material/Divider';
+import Box from '@mui/material/Box';
 
 const Transition = React.forwardRef(
   (
@@ -60,12 +62,11 @@ export default function Contact() {
   };
 
   return (
-    <div className="app">
-      <Typography gutterBottom variant="h3" align="center" />
+    <Box style={{ maxWidth: 1500, padding: '20px 5px', margin: '0 auto' }}>
       <Grid>
         <Card style={{ maxWidth: 1500, padding: '20px 5px', margin: '0 auto' }}>
           <CardContent>
-            <Typography gutterBottom variant="h5">
+            <Typography gutterBottom variant="h5" align="center">
               【お問い合わせ】
             </Typography>
             <Typography
@@ -73,9 +74,11 @@ export default function Contact() {
               color="textSecondary"
               component="p"
               gutterBottom
+              align="center"
             >
               下記フォームに内容を記入後、送信ください。
             </Typography>
+            <Divider style={{ margin: '20px' }} />
             <form>
               <Grid container spacing={1}>
                 <Grid item xs={12}>
@@ -160,6 +163,6 @@ export default function Contact() {
           </CardContent>
         </Card>
       </Grid>
-    </div>
+    </Box>
   );
 }

@@ -1,3 +1,4 @@
+/* eslint-disable import/no-unresolved */
 /* eslint-disable prefer-arrow/prefer-arrow-functions */
 /* eslint-disable import/order */
 /* eslint-disable react/jsx-no-useless-fragment */
@@ -6,6 +7,7 @@ import CssBaseline from '@mui/material/CssBaseline';
 import Header from './components/organisms/Header';
 import Footer from './components/organisms/Footer';
 import Home from './components/templates/Home';
+import Profile from './components/templates/Profile';
 import Career from './components/templates/Career';
 import Contact from './components/templates/Contact';
 import './App.css';
@@ -28,6 +30,7 @@ function App() {
       <CssBaseline />
       <Header />
       <Home />
+      <Profile />
       <Career />
       <Contact />
       <Footer />

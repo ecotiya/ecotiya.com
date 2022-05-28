@@ -17,7 +17,8 @@ import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
-import '../../App.css';
+import Divider from '@mui/material/Divider';
+import Box from '@mui/material/Box';
 
 const useStyles = makeStyles({
   paper: {
@@ -32,13 +33,14 @@ export default function Career() {
   const classes = useStyles();
 
   return (
-    <div className="app">
+    <Box style={{ maxWidth: 1500, padding: '20px 5px', margin: '0 auto' }}>
       <Grid>
-        <Card style={{ maxWidth: 1500, padding: '20px 5px', margin: '0 auto' }}>
+        <Card>
           <CardContent>
-            <Typography gutterBottom variant="h5">
+            <Typography gutterBottom variant="h5" align="center">
               【経歴】
             </Typography>
+            <Divider style={{ margin: '20px' }} />
             <Timeline>
               <TimelineItem>
                 <TimelineOppositeContent
@@ -143,6 +145,6 @@ export default function Career() {
           </CardContent>
         </Card>
       </Grid>
-    </div>
+    </Box>
   );
 }
