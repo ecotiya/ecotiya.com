@@ -1,3 +1,5 @@
+/* eslint-disable react/no-unescaped-entities */
+/* eslint-disable react/jsx-props-no-spreading */
 /* eslint-disable prefer-arrow/prefer-arrow-functions */
 import * as React from 'react';
 import TextField from '@mui/material/TextField';
@@ -7,7 +9,23 @@ import Grid from '@mui/material/Grid';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import Button from '@mui/material/Button';
+import Dialog from '@mui/material/Dialog';
+import DialogActions from '@mui/material/DialogActions';
+import DialogContent from '@mui/material/DialogContent';
+import DialogContentText from '@mui/material/DialogContentText';
+import DialogTitle from '@mui/material/DialogTitle';
+import Slide from '@mui/material/Slide';
+import { TransitionProps } from '@mui/material/transitions';
 import '../../App.css';
+
+const Transition = React.forwardRef(
+  (
+    props: TransitionProps & {
+      children: React.ReactElement<any, any>;
+    },
+    ref: React.Ref<unknown>,
+  ) => <Slide direction="up" ref={ref} {...props} />,
+);
 
 const inquiryKinds = [
   {
@@ -29,6 +47,16 @@ export default function Contact() {
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setInquiryKind(event.target.value);
+  };
+
+  const [open, setOpen] = React.useState(false);
+
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
   };
 
   return (
@@ -100,13 +128,32 @@ export default function Contact() {
                 </Grid>
                 <Grid item xs={12}>
                   <Button
-                    type="submit"
+                    // type="submit"
                     variant="contained"
                     color="primary"
                     fullWidth
+                    onClick={handleClickOpen}
                   >
                     内容を確認
                   </Button>
+                  <Dialog
+                    open={open}
+                    TransitionComponent={Transition}
+                    keepMounted
+                    onClose={handleClose}
+                    aria-describedby="alert-dialog-slide-description"
+                  >
+                    <DialogTitle>ダイアログテストタイトル</DialogTitle>
+                    <DialogContent>
+                      <DialogContentText id="alert-dialog-slide-description">
+                        ダイアログテスト内容
+                      </DialogContentText>
+                    </DialogContent>
+                    <DialogActions>
+                      <Button onClick={handleClose}>Disagree</Button>
+                      <Button onClick={handleClose}>Agree</Button>
+                    </DialogActions>
+                  </Dialog>
                 </Grid>
               </Grid>
             </form>
