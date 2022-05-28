@@ -64,7 +64,7 @@ export default function Contact() {
   return (
     <Box style={{ maxWidth: 1500, padding: '20px 5px', margin: '0 auto' }}>
       <Grid>
-        <Card style={{ maxWidth: 1500, padding: '20px 5px', margin: '0 auto' }}>
+        <Card>
           <CardContent>
             <Typography gutterBottom variant="h5" align="center">
               【お問い合わせ】
