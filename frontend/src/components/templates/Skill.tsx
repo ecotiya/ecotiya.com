@@ -13,6 +13,7 @@ import TableRow from '@mui/material/TableRow';
 import { styled } from '@mui/material/styles';
 import Rating from '@mui/material/Rating';
 import StarIcon from '@mui/icons-material/Star';
+import Grid from '@mui/material/Grid';
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
@@ -33,7 +34,7 @@ interface Column {
 }
 
 const columns: Column[] = [
-  { id: 'skillName', label: 'スキル名', minWidth: 170 },
+  { id: 'skillName', label: 'スキル名称', minWidth: 170 },
   {
     id: 'experienceYm',
     label: '経験年数',
@@ -76,87 +77,288 @@ export default function Skill() {
   };
 
   return (
-    <Box style={{ maxWidth: 1500, padding: '20px 5px', margin: '0 auto' }}>
+    <Box style={{ maxWidth: 1500, padding: '35px 5px', margin: '0 auto' }}>
       <Card>
         <CardContent>
           <Typography gutterBottom variant="h5" align="center">
             【スキルセット】
           </Typography>
           <Divider style={{ margin: '20px' }} />
-          <Paper sx={{ width: '100%' }}>
-            <Typography
-              sx={{ flex: '1 1 100%' }}
-              variant="h6"
-              id="tableTitle"
-              component="div"
-            >
-              Backend
-            </Typography>
-            <TableContainer sx={{ maxHeight: 440 }}>
-              <Table stickyHeader aria-label="sticky table">
-                <TableHead>
-                  <TableRow>
-                    {columns.map((column) => (
-                      <StyledTableCell
-                        key={column.id}
-                        align={column.align}
-                        style={{ minWidth: column.minWidth }}
-                      >
-                        {column.label}
-                      </StyledTableCell>
-                    ))}
-                  </TableRow>
-                </TableHead>
-                <TableBody>
-                  {rows
-                    .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-                    .map((row) => (
-                      <TableRow
-                        hover
-                        role="checkbox"
-                        tabIndex={-1}
-                        key={row.skillName}
-                      >
-                        {columns.map((column) => {
-                          const value = row[column.id];
+          <Grid container spacing={1}>
+            {/* Backendテーブル =============================================================== START */}
+            <Grid item lg={4} md={6} xs={12}>
+              <Box
+                sx={{
+                  alignItems: 'center',
+                  display: 'flex',
+                  flexDirection: 'column',
+                }}
+              >
+                <Paper sx={{ width: '100%' }}>
+                  <Typography
+                    sx={{ flex: '1 1 100%' }}
+                    variant="h6"
+                    id="tableTitle"
+                    component="div"
+                  >
+                    Backend
+                  </Typography>
+                  <TableContainer sx={{ maxHeight: 440 }}>
+                    <Table stickyHeader aria-label="sticky table">
+                      <TableHead>
+                        <TableRow>
+                          {columns.map((column) => (
+                            <StyledTableCell
+                              key={column.id}
+                              align={column.align}
+                              style={{ minWidth: column.minWidth }}
+                            >
+                              {column.label}
+                            </StyledTableCell>
+                          ))}
+                        </TableRow>
+                      </TableHead>
+                      <TableBody>
+                        {rows
+                          .slice(
+                            page * rowsPerPage,
+                            page * rowsPerPage + rowsPerPage,
+                          )
+                          .map((row) => (
+                            <TableRow
+                              hover
+                              role="checkbox"
+                              tabIndex={-1}
+                              key={row.skillName}
+                            >
+                              {columns.map((column) => {
+                                const value = row[column.id];
 
-                          return (
-                            <TableCell key={column.id} align={column.align}>
-                              {column.isExperienceYm &&
-                              typeof value === 'number' ? (
-                                <Rating
-                                  name="text-feedback"
-                                  value={value}
-                                  readOnly
-                                  precision={0.5}
-                                  emptyIcon={
-                                    <StarIcon
-                                      style={{ opacity: 0.55 }}
-                                      fontSize="inherit"
-                                    />
-                                  }
-                                />
-                              ) : (
-                                value
-                              )}
-                            </TableCell>
-                          );
-                        })}
-                      </TableRow>
-                    ))}
-                </TableBody>
-              </Table>
-            </TableContainer>
-            <TablePagination
-              rowsPerPageOptions={[10, 25, 100]}
-              component="div"
-              count={rows.length}
-              rowsPerPage={rowsPerPage}
-              page={page}
-              onPageChange={handleChangePage}
-              onRowsPerPageChange={handleChangeRowsPerPage}
-            />
-          </Paper>
+                                return (
+                                  <TableCell
+                                    key={column.id}
+                                    align={column.align}
+                                  >
+                                    {column.isExperienceYm &&
+                                    typeof value === 'number' ? (
+                                      <Rating
+                                        name="text-feedback"
+                                        value={value}
+                                        readOnly
+                                        precision={0.5}
+                                        emptyIcon={
+                                          <StarIcon
+                                            style={{ opacity: 0.55 }}
+                                            fontSize="inherit"
+                                          />
+                                        }
+                                      />
+                                    ) : (
+                                      value
+                                    )}
+                                  </TableCell>
+                                );
+                              })}
+                            </TableRow>
+                          ))}
+                      </TableBody>
+                    </Table>
+                  </TableContainer>
+                  <TablePagination
+                    rowsPerPageOptions={[10, 25, 100]}
+                    component="div"
+                    count={rows.length}
+                    rowsPerPage={rowsPerPage}
+                    page={page}
+                    onPageChange={handleChangePage}
+                    onRowsPerPageChange={handleChangeRowsPerPage}
+                  />
+                </Paper>
+              </Box>
+            </Grid>
+            {/* Frontendテーブル =============================================================== START */}
+            <Grid item lg={4} md={6} xs={12}>
+              <Box
+                sx={{
+                  alignItems: 'center',
+                  display: 'flex',
+                  flexDirection: 'column',
+                }}
+              >
+                <Paper sx={{ width: '100%' }}>
+                  <Typography
+                    sx={{ flex: '1 1 100%' }}
+                    variant="h6"
+                    id="tableTitle"
+                    component="div"
+                  >
+                    Frontend
+                  </Typography>
+                  <TableContainer sx={{ maxHeight: 440 }}>
+                    <Table stickyHeader aria-label="sticky table">
+                      <TableHead>
+                        <TableRow>
+                          {columns.map((column) => (
+                            <StyledTableCell
+                              key={column.id}
+                              align={column.align}
+                              style={{ minWidth: column.minWidth }}
+                            >
+                              {column.label}
+                            </StyledTableCell>
+                          ))}
+                        </TableRow>
+                      </TableHead>
+                      <TableBody>
+                        {rows
+                          .slice(
+                            page * rowsPerPage,
+                            page * rowsPerPage + rowsPerPage,
+                          )
+                          .map((row) => (
+                            <TableRow
+                              hover
+                              role="checkbox"
+                              tabIndex={-1}
+                              key={row.skillName}
+                            >
+                              {columns.map((column) => {
+                                const value = row[column.id];
+
+                                return (
+                                  <TableCell
+                                    key={column.id}
+                                    align={column.align}
+                                  >
+                                    {column.isExperienceYm &&
+                                    typeof value === 'number' ? (
+                                      <Rating
+                                        name="text-feedback"
+                                        value={value}
+                                        readOnly
+                                        precision={0.5}
+                                        emptyIcon={
+                                          <StarIcon
+                                            style={{ opacity: 0.55 }}
+                                            fontSize="inherit"
+                                          />
+                                        }
+                                      />
+                                    ) : (
+                                      value
+                                    )}
+                                  </TableCell>
+                                );
+                              })}
+                            </TableRow>
+                          ))}
+                      </TableBody>
+                    </Table>
+                  </TableContainer>
+                  <TablePagination
+                    rowsPerPageOptions={[10, 25, 100]}
+                    component="div"
+                    count={rows.length}
+                    rowsPerPage={rowsPerPage}
+                    page={page}
+                    onPageChange={handleChangePage}
+                    onRowsPerPageChange={handleChangeRowsPerPage}
+                  />
+                </Paper>
+              </Box>
+            </Grid>
+            {/* DevOpsテーブル =============================================================== START */}
+            <Grid item lg={4} md={6} xs={12}>
+              <Box
+                sx={{
+                  alignItems: 'center',
+                  display: 'flex',
+                  flexDirection: 'column',
+                }}
+              >
+                <Paper sx={{ width: '100%' }}>
+                  <Typography
+                    sx={{ flex: '1 1 100%' }}
+                    variant="h6"
+                    id="tableTitle"
+                    component="div"
+                  >
+                    DevOps
+                  </Typography>
+                  <TableContainer sx={{ maxHeight: 440 }}>
+                    <Table stickyHeader aria-label="sticky table">
+                      <TableHead>
+                        <TableRow>
+                          {columns.map((column) => (
+                            <StyledTableCell
+                              key={column.id}
+                              align={column.align}
+                              style={{ minWidth: column.minWidth }}
+                            >
+                              {column.label}
+                            </StyledTableCell>
+                          ))}
+                        </TableRow>
+                      </TableHead>
+                      <TableBody>
+                        {rows
+                          .slice(
+                            page * rowsPerPage,
+                            page * rowsPerPage + rowsPerPage,
+                          )
+                          .map((row) => (
+                            <TableRow
+                              hover
+                              role="checkbox"
+                              tabIndex={-1}
+                              key={row.skillName}
+                            >
+                              {columns.map((column) => {
+                                const value = row[column.id];
+
+                                return (
+                                  <TableCell
+                                    key={column.id}
+                                    align={column.align}
+                                  >
+                                    {column.isExperienceYm &&
+                                    typeof value === 'number' ? (
+                                      <Rating
+                                        name="text-feedback"
+                                        value={value}
+                                        readOnly
+                                        precision={0.5}
+                                        emptyIcon={
+                                          <StarIcon
+                                            style={{ opacity: 0.55 }}
+                                            fontSize="inherit"
+                                          />
+                                        }
+                                      />
+                                    ) : (
+                                      value
+                                    )}
+                                  </TableCell>
+                                );
+                              })}
+                            </TableRow>
+                          ))}
+                      </TableBody>
+                    </Table>
+                  </TableContainer>
+                  <TablePagination
+                    rowsPerPageOptions={[10, 25, 100]}
+                    component="div"
+                    count={rows.length}
+                    rowsPerPage={rowsPerPage}
+                    page={page}
+                    onPageChange={handleChangePage}
+                    onRowsPerPageChange={handleChangeRowsPerPage}
+                  />
+                </Paper>
+              </Box>
+            </Grid>
+          </Grid>
         </CardContent>
       </Card>
     </Box>
