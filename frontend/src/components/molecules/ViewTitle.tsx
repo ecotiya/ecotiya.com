@@ -1,5 +1,3 @@
-/* eslint-disable prefer-arrow/prefer-arrow-functions */
-/* eslint-disable react/destructuring-assignment */
 import Divider from '@mui/material/Divider';
 import Typography from '@mui/material/Typography';
 
@@ -8,11 +6,13 @@ export type ViewTitleProps = {
   subtitle: string;
 };
 
-function ViewTitle(props: ViewTitleProps) {
+const ViewTitle = (props: ViewTitleProps) => {
+  const { title, subtitle } = props;
+
   return (
     <>
       <Typography gutterBottom variant="h5" align="center">
-        {props.title}
+        {title}
       </Typography>
       <Typography
         variant="body2"
@@ -21,11 +21,11 @@ function ViewTitle(props: ViewTitleProps) {
         gutterBottom
         align="center"
       >
-        {props.subtitle}
+        {subtitle}
       </Typography>
       <Divider style={{ margin: '20px' }} />
     </>
   );
-}
+};
 
 export default ViewTitle;

@@ -1,4 +1,3 @@
-/* eslint-disable react/destructuring-assignment */
 import { Avatar, Box, Grid, Typography } from '@mui/material';
 
 export type ProfileAvatarProps = {
@@ -6,8 +5,9 @@ export type ProfileAvatarProps = {
   name: string;
 };
 
-// eslint-disable-next-line prefer-arrow/prefer-arrow-functions
-function ProfileAvatar(props: ProfileAvatarProps) {
+const ProfileAvatar = (props: ProfileAvatarProps) => {
+  const { avatar, name } = props;
+
   return (
     <Grid item lg={4} md={6} xs={12}>
       <Box
@@ -18,7 +18,7 @@ function ProfileAvatar(props: ProfileAvatarProps) {
         }}
       >
         <Avatar
-          src={props.avatar}
+          src={avatar}
           sx={{
             height: 128,
             mb: 2,
@@ -26,11 +26,11 @@ function ProfileAvatar(props: ProfileAvatarProps) {
           }}
         />
         <Typography color="textPrimary" gutterBottom variant="h5">
-          {props.name}
+          {name}
         </Typography>
       </Box>
     </Grid>
   );
-}
+};
 
 export default ProfileAvatar;

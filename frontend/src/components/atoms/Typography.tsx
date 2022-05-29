@@ -1,3 +1,4 @@
+/* eslint-disable react/function-component-definition */
 /* eslint-disable prefer-arrow/prefer-arrow-functions */
 /* eslint-disable react/jsx-props-no-spreading */
 /* eslint-disable react/require-default-props */

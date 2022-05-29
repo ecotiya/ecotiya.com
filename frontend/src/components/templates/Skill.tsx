@@ -1,6 +1,7 @@
 /* eslint-disable prefer-arrow/prefer-arrow-functions */
-import { Box, Card, CardContent, Grid } from '@mui/material';
-import { SkillTable, ViewTitle } from '../molecules/index';
+import { Grid } from '@mui/material';
+import SkillTable from '../organisms/SkillTable';
+import CommonSection from '../organisms/CommonSection';
 
 interface SkillTableData {
   skillName: string;
@@ -36,21 +37,14 @@ const rowsDev = [
   createData('CACHE', 1.0),
 ];
 
-export default function Skill() {
-  return (
-    <section id="skill">
-      <Box style={{ maxWidth: 1500, padding: '35px 5px', margin: '0 auto' }}>
-        <Card>
-          <CardContent>
-            <ViewTitle title="【スキルセット】" subtitle="" />
-            <Grid container spacing={1}>
-              <SkillTable tabletitle="Backend" table={rowsBack} />
-              <SkillTable tabletitle="Frontend" table={rowsFront} />
-              <SkillTable tabletitle="DevOps" table={rowsDev} />
-            </Grid>
-          </CardContent>
-        </Card>
-      </Box>
-    </section>
-  );
-}
+const Skill = () => (
+  <CommonSection section="skill" viewtitle="【スキルセット】" viewsubtitle="">
+    <Grid container spacing={1}>
+      <SkillTable tabletitle="Backend" table={rowsBack} />
+      <SkillTable tabletitle="Frontend" table={rowsFront} />
+      <SkillTable tabletitle="DevOps" table={rowsDev} />
+    </Grid>
+  </CommonSection>
+);
+
+export default Skill;

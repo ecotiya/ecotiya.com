@@ -1,4 +1,4 @@
-/* eslint-disable react/jsx-no-undef */
+/* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable react/jsx-props-no-spreading */
 import * as React from 'react';
 import TextField from '@mui/material/TextField';
@@ -38,8 +38,7 @@ const inquiryKinds = [
   },
 ];
 
-// eslint-disable-next-line prefer-arrow/prefer-arrow-functions
-function ContactTexts() {
+const ContactTexts = () => {
   const [username, setUserName] = React.useState<string>('');
   const [email, setEmail] = React.useState<string>('');
   const [inquiryKind, setInquiryKind] = React.useState<string>('');
@@ -170,6 +169,6 @@ function ContactTexts() {
       </Grid>
     </Grid>
   );
-}
+};
 
 export default ContactTexts;

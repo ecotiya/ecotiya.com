@@ -1,6 +1,3 @@
-/* eslint-disable react/no-unused-prop-types */
-/* eslint-disable react/destructuring-assignment */
-/* eslint-disable prefer-arrow/prefer-arrow-functions */
 import * as React from 'react';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
@@ -22,7 +19,7 @@ interface SkillTableData {
   experienceYm: number;
 }
 
-export type SkillTableProps = {
+type SkillTableProps = {
   tabletitle: string;
   table: SkillTableData[];
 };
@@ -55,8 +52,9 @@ const columns: Column[] = [
   },
 ];
 
-// eslint-disable-next-line prefer-arrow/prefer-arrow-functions
-function SkillTable(props: SkillTableProps) {
+const SkillTable = (props: SkillTableProps) => {
+  const { tabletitle, table } = props;
+
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(10);
 
@@ -87,7 +85,7 @@ function SkillTable(props: SkillTableProps) {
             id="tableTitle"
             component="div"
           >
-            {props.tabletitle}
+            {tabletitle}
           </Typography>
           <TableContainer sx={{ maxHeight: 440 }}>
             <Table stickyHeader aria-label="sticky table">
@@ -105,7 +103,7 @@ function SkillTable(props: SkillTableProps) {
                 </TableRow>
               </TableHead>
               <TableBody>
-                {props.table
+                {table
                   .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                   .map((row) => (
                     <TableRow
@@ -147,7 +145,7 @@ function SkillTable(props: SkillTableProps) {
           <TablePagination
             rowsPerPageOptions={[10, 25, 100]}
             component="div"
-            count={props.table.length}
+            count={table.length}
             rowsPerPage={rowsPerPage}
             page={page}
             onPageChange={handleChangePage}
@@ -157,6 +155,6 @@ function SkillTable(props: SkillTableProps) {
       </Box>
     </Grid>
   );
-}
+};
 
 export default SkillTable;

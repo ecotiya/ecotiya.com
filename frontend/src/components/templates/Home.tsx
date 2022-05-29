@@ -1,4 +1,3 @@
-/* eslint-disable prefer-arrow/prefer-arrow-functions */
 import { makeStyles } from '@mui/styles';
 
 const useStyles = makeStyles({
@@ -26,7 +25,7 @@ const useStyles = makeStyles({
   },
 });
 
-export default function Home() {
+const Home = () => {
   const classes = useStyles();
 
   return (
@@ -42,4 +41,6 @@ export default function Home() {
       </div>
     </section>
   );
-}
+};
+
+export default Home;

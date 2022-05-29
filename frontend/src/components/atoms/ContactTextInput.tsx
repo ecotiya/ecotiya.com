@@ -1,6 +1,5 @@
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
-/* eslint-disable react/destructuring-assignment */
-/* eslint-disable prefer-arrow/prefer-arrow-functions */
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import TextField from '@mui/material/TextField';
 
 export type ContactTextInputProps = {
@@ -13,21 +12,23 @@ export type ContactTextInputProps = {
   onChange: any;
 };
 
-function ContactTextInput(props: ContactTextInputProps) {
+const ContactTextInput = (props: ContactTextInputProps) => {
+  const { multiline, type, rows, label, placeholder, value, onChange } = props;
+
   return (
     <TextField
       required
       fullWidth
-      multiline={props.multiline}
-      type={props.type}
+      multiline={multiline}
+      type={type}
       variant="outlined"
-      rows={props.rows}
-      label={props.label}
-      placeholder={props.placeholder}
-      value={props.value}
-      onChange={props.onChange}
+      rows={rows}
+      label={label}
+      placeholder={placeholder}
+      value={value}
+      onChange={onChange}
     />
   );
-}
+};
 
 export default ContactTextInput;

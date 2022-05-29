@@ -1,9 +1,3 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
-/* eslint-disable @typescript-eslint/restrict-plus-operands */
-/* eslint-disable @typescript-eslint/no-unsafe-member-access */
-/* eslint-disable @typescript-eslint/no-unsafe-assignment */
-/* eslint-disable @typescript-eslint/no-unsafe-call */
-/* eslint-disable @typescript-eslint/no-non-null-assertion */
 /* eslint-disable react/jsx-no-bind */
 /* eslint-disable react/jsx-props-no-spreading */
 /* eslint-disable prefer-arrow/prefer-arrow-functions */
@@ -67,7 +61,7 @@ const headersData = [
   },
 ];
 
-function Header() {
+const Header = () => {
   // デスクトップ用の変数
   const [open, setOpen] = React.useState<boolean>(false);
 
@@ -326,6 +320,6 @@ function Header() {
       <Toolbar />
     </div>
   );
-}
+};
 
 export default Header;

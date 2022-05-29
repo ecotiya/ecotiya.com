@@ -1,5 +1,3 @@
-/* eslint-disable prefer-arrow/prefer-arrow-functions */
-/* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
 import { makeStyles } from '@mui/styles';
 import Timeline from '@mui/lab/Timeline';
@@ -27,7 +25,7 @@ const useStyles = makeStyles({
   },
 });
 
-export default function Career() {
+const Career = () => {
   const classes = useStyles();
 
   return (
@@ -142,4 +140,6 @@ export default function Career() {
       </Box>
     </section>
   );
-}
+};
+
+export default Career;
