@@ -12,7 +12,7 @@ const createData = (
   experienceYm: number,
 ): SkillTableData => ({ skillName, experienceYm });
 
-// Jsonから取得するように一旦変更する。
+// 最終的に、下記のような値をDBから取得する予定。
 const rowsBack = [
   createData('Java', 4.0),
   createData('VB.NET', 2.0),

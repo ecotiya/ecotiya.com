@@ -3,34 +3,46 @@ import Timeline from '@mui/lab/Timeline';
 import CommonSection from '../organisms/CommonSection';
 import CareerTimelineItem from '../molecules/CareerTimelineItem';
 
+interface CareersData {
+  yearmonth: string;
+  careerdivision: string;
+  careertitle: string;
+  careercontent: string;
+}
+
+const createData = (
+  yearmonth: string,
+  careerdivision: string,
+  careertitle: string,
+  careercontent: string,
+): CareersData => ({ yearmonth, careerdivision, careertitle, careercontent });
+
+// 最終的に、下記のような値をDBから取得する予定。
+const rows = [
+  createData('2016', '1', 'タイトルテスト1', '内容1'),
+  createData('2017', '2', 'タイトルテスト2', '内容2'),
+  createData('2018', '2', 'タイトルテスト3', '内容3'),
+  createData('2019', '2', 'タイトルテスト4', '内容4'),
+  createData('2020', '2', 'タイトルテスト5', '内容5'),
+  createData('2021', '3', 'タイトルテスト6', '内容6'),
+  createData('2022', '4', 'タイトルテスト7', '内容7'),
+];
+
+const getCareerTimelineItem = () =>
+  rows.map(({ yearmonth, careerdivision, careertitle, careercontent }) => (
+    <CareerTimelineItem
+      {...{
+        yearmonth,
+        careerdivision,
+        careertitle,
+        careercontent,
+      }}
+    />
+  ));
+
 const Career = () => (
   <CommonSection section="career" viewtitle="【経歴】" viewsubtitle="">
-    <Timeline>
-      <CareerTimelineItem
-        yearmonth="2016"
-        careerdivision="1"
-        careertitle="タイトルテスト1"
-        careercontent="内容１"
-      />
-      <CareerTimelineItem
-        yearmonth="2017"
-        careerdivision="2"
-        careertitle="タイトルテスト2"
-        careercontent="内容2"
-      />
-      <CareerTimelineItem
-        yearmonth="2018"
-        careerdivision="3"
-        careertitle="タイトルテスト3"
-        careercontent="内容3"
-      />
-      <CareerTimelineItem
-        yearmonth="2019"
-        careerdivision="4"
-        careertitle="タイトルテスト4"
-        careercontent="内容4"
-      />
-    </Timeline>
+    <Timeline>{getCareerTimelineItem()}</Timeline>
   </CommonSection>
 );
 
