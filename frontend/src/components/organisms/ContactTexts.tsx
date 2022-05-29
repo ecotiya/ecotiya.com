@@ -1,27 +1,10 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-/* eslint-disable react/jsx-props-no-spreading */
 import * as React from 'react';
 import TextField from '@mui/material/TextField';
 import MenuItem from '@mui/material/MenuItem';
 import Button from '@mui/material/Button';
-import Dialog from '@mui/material/Dialog';
-import DialogActions from '@mui/material/DialogActions';
-import DialogContent from '@mui/material/DialogContent';
-import DialogContentText from '@mui/material/DialogContentText';
-import DialogTitle from '@mui/material/DialogTitle';
-import Slide from '@mui/material/Slide';
 import Grid from '@mui/material/Grid';
-import { TransitionProps } from '@mui/material/transitions';
 import ContactTextInput from '../atoms/ContactTextInput';
-
-const Transition = React.forwardRef(
-  (
-    props: TransitionProps & {
-      children: React.ReactElement<any, any>;
-    },
-    ref: React.Ref<unknown>,
-  ) => <Slide direction="up" ref={ref} {...props} />,
-);
+import { ContactDialog } from '../molecules/index';
 
 const inquiryKinds = [
   {
@@ -43,6 +26,7 @@ const ContactTexts = () => {
   const [email, setEmail] = React.useState<string>('');
   const [inquiryKind, setInquiryKind] = React.useState<string>('');
   const [inquiryContent, setInquiryContent] = React.useState<string>('');
+  const [open, setOpen] = React.useState(false);
 
   const inputUserName = React.useCallback(
     (event: { target: { value: React.SetStateAction<string> } }) => {
@@ -58,13 +42,6 @@ const ContactTexts = () => {
     [setEmail],
   );
 
-  // const inputInquiryKind = React.useCallback(
-  //   (event: { target: { value: React.SetStateAction<string> } }) => {
-  //     setInquiryKind(event.target.value);
-  //   },
-  //   [setInquiryKind],
-  // );
-
   const inputInquiryContent = React.useCallback(
     (event: { target: { value: React.SetStateAction<string> } }) => {
       setInquiryContent(event.target.value);
@@ -76,9 +53,10 @@ const ContactTexts = () => {
     setInquiryKind(event.target.value);
   };
 
-  const [open, setOpen] = React.useState(false);
-
   const handleClickOpen = () => {
+    if (username === '' || email === '' || inquiryContent === '') {
+      return;
+    }
     setOpen(true);
   };
 
@@ -148,24 +126,14 @@ const ContactTexts = () => {
         >
           内容を確認
         </Button>
-        <Dialog
+        <ContactDialog
           open={open}
-          TransitionComponent={Transition}
-          keepMounted
-          onClose={handleClose}
-          aria-describedby="alert-dialog-slide-description"
-        >
-          <DialogTitle>ダイアログテストタイトル</DialogTitle>
-          <DialogContent>
-            <DialogContentText id="alert-dialog-slide-description">
-              ダイアログテスト内容
-            </DialogContentText>
-          </DialogContent>
-          <DialogActions>
-            <Button onClick={handleClose}>Disagree</Button>
-            <Button onClick={handleClose}>Agree</Button>
-          </DialogActions>
-        </Dialog>
+          username={username}
+          email={email}
+          division={inquiryKind}
+          content={inquiryContent}
+          handleClose={handleClose}
+        />
       </Grid>
     </Grid>
   );

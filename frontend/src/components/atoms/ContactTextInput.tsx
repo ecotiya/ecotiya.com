@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import TextField from '@mui/material/TextField';
 
 export type ContactTextInputProps = {
@@ -8,7 +7,9 @@ export type ContactTextInputProps = {
   label: string;
   placeholder: string;
   value: string;
-  onChange: any;
+  onChange: (event: {
+    target: { value: React.SetStateAction<string> };
+  }) => void;
 };
 
 const ContactTextInput = (props: ContactTextInputProps) => {
