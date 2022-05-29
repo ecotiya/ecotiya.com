@@ -20,9 +20,9 @@ const ProfileAvatar = (props: ProfileAvatarProps) => {
         <Avatar
           src={avatar}
           sx={{
-            height: 128,
+            height: 160,
             mb: 2,
-            width: 128,
+            width: 160,
           }}
         />
         <Typography color="textPrimary" gutterBottom variant="h5">

@@ -9,7 +9,8 @@ const ProfileContent = (props: ProfileContentProps) => {
 
   return (
     <Grid item lg={8} md={6} xs={12}>
-      <Typography color="textPrimary" gutterBottom variant="h6">
+      {/* variant="h6" */}
+      <Typography color="textPrimary" gutterBottom variant="body1">
         {content}
       </Typography>
     </Grid>

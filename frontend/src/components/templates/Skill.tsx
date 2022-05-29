@@ -38,7 +38,11 @@ const rowsDev = [
 ];
 
 const Skill = () => (
-  <CommonSection section="skill" viewtitle="【スキルセット】" viewsubtitle="">
+  <CommonSection
+    section="skill"
+    viewtitle="【スキルセット】"
+    viewsubtitle="コメントを書いた方が良いです。"
+  >
     <Grid container spacing={1}>
       <SkillTable tabletitle="Backend" table={rowsBack} />
       <SkillTable tabletitle="Frontend" table={rowsFront} />
