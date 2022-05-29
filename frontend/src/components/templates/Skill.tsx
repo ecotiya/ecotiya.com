@@ -1,4 +1,3 @@
-/* eslint-disable prefer-arrow/prefer-arrow-functions */
 import { Grid } from '@mui/material';
 import SkillTable from '../organisms/SkillTable';
 import CommonSection from '../organisms/CommonSection';
@@ -8,9 +7,10 @@ interface SkillTableData {
   experienceYm: number;
 }
 
-function createData(skillName: string, experienceYm: number): SkillTableData {
-  return { skillName, experienceYm };
-}
+const createData = (
+  skillName: string,
+  experienceYm: number,
+): SkillTableData => ({ skillName, experienceYm });
 
 // Jsonから取得するように一旦変更する。
 const rowsBack = [

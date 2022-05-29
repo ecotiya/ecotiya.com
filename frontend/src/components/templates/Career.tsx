@@ -1,145 +1,37 @@
-import React from 'react';
-import { makeStyles } from '@mui/styles';
 import Timeline from '@mui/lab/Timeline';
-import TimelineItem from '@mui/lab/TimelineItem';
-import TimelineSeparator from '@mui/lab/TimelineSeparator';
-import TimelineConnector from '@mui/lab/TimelineConnector';
-import TimelineContent from '@mui/lab/TimelineContent';
-import TimelineOppositeContent from '@mui/lab/TimelineOppositeContent';
-import TimelineDot from '@mui/lab/TimelineDot';
-import LaptopMacIcon from '@mui/icons-material/LaptopMac';
-import HotelIcon from '@mui/icons-material/Hotel';
-import RepeatIcon from '@mui/icons-material/Repeat';
-import Paper from '@mui/material/Paper';
-import Typography from '@mui/material/Typography';
-import { Box, Card, CardContent } from '@mui/material';
 
-import ViewTitle from '../molecules/ViewTitle';
+import CommonSection from '../organisms/CommonSection';
+import CareerTimelineItem from '../molecules/CareerTimelineItem';
 
-const useStyles = makeStyles({
-  paper: {
-    padding: '6px 16px',
-  },
-  secondaryTail: {
-    backgroundColor: '#fff',
-  },
-});
-
-const Career = () => {
-  const classes = useStyles();
-
-  return (
-    <section id="career">
-      <Box style={{ maxWidth: 1500, padding: '35px 5px', margin: '0 auto' }}>
-        <Card>
-          <CardContent>
-            <ViewTitle title="【経歴】" subtitle="" />
-            <Timeline>
-              <TimelineItem>
-                <TimelineOppositeContent
-                  style={{
-                    flex: '0.1',
-                  }}
-                >
-                  <Typography variant="body2" color="textSecondary">
-                    2016
-                  </Typography>
-                </TimelineOppositeContent>
-                <TimelineSeparator>
-                  <TimelineDot>
-                    <HotelIcon />
-                  </TimelineDot>
-                  <TimelineConnector />
-                </TimelineSeparator>
-                <TimelineContent>
-                  <Paper elevation={3} className={classes.paper}>
-                    <Typography variant="h6" component="h1">
-                      タイトルテスト1
-                    </Typography>
-                    <Typography>内容１</Typography>
-                  </Paper>
-                </TimelineContent>
-              </TimelineItem>
-              <TimelineItem>
-                <TimelineOppositeContent
-                  style={{
-                    flex: '0.1',
-                  }}
-                >
-                  <Typography variant="body2" color="textSecondary">
-                    2017
-                  </Typography>
-                </TimelineOppositeContent>
-                <TimelineSeparator>
-                  <TimelineDot>
-                    <LaptopMacIcon />
-                  </TimelineDot>
-                  <TimelineConnector />
-                </TimelineSeparator>
-                <TimelineContent>
-                  <Paper elevation={3} className={classes.paper}>
-                    <Typography variant="h6" component="h1">
-                      タイトルテスト2
-                    </Typography>
-                    <Typography>内容2</Typography>
-                  </Paper>
-                </TimelineContent>
-              </TimelineItem>
-              <TimelineItem>
-                <TimelineOppositeContent
-                  style={{
-                    flex: '0.1',
-                  }}
-                >
-                  <Typography variant="body2" color="textSecondary">
-                    2018
-                  </Typography>
-                </TimelineOppositeContent>
-                <TimelineSeparator>
-                  <TimelineDot color="primary" variant="outlined">
-                    <HotelIcon />
-                  </TimelineDot>
-                  <TimelineConnector className={classes.secondaryTail} />
-                </TimelineSeparator>
-                <TimelineContent>
-                  <Paper elevation={3} className={classes.paper}>
-                    <Typography variant="h6" component="h1">
-                      タイトルテスト3
-                    </Typography>
-                    <Typography>内容3</Typography>
-                  </Paper>
-                </TimelineContent>
-              </TimelineItem>
-              <TimelineItem>
-                <TimelineOppositeContent
-                  style={{
-                    flex: '0.1',
-                  }}
-                >
-                  <Typography variant="body2" color="textSecondary">
-                    2019
-                  </Typography>
-                </TimelineOppositeContent>
-                <TimelineSeparator>
-                  <TimelineDot color="secondary">
-                    <RepeatIcon />
-                  </TimelineDot>
-                </TimelineSeparator>
-                <TimelineContent>
-                  <Paper elevation={3} className={classes.paper}>
-                    <Typography variant="h6" component="h1">
-                      タイトル4
-                    </Typography>
-                    <Typography>内容4</Typography>
-                  </Paper>
-                </TimelineContent>
-              </TimelineItem>
-            </Timeline>
-          </CardContent>
-        </Card>
-      </Box>
-    </section>
-  );
-};
+const Career = () => (
+  <CommonSection section="career" viewtitle="【経歴】" viewsubtitle="">
+    <Timeline>
+      <CareerTimelineItem
+        yearmonth="2016"
+        careerdivision="1"
+        careertitle="タイトルテスト1"
+        careercontent="内容１"
+      />
+      <CareerTimelineItem
+        yearmonth="2017"
+        careerdivision="2"
+        careertitle="タイトルテスト2"
+        careercontent="内容2"
+      />
+      <CareerTimelineItem
+        yearmonth="2018"
+        careerdivision="3"
+        careertitle="タイトルテスト3"
+        careercontent="内容3"
+      />
+      <CareerTimelineItem
+        yearmonth="2019"
+        careerdivision="4"
+        careertitle="タイトルテスト4"
+        careercontent="内容4"
+      />
+    </Timeline>
+  </CommonSection>
+);
 
 export default Career;
