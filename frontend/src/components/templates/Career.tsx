@@ -32,6 +32,7 @@ const getCareerTimelineItem = () =>
   rows.map(({ yearmonth, careerdivision, careertitle, careercontent }) => (
     <CareerTimelineItem
       {...{
+        key: yearmonth,
         yearmonth,
         careerdivision,
         careertitle,
