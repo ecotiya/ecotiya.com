@@ -15,15 +15,7 @@ import {
 } from '@mui/material';
 import { TransitionProps } from '@mui/material/transitions';
 import CloseIcon from '@mui/icons-material/Close';
-
-const Transition = React.forwardRef(
-  (
-    props: TransitionProps & {
-      children: React.ReactElement;
-    },
-    ref: React.Ref<unknown>,
-  ) => <Slide direction="up" ref={ref} {...props} />,
-);
+import { makeStyles } from '@mui/styles';
 
 type ContactDialogProps = {
   open: boolean;
@@ -34,7 +26,23 @@ type ContactDialogProps = {
   handleClose: () => void;
 };
 
+const useStyles = makeStyles({
+  textContent: {
+    whiteSpace: 'pre-line',
+  },
+});
+
+const Transition = React.forwardRef(
+  (
+    props: TransitionProps & {
+      children: React.ReactElement;
+    },
+    ref: React.Ref<unknown>,
+  ) => <Slide direction="up" ref={ref} {...props} />,
+);
+
 const ContactDialog = (props: ContactDialogProps) => {
+  const classes = useStyles();
   const { open, username, email, division, content, handleClose } = props;
 
   return (
@@ -76,7 +84,11 @@ const ContactDialog = (props: ContactDialogProps) => {
         </ListItem>
         <Divider />
         <ListItem button>
-          <ListItemText primary="お問い合わせ内容" secondary={content} />
+          <ListItemText
+            primary="お問い合わせ内容"
+            secondary={content}
+            className={classes.textContent}
+          />
         </ListItem>
       </List>
     </Dialog>
