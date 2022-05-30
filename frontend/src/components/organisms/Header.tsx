@@ -1,6 +1,4 @@
-/* eslint-disable react/jsx-no-bind */
 /* eslint-disable react/jsx-props-no-spreading */
-/* eslint-disable prefer-arrow/prefer-arrow-functions */
 import * as React from 'react';
 import { HashLink } from 'react-router-hash-link';
 
@@ -120,14 +118,14 @@ const Header = () => {
     setOpen(false);
   };
 
-  function handleListKeyDown(event: React.KeyboardEvent) {
+  const handleListKeyDown = (event: React.KeyboardEvent) => {
     if (event.key === 'Tab') {
       event.preventDefault();
       setOpen(false);
     } else if (event.key === 'Escape') {
       setOpen(false);
     }
-  }
+  };
 
   // return focus to the button when we transitioned from !open -> open
   const prevOpen = React.useRef(open);
