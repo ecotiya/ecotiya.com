@@ -4,11 +4,11 @@ import MenuItem from '@mui/material/MenuItem';
 import Button from '@mui/material/Button';
 import Grid from '@mui/material/Grid';
 import ContactTextInput from '../atoms/ContactTextInput';
-import { ContactDialog } from '../molecules/index';
+import { ContactAlertError, ContactDialog } from '../molecules/index';
 
 const inquiryKinds = [
   {
-    value: 'question,',
+    value: 'question',
     label: 'ご質問',
   },
   {
@@ -27,6 +27,9 @@ const ContactTexts = () => {
   const [inquiryKind, setInquiryKind] = React.useState<string>('');
   const [inquiryContent, setInquiryContent] = React.useState<string>('');
   const [open, setOpen] = React.useState(false);
+  const [inquiryKindLabel, setInquiryKindLable] = React.useState<string>('');
+  const [isAlert, setIsAlert] = React.useState(false);
+  const [alertMessage, setAlertMessage] = React.useState<string>('');
 
   const inputUserName = React.useCallback(
     (event: { target: { value: React.SetStateAction<string> } }) => {
@@ -51,10 +54,18 @@ const ContactTexts = () => {
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setInquiryKind(event.target.value);
+
+    const result = inquiryKinds.find((v) => v.value === event.target.value);
+    if (result !== undefined) {
+      setInquiryKindLable(result.label);
+    }
   };
 
   const handleClickOpen = () => {
     if (username === '' || email === '' || inquiryContent === '') {
+      setIsAlert(true);
+      setAlertMessage('必須項目を入力してください。');
+
       return;
     }
     setOpen(true);
@@ -64,9 +75,18 @@ const ContactTexts = () => {
     setOpen(false);
   };
 
+  const AlertClose = () => {
+    setIsAlert(false);
+  };
+
   return (
     <Grid container spacing={1}>
       <Grid item xs={12}>
+        <ContactAlertError
+          message={alertMessage}
+          isError={isAlert}
+          alertClose={AlertClose}
+        />
         <ContactTextInput
           multiline={false}
           type="text"
@@ -118,19 +138,19 @@ const ContactTexts = () => {
       </Grid>
       <Grid item xs={12}>
         <Button
-          type="submit"
+          // type="submit"
           variant="contained"
           color="primary"
           fullWidth
           onClick={handleClickOpen}
         >
-          内容を確認
+          内容を確認する
         </Button>
         <ContactDialog
           open={open}
           username={username}
           email={email}
-          division={inquiryKind}
+          division={inquiryKindLabel}
           content={inquiryContent}
           handleClose={handleClose}
         />
