@@ -64,10 +64,21 @@ const ContactTexts = () => {
   const handleClickOpen = () => {
     if (username === '' || email === '' || inquiryContent === '') {
       setIsAlert(true);
-      setAlertMessage('必須項目を入力してください。');
+      setAlertMessage('必須項目が未入力です。');
 
       return;
     }
+
+    if (!email.match(/.+@.+\..+/)) {
+      setIsAlert(true);
+      setAlertMessage(
+        'メールアドレスの形式が不正です。もう1度お試しください。',
+      );
+
+      return;
+    }
+
+    setIsAlert(false);
     setOpen(true);
   };
 
