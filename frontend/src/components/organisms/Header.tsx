@@ -147,16 +147,11 @@ const Header = () => {
         </a>
       </Box>
       <Box sx={{ flex: 1, display: 'flex', justifyContent: 'flex-end' }}>
-        <HashLink to="#home" scroll={(el) => scrollWithOffset(el)}>
-          <Button
-            startIcon={<HomeIcon />}
-            size="large"
-            href="/"
-            sx={{ mx: 0.5 }}
-          >
+        <Button startIcon={<HomeIcon />} size="large" sx={{ mx: 0.5 }}>
+          <HashLink to="#home" scroll={(el) => scrollWithOffset(el)}>
             Home
-          </Button>
-        </HashLink>
+          </HashLink>
+        </Button>
         <div>
           <Button
             startIcon={<InfoIcon />}
@@ -230,11 +225,11 @@ const Header = () => {
             )}
           </Popper>
         </div>
-        <HashLink to="#contact" scroll={(el) => scrollWithOffset(el)}>
-          <Button startIcon={<MailOutlineIcon />} size="large" sx={{ mx: 0.5 }}>
+        <Button startIcon={<MailOutlineIcon />} size="large" sx={{ mx: 0.5 }}>
+          <HashLink to="#contact" scroll={(el) => scrollWithOffset(el)}>
             Contact
-          </Button>
-        </HashLink>
+          </HashLink>
+        </Button>
         <Button
           startIcon={<TwitterIcon />}
           size="large"
@@ -252,18 +247,14 @@ const Header = () => {
   // モバイル用 =============================== Start
   const getDrawerChoices = () =>
     headersData.map(({ label, href, icon }) => (
-      <HashLink {...{ to: href }} scroll={(el) => scrollWithOffset(el)}>
-        <Link
-          {...{
-            style: { textDecoration: 'none' },
-            key: label,
-          }}
-        >
-          <MenuItem>
-            {icon}
-            {label}
-          </MenuItem>
-        </Link>
+      <HashLink
+        {...{ to: href, style: { textDecoration: 'none' }, key: label }}
+        scroll={(el) => scrollWithOffset(el)}
+      >
+        <MenuItem>
+          {icon}
+          {label}
+        </MenuItem>
       </HashLink>
     ));
 
