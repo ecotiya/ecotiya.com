@@ -103,7 +103,7 @@ const ContactTexts = () => {
           type="text"
           rows={1}
           label="お名前"
-          placeholder="あなたの名前を入力してください。"
+          placeholder="よしだ ただひろ"
           value={username}
           onChange={inputUserName}
         />
@@ -114,7 +114,7 @@ const ContactTexts = () => {
           type="email"
           rows={1}
           label="メールアドレス"
-          placeholder="あなたのメールアドレスを入力してください。"
+          placeholder="test@ecotiya.com"
           value={email}
           onChange={inputEmail}
         />

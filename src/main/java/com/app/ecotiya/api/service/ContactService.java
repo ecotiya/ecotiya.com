@@ -2,7 +2,7 @@ package com.app.ecotiya.api.service;
 
 import com.app.ecotiya.domain.entity.MInquiryKinds;
 
-public interface MInquiryKindsService {
+public interface ContactService {
 
   /**
    * Register a new mInquiryKinds information.

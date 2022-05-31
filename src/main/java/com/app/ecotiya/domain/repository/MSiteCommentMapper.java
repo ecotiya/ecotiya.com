@@ -5,6 +5,7 @@ import java.util.List;
 import org.apache.ibatis.annotations.Mapper;
 
 import com.app.ecotiya.domain.entity.MSiteComment;
+import org.apache.ibatis.annotations.Param;
 
 @Mapper
 public interface MSiteCommentMapper {
@@ -30,7 +31,8 @@ public interface MSiteCommentMapper {
    *
    * @mbg.generated
    */
-  MSiteComment selectByPrimaryKey(String comentKindCode);
+  MSiteComment selectByPrimaryKey(
+      @Param("commentKindCode") String commentKindCode, @Param("commentLine") Integer commentLine);
 
   /**
    * Select all records from database.

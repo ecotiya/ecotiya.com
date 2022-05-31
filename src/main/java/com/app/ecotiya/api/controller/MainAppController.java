@@ -22,10 +22,4 @@ public class MainAppController {
   public MainAppModel getMainApp() {
     return mainAppService.retrieve();
   }
-
-  // TODO
-  @GetMapping("/hello")
-  public String hello() {
-    return "Hello World.";
-  }
 }

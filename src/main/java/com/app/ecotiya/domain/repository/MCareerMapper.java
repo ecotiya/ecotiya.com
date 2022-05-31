@@ -5,6 +5,7 @@ import java.util.List;
 import org.apache.ibatis.annotations.Mapper;
 
 import com.app.ecotiya.domain.entity.MCareer;
+import org.apache.ibatis.annotations.Param;
 
 @Mapper
 public interface MCareerMapper {
@@ -30,7 +31,8 @@ public interface MCareerMapper {
    *
    * @mbg.generated
    */
-  MCareer selectByPrimaryKey(Integer careerId);
+  MCareer selectByPrimaryKey(
+      @Param("careerDate") String careerDate, @Param("careerDivision") String careerDivision);
 
   /**
    * Select all records from database.

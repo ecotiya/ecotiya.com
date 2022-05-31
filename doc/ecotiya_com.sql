@@ -17,11 +17,19 @@ DROP TABLE IF EXISTS m_skill_division;
 -- 経歴マスタ : 経歴情報を管理するマスタ
 CREATE TABLE m_career
 (
-	career_id int NOT NULL COMMENT '経歴ID',
-	career_date date NOT NULL COMMENT '年月日',
-	title varchar(255) NOT NULL COMMENT 'タイトル',
-	contents varchar(255) NOT NULL COMMENT '内容',
-	PRIMARY KEY (career_id)
+	-- yyyy/mm
+	career_date varchar(7) NOT NULL COMMENT '年月 : yyyy/mm',
+	-- 数値でフロントのiconを変更したい。
+	-- 1:School
+	-- 2:Business
+	-- 3:Private
+	career_division varchar(1) NOT NULL COMMENT '経歴種別 : 数値でフロントのiconを変更したい。
+1:School
+2:Business
+3:Private',
+	career_title varchar(255) NOT NULL COMMENT '経歴タイトル',
+	career_contents varchar(255) NOT NULL COMMENT '経歴内容',
+	PRIMARY KEY (career_date, career_division)
 ) COMMENT = '経歴マスタ : 経歴情報を管理するマスタ';
 
 
@@ -37,11 +45,25 @@ CREATE TABLE m_inquiry_kinds
 -- サイトコメントマスタ : サイトで表示するコメントを管理するためのマスタ。プロフィールやこのサイトについて等のコメントを
 CREATE TABLE m_site_comment
 (
-	coment_kind_code varchar(255) NOT NULL COMMENT 'サイトコメント種別コード',
-	coment_kind_name varchar(255) NOT NULL COMMENT 'サイトコメント種別名',
-	contents text NOT NULL COMMENT 'サイトコメント内容',
-	image varchar(255) COMMENT '画像',
-	PRIMARY KEY (coment_kind_code)
+	-- 表示するsection毎にキーをつける
+	-- profile,skill,other
+	comment_kind_code varchar(255) NOT NULL COMMENT 'サイトコメント種別コード : 表示するsection毎にキーをつける
+profile,skill,other',
+	-- profile,skillなど、コメントを1つしか使用しないものについては、1固定
+	-- 新たにsectionを追加し、そのsection内で複数のコメントを使用する場合に、コメント行の数値を増やすことで、マルチコメントの対応をする。
+	comment_line int NOT NULL COMMENT 'コメント行 : profile,skillなど、コメントを1つしか使用しないものについては、1固定
+新たにsectionを追加し、そのsection内で複数のコメントを使用する場合に、コメント行の数値を増やすことで、マルチコメントの対応をする。',
+	-- profile,skillなど、コンポーネント内でタイトルをつける必要がないものには不要。
+	-- 新たにsectionを追加し、そのsection内でタイトルをつける必要があれば利用。
+	comment_title varchar(255) COMMENT 'サイトコメントタイトル : profile,skillなど、コンポーネント内でタイトルをつける必要がないものには不要。
+新たにsectionを追加し、そのsection内でタイトルをつける必要があれば利用。',
+	-- コメントを記載
+	comment_contents text NOT NULL COMMENT 'サイトコメント内容 : コメントを記載',
+	-- 画像のURLを保管する予定。
+	-- テーブルの中身を変更するだけで、画像を動的に変更可能にしておきたい。
+	comment_image varchar(255) COMMENT '画像 : 画像のURLを保管する予定。
+テーブルの中身を変更するだけで、画像を動的に変更可能にしておきたい。',
+	PRIMARY KEY (comment_kind_code, comment_line)
 ) COMMENT = 'サイトコメントマスタ : サイトで表示するコメントを管理するためのマスタ。プロフィールやこのサイトについて等のコメントを';
 
 

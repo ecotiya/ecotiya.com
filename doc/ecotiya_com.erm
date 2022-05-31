@@ -138,7 +138,7 @@
 			</connections>
 			<display>false</display>
 			<creation_date>2022-05-14 13:43:34</creation_date>
-			<updated_date>2022-05-16 11:40:25</updated_date>
+			<updated_date>2022-05-31 22:04:45</updated_date>
 			<model_property>
 				<name>プロジェクト名</name>
 				<value>ecotiya</value>
@@ -177,38 +177,6 @@
 	<dictionary>
 		<word>
 			<id>0</id>
-			<length>null</length>
-			<decimal>null</decimal>
-			<array>false</array>
-			<array_dimension>null</array_dimension>
-			<unsigned>false</unsigned>
-			<zerofill>false</zerofill>
-			<binary>false</binary>
-			<args></args>
-			<char_semantics>false</char_semantics>
-			<description></description>
-			<logical_name>年月日</logical_name>
-			<physical_name>career_date</physical_name>
-			<type>date</type>
-		</word>
-		<word>
-			<id>1</id>
-			<length>null</length>
-			<decimal>null</decimal>
-			<array>false</array>
-			<array_dimension>null</array_dimension>
-			<unsigned>false</unsigned>
-			<zerofill>false</zerofill>
-			<binary>false</binary>
-			<args></args>
-			<char_semantics>false</char_semantics>
-			<description></description>
-			<logical_name>経歴ID</logical_name>
-			<physical_name>career_id</physical_name>
-			<type>integer</type>
-		</word>
-		<word>
-			<id>2</id>
 			<length>255</length>
 			<decimal>null</decimal>
 			<array>false</array>
@@ -219,8 +187,40 @@
 			<args></args>
 			<char_semantics>false</char_semantics>
 			<description></description>
-			<logical_name>サイトコメント種別コード</logical_name>
-			<physical_name>coment_kind_code</physical_name>
+			<logical_name>経歴内容</logical_name>
+			<physical_name>career_contents</physical_name>
+			<type>varchar(n)</type>
+		</word>
+		<word>
+			<id>1</id>
+			<length>7</length>
+			<decimal>null</decimal>
+			<array>false</array>
+			<array_dimension>null</array_dimension>
+			<unsigned>false</unsigned>
+			<zerofill>false</zerofill>
+			<binary>false</binary>
+			<args></args>
+			<char_semantics>false</char_semantics>
+			<description>yyyy/mm</description>
+			<logical_name>年月</logical_name>
+			<physical_name>career_date</physical_name>
+			<type>varchar(n)</type>
+		</word>
+		<word>
+			<id>2</id>
+			<length>1</length>
+			<decimal>null</decimal>
+			<array>false</array>
+			<array_dimension>null</array_dimension>
+			<unsigned>false</unsigned>
+			<zerofill>false</zerofill>
+			<binary>false</binary>
+			<args></args>
+			<char_semantics>false</char_semantics>
+			<description>数値でフロントのiconを変更したい。&#x0D;&#x0A;1:School&#x0D;&#x0A;2:Business&#x0D;&#x0A;3:Private</description>
+			<logical_name>経歴種別</logical_name>
+			<physical_name>career_division</physical_name>
 			<type>varchar(n)</type>
 		</word>
 		<word>
@@ -235,8 +235,8 @@
 			<args></args>
 			<char_semantics>false</char_semantics>
 			<description></description>
-			<logical_name>サイトコメント種別名</logical_name>
-			<physical_name>coment_kind_name</physical_name>
+			<logical_name>経歴タイトル</logical_name>
+			<physical_name>career_title</physical_name>
 			<type>varchar(n)</type>
 		</word>
 		<word>
@@ -250,13 +250,77 @@
 			<binary>false</binary>
 			<args></args>
 			<char_semantics>false</char_semantics>
-			<description></description>
+			<description>コメントを記載</description>
 			<logical_name>サイトコメント内容</logical_name>
-			<physical_name>contents</physical_name>
+			<physical_name>comment_contents</physical_name>
 			<type>text</type>
 		</word>
 		<word>
 			<id>5</id>
+			<length>255</length>
+			<decimal>null</decimal>
+			<array>false</array>
+			<array_dimension>null</array_dimension>
+			<unsigned>false</unsigned>
+			<zerofill>false</zerofill>
+			<binary>false</binary>
+			<args></args>
+			<char_semantics>false</char_semantics>
+			<description>画像のURLを保管する予定。&#x0D;&#x0A;テーブルの中身を変更するだけで、画像を動的に変更可能にしておきたい。</description>
+			<logical_name>画像</logical_name>
+			<physical_name>comment_image</physical_name>
+			<type>varchar(n)</type>
+		</word>
+		<word>
+			<id>6</id>
+			<length>255</length>
+			<decimal>null</decimal>
+			<array>false</array>
+			<array_dimension>null</array_dimension>
+			<unsigned>false</unsigned>
+			<zerofill>false</zerofill>
+			<binary>false</binary>
+			<args></args>
+			<char_semantics>false</char_semantics>
+			<description>表示するsection毎にキーをつける&#x0D;&#x0A;profile,skill,other</description>
+			<logical_name>サイトコメント種別コード</logical_name>
+			<physical_name>comment_kind_code</physical_name>
+			<type>varchar(n)</type>
+		</word>
+		<word>
+			<id>7</id>
+			<length>null</length>
+			<decimal>null</decimal>
+			<array>false</array>
+			<array_dimension>null</array_dimension>
+			<unsigned>false</unsigned>
+			<zerofill>false</zerofill>
+			<binary>false</binary>
+			<args></args>
+			<char_semantics>false</char_semantics>
+			<description>profile,skillなど、コメントを1つしか使用しないものについては、1固定&#x0D;&#x0A;新たにsectionを追加し、そのsection内で複数のコメントを使用する場合に、コメント行の数値を増やすことで、マルチコメントの対応をする。</description>
+			<logical_name>コメント行</logical_name>
+			<physical_name>comment_line</physical_name>
+			<type>integer</type>
+		</word>
+		<word>
+			<id>8</id>
+			<length>255</length>
+			<decimal>null</decimal>
+			<array>false</array>
+			<array_dimension>null</array_dimension>
+			<unsigned>false</unsigned>
+			<zerofill>false</zerofill>
+			<binary>false</binary>
+			<args></args>
+			<char_semantics>false</char_semantics>
+			<description>profile,skillなど、コンポーネント内でタイトルをつける必要がないものには不要。&#x0D;&#x0A;新たにsectionを追加し、そのsection内でタイトルをつける必要があれば利用。</description>
+			<logical_name>サイトコメントタイトル</logical_name>
+			<physical_name>comment_title</physical_name>
+			<type>varchar(n)</type>
+		</word>
+		<word>
+			<id>9</id>
 			<length>null</length>
 			<decimal>null</decimal>
 			<array>false</array>
@@ -272,23 +336,7 @@
 			<type>text</type>
 		</word>
 		<word>
-			<id>6</id>
-			<length>255</length>
-			<decimal>null</decimal>
-			<array>false</array>
-			<array_dimension>null</array_dimension>
-			<unsigned>false</unsigned>
-			<zerofill>false</zerofill>
-			<binary>false</binary>
-			<args></args>
-			<char_semantics>false</char_semantics>
-			<description></description>
-			<logical_name>内容</logical_name>
-			<physical_name>contents</physical_name>
-			<type>varchar(n)</type>
-		</word>
-		<word>
-			<id>7</id>
+			<id>10</id>
 			<length>null</length>
 			<decimal>null</decimal>
 			<array>false</array>
@@ -304,7 +352,7 @@
 			<type>datetime</type>
 		</word>
 		<word>
-			<id>8</id>
+			<id>11</id>
 			<length>2</length>
 			<decimal>1</decimal>
 			<array>false</array>
@@ -320,23 +368,7 @@
 			<type>decimal(p,s)</type>
 		</word>
 		<word>
-			<id>9</id>
-			<length>255</length>
-			<decimal>null</decimal>
-			<array>false</array>
-			<array_dimension>null</array_dimension>
-			<unsigned>false</unsigned>
-			<zerofill>false</zerofill>
-			<binary>false</binary>
-			<args></args>
-			<char_semantics>false</char_semantics>
-			<description></description>
-			<logical_name>画像</logical_name>
-			<physical_name>image</physical_name>
-			<type>varchar(n)</type>
-		</word>
-		<word>
-			<id>10</id>
+			<id>12</id>
 			<length>null</length>
 			<decimal>null</decimal>
 			<array>false</array>
@@ -352,7 +384,7 @@
 			<type>bigint</type>
 		</word>
 		<word>
-			<id>11</id>
+			<id>13</id>
 			<length>255</length>
 			<decimal>null</decimal>
 			<array>false</array>
@@ -368,7 +400,7 @@
 			<type>varchar(n)</type>
 		</word>
 		<word>
-			<id>12</id>
+			<id>14</id>
 			<length>255</length>
 			<decimal>null</decimal>
 			<array>false</array>
@@ -384,7 +416,7 @@
 			<type>varchar(n)</type>
 		</word>
 		<word>
-			<id>13</id>
+			<id>15</id>
 			<length>255</length>
 			<decimal>null</decimal>
 			<array>false</array>
@@ -400,7 +432,7 @@
 			<type>varchar(n)</type>
 		</word>
 		<word>
-			<id>14</id>
+			<id>16</id>
 			<length>null</length>
 			<decimal>null</decimal>
 			<array>false</array>
@@ -416,7 +448,7 @@
 			<type>integer</type>
 		</word>
 		<word>
-			<id>15</id>
+			<id>17</id>
 			<length>255</length>
 			<decimal>null</decimal>
 			<array>false</array>
@@ -432,7 +464,7 @@
 			<type>varchar(n)</type>
 		</word>
 		<word>
-			<id>16</id>
+			<id>18</id>
 			<length>255</length>
 			<decimal>null</decimal>
 			<array>false</array>
@@ -448,7 +480,7 @@
 			<type>varchar(n)</type>
 		</word>
 		<word>
-			<id>17</id>
+			<id>19</id>
 			<length>null</length>
 			<decimal>null</decimal>
 			<array>false</array>
@@ -464,23 +496,7 @@
 			<type>integer</type>
 		</word>
 		<word>
-			<id>18</id>
-			<length>255</length>
-			<decimal>null</decimal>
-			<array>false</array>
-			<array_dimension>null</array_dimension>
-			<unsigned>false</unsigned>
-			<zerofill>false</zerofill>
-			<binary>false</binary>
-			<args></args>
-			<char_semantics>false</char_semantics>
-			<description></description>
-			<logical_name>タイトル</logical_name>
-			<physical_name>title</physical_name>
-			<type>varchar(n)</type>
-		</word>
-		<word>
-			<id>19</id>
+			<id>20</id>
 			<length>255</length>
 			<decimal>null</decimal>
 			<array>false</array>
@@ -522,7 +538,7 @@
 			<option></option>
 			<columns>
 				<normal_column>
-					<word_id>11</word_id>
+					<word_id>13</word_id>
 					<id>0</id>
 					<description></description>
 					<unique_key_name></unique_key_name>
@@ -555,7 +571,7 @@
 					</sequence>
 				</normal_column>
 				<normal_column>
-					<word_id>12</word_id>
+					<word_id>14</word_id>
 					<id>1</id>
 					<description></description>
 					<unique_key_name></unique_key_name>
@@ -645,7 +661,7 @@
 			<option></option>
 			<columns>
 				<normal_column>
-					<word_id>10</word_id>
+					<word_id>12</word_id>
 					<id>2</id>
 					<description></description>
 					<unique_key_name></unique_key_name>
@@ -678,7 +694,7 @@
 					</sequence>
 				</normal_column>
 				<normal_column>
-					<word_id>19</word_id>
+					<word_id>20</word_id>
 					<id>3</id>
 					<description></description>
 					<unique_key_name></unique_key_name>
@@ -711,7 +727,7 @@
 					</sequence>
 				</normal_column>
 				<normal_column>
-					<word_id>13</word_id>
+					<word_id>15</word_id>
 					<id>4</id>
 					<description></description>
 					<unique_key_name></unique_key_name>
@@ -778,7 +794,7 @@
 					</sequence>
 				</normal_column>
 				<normal_column>
-					<word_id>5</word_id>
+					<word_id>9</word_id>
 					<id>6</id>
 					<description></description>
 					<unique_key_name></unique_key_name>
@@ -811,7 +827,7 @@
 					</sequence>
 				</normal_column>
 				<normal_column>
-					<word_id>7</word_id>
+					<word_id>10</word_id>
 					<id>7</id>
 					<description></description>
 					<unique_key_name></unique_key_name>
@@ -879,7 +895,7 @@
 			<option></option>
 			<columns>
 				<normal_column>
-					<word_id>14</word_id>
+					<word_id>16</word_id>
 					<id>8</id>
 					<description></description>
 					<unique_key_name></unique_key_name>
@@ -912,7 +928,7 @@
 					</sequence>
 				</normal_column>
 				<normal_column>
-					<word_id>15</word_id>
+					<word_id>17</word_id>
 					<id>9</id>
 					<description></description>
 					<unique_key_name></unique_key_name>
@@ -945,7 +961,7 @@
 					</sequence>
 				</normal_column>
 				<normal_column>
-					<word_id>16</word_id>
+					<word_id>18</word_id>
 					<id>10</id>
 					<description></description>
 					<unique_key_name></unique_key_name>
@@ -1035,7 +1051,7 @@
 			<option></option>
 			<columns>
 				<normal_column>
-					<word_id>17</word_id>
+					<word_id>19</word_id>
 					<id>11</id>
 					<description></description>
 					<unique_key_name></unique_key_name>
@@ -1102,7 +1118,7 @@
 					</sequence>
 				</normal_column>
 				<normal_column>
-					<word_id>8</word_id>
+					<word_id>11</word_id>
 					<id>13</id>
 					<description></description>
 					<unique_key_name></unique_key_name>
@@ -1150,10 +1166,10 @@
 		<table>
 			<id>4</id>
 			<height>128</height>
-			<width>400</width>
+			<width>269</width>
 				<font_name>Yu Gothic UI</font_name>
 				<font_size>9</font_size>
-			<x>36</x>
+			<x>564</x>
 			<y>48</y>
 			<color>
 				<r>128</r>
@@ -1162,15 +1178,15 @@
 			</color>
 			<connections>
 			</connections>
-			<physical_name>m_site_comment</physical_name>
-			<logical_name>サイトコメントマスタ</logical_name>
-			<description>サイトで表示するコメントを管理するためのマスタ。プロフィールやこのサイトについて等のコメントを管理する。</description>
+			<physical_name>m_career</physical_name>
+			<logical_name>経歴マスタ</logical_name>
+			<description>経歴情報を管理するマスタ</description>
 			<constraint></constraint>
 			<primary_key_name></primary_key_name>
 			<option></option>
 			<columns>
 				<normal_column>
-					<word_id>2</word_id>
+					<word_id>1</word_id>
 					<id>14</id>
 					<description></description>
 					<unique_key_name></unique_key_name>
@@ -1203,7 +1219,7 @@
 					</sequence>
 				</normal_column>
 				<normal_column>
-					<word_id>3</word_id>
+					<word_id>2</word_id>
 					<id>15</id>
 					<description></description>
 					<unique_key_name></unique_key_name>
@@ -1215,7 +1231,7 @@
 					<auto_increment>false</auto_increment>
 					<foreign_key>false</foreign_key>
 					<not_null>true</not_null>
-					<primary_key>false</primary_key>
+					<primary_key>true</primary_key>
 					<unique_key>false</unique_key>
 					<character_set></character_set>
 					<collation></collation>
@@ -1236,13 +1252,13 @@
 					</sequence>
 				</normal_column>
 				<normal_column>
-					<word_id>4</word_id>
+					<word_id>3</word_id>
 					<id>16</id>
 					<description></description>
 					<unique_key_name></unique_key_name>
 					<logical_name></logical_name>
 					<physical_name></physical_name>
-					<type>text</type>
+					<type>varchar(n)</type>
 					<constraint></constraint>
 					<default_value></default_value>
 					<auto_increment>false</auto_increment>
@@ -1269,7 +1285,7 @@
 					</sequence>
 				</normal_column>
 				<normal_column>
-					<word_id>9</word_id>
+					<word_id>0</word_id>
 					<id>17</id>
 					<description></description>
 					<unique_key_name></unique_key_name>
@@ -1280,7 +1296,7 @@
 					<default_value></default_value>
 					<auto_increment>false</auto_increment>
 					<foreign_key>false</foreign_key>
-					<not_null>false</not_null>
+					<not_null>true</not_null>
 					<primary_key>false</primary_key>
 					<unique_key>false</unique_key>
 					<character_set></character_set>
@@ -1317,10 +1333,10 @@
 		<table>
 			<id>5</id>
 			<height>128</height>
-			<width>269</width>
+			<width>400</width>
 				<font_name>Yu Gothic UI</font_name>
 				<font_size>9</font_size>
-			<x>564</x>
+			<x>36</x>
 			<y>48</y>
 			<color>
 				<r>128</r>
@@ -1329,16 +1345,49 @@
 			</color>
 			<connections>
 			</connections>
-			<physical_name>m_career</physical_name>
-			<logical_name>経歴マスタ</logical_name>
-			<description>経歴情報を管理するマスタ</description>
+			<physical_name>m_site_comment</physical_name>
+			<logical_name>サイトコメントマスタ</logical_name>
+			<description>サイトで表示するコメントを管理するためのマスタ。プロフィールやこのサイトについて等のコメントを管理する。</description>
 			<constraint></constraint>
 			<primary_key_name></primary_key_name>
 			<option></option>
 			<columns>
 				<normal_column>
-					<word_id>1</word_id>
+					<word_id>6</word_id>
 					<id>18</id>
+					<description></description>
+					<unique_key_name></unique_key_name>
+					<logical_name></logical_name>
+					<physical_name></physical_name>
+					<type>varchar(n)</type>
+					<constraint></constraint>
+					<default_value></default_value>
+					<auto_increment>false</auto_increment>
+					<foreign_key>false</foreign_key>
+					<not_null>true</not_null>
+					<primary_key>true</primary_key>
+					<unique_key>false</unique_key>
+					<character_set></character_set>
+					<collation></collation>
+					<sequence>
+						<name></name>
+						<schema></schema>
+						<increment></increment>
+						<min_value></min_value>
+						<max_value></max_value>
+						<start></start>
+						<cache></cache>
+						<nocache>false</nocache>
+						<cycle>false</cycle>
+						<order>false</order>
+						<description></description>
+						<data_type></data_type>
+						<decimal_size>0</decimal_size>
+					</sequence>
+				</normal_column>
+				<normal_column>
+					<word_id>7</word_id>
+					<id>19</id>
 					<description></description>
 					<unique_key_name></unique_key_name>
 					<logical_name></logical_name>
@@ -1370,40 +1419,7 @@
 					</sequence>
 				</normal_column>
 				<normal_column>
-					<word_id>0</word_id>
-					<id>19</id>
-					<description></description>
-					<unique_key_name></unique_key_name>
-					<logical_name></logical_name>
-					<physical_name></physical_name>
-					<type>date</type>
-					<constraint></constraint>
-					<default_value></default_value>
-					<auto_increment>false</auto_increment>
-					<foreign_key>false</foreign_key>
-					<not_null>true</not_null>
-					<primary_key>false</primary_key>
-					<unique_key>false</unique_key>
-					<character_set></character_set>
-					<collation></collation>
-					<sequence>
-						<name></name>
-						<schema></schema>
-						<increment></increment>
-						<min_value></min_value>
-						<max_value></max_value>
-						<start></start>
-						<cache></cache>
-						<nocache>false</nocache>
-						<cycle>false</cycle>
-						<order>false</order>
-						<description></description>
-						<data_type></data_type>
-						<decimal_size>0</decimal_size>
-					</sequence>
-				</normal_column>
-				<normal_column>
-					<word_id>18</word_id>
+					<word_id>8</word_id>
 					<id>20</id>
 					<description></description>
 					<unique_key_name></unique_key_name>
@@ -1414,6 +1430,39 @@
 					<default_value></default_value>
 					<auto_increment>false</auto_increment>
 					<foreign_key>false</foreign_key>
+					<not_null>false</not_null>
+					<primary_key>false</primary_key>
+					<unique_key>false</unique_key>
+					<character_set></character_set>
+					<collation></collation>
+					<sequence>
+						<name></name>
+						<schema></schema>
+						<increment></increment>
+						<min_value></min_value>
+						<max_value></max_value>
+						<start></start>
+						<cache></cache>
+						<nocache>false</nocache>
+						<cycle>false</cycle>
+						<order>false</order>
+						<description></description>
+						<data_type></data_type>
+						<decimal_size>0</decimal_size>
+					</sequence>
+				</normal_column>
+				<normal_column>
+					<word_id>4</word_id>
+					<id>21</id>
+					<description></description>
+					<unique_key_name></unique_key_name>
+					<logical_name></logical_name>
+					<physical_name></physical_name>
+					<type>text</type>
+					<constraint></constraint>
+					<default_value></default_value>
+					<auto_increment>false</auto_increment>
+					<foreign_key>false</foreign_key>
 					<not_null>true</not_null>
 					<primary_key>false</primary_key>
 					<unique_key>false</unique_key>
@@ -1436,8 +1485,8 @@
 					</sequence>
 				</normal_column>
 				<normal_column>
-					<word_id>6</word_id>
-					<id>21</id>
+					<word_id>5</word_id>
+					<id>22</id>
 					<description></description>
 					<unique_key_name></unique_key_name>
 					<logical_name></logical_name>
@@ -1447,7 +1496,7 @@
 					<default_value></default_value>
 					<auto_increment>false</auto_increment>
 					<foreign_key>false</foreign_key>
-					<not_null>true</not_null>
+					<not_null>false</not_null>
 					<primary_key>false</primary_key>
 					<unique_key>false</unique_key>
 					<character_set></character_set>

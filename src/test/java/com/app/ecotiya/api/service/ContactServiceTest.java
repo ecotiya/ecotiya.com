@@ -11,15 +11,15 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 
-import com.app.ecotiya.api.service.impl.MInquiryKindsServiceImpl;
+import com.app.ecotiya.api.service.impl.ContactServiceImpl;
 import com.app.ecotiya.domain.entity.MInquiryKinds;
 import com.app.ecotiya.domain.repository.MInquiryKindsMapper;
 
-public class MInquiryKindsServiceTest {
+public class ContactServiceTest {
 
   @Mock private MInquiryKindsMapper mapper;
 
-  @InjectMocks private MInquiryKindsServiceImpl service;
+  @InjectMocks private ContactServiceImpl service;
 
   @BeforeEach
   public void setup() {

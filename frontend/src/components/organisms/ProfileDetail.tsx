@@ -1,5 +1,7 @@
+import * as React from 'react';
 import { Grid } from '@mui/material';
 import { ProfileAvatar, ProfileContent } from '../molecules/index';
+// import { SiteComment } from '../../interface/CommonInterface';
 
 // 最終的に、下記のような値をDBから取得する予定。
 const profile = {
@@ -14,6 +16,10 @@ const profile = {
 
 // {TODO} DBからデータを取得する処理を記載する。
 const ProfileDetail = () => (
+  // React.useEffect(() => {
+  //   console.log('useEffect');
+  // }, []);
+
   <Grid container spacing={1}>
     <ProfileAvatar avatar={profile.avatar} name={profile.name} />
     <ProfileContent content={profile.comment} />

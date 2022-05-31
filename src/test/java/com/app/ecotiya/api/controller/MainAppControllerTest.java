@@ -5,7 +5,6 @@ import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -37,25 +36,21 @@ public class MainAppControllerTest {
 
     // m_site_comment test  =========================
     MSiteComment mSiteComment1 = new MSiteComment();
-    mSiteComment1.setComentKindCode("about");
-    mSiteComment1.setComentKindName("このサイトについて");
-    mSiteComment1.setContents("説明");
-    mSiteComment1.setImage("");
+    mSiteComment1.setCommentKindCode("about");
+    mSiteComment1.setCommentContents("説明");
+    mSiteComment1.setCommentImage("");
     MSiteComment mSiteComment2 = new MSiteComment();
-    mSiteComment2.setComentKindCode("profile");
-    mSiteComment2.setComentKindName("プロフィール");
-    mSiteComment2.setContents("説明");
-    mSiteComment2.setImage("");
+    mSiteComment2.setCommentKindCode("profile");
+    mSiteComment2.setCommentContents("説明");
+    mSiteComment2.setCommentImage("");
     MSiteComment mSiteComment3 = new MSiteComment();
-    mSiteComment3.setComentKindCode("career");
-    mSiteComment3.setComentKindName("経歴");
-    mSiteComment3.setContents("説明");
-    mSiteComment3.setImage("");
+    mSiteComment3.setCommentKindCode("career");
+    mSiteComment3.setCommentContents("説明");
+    mSiteComment3.setCommentImage("");
     MSiteComment mSiteComment4 = new MSiteComment();
-    mSiteComment4.setComentKindCode("skills");
-    mSiteComment4.setComentKindName("スキル");
-    mSiteComment4.setContents("説明");
-    mSiteComment4.setImage("");
+    mSiteComment4.setCommentKindCode("skills");
+    mSiteComment4.setCommentContents("説明");
+    mSiteComment4.setCommentImage("");
 
     List<MSiteComment> mSiteComments = new ArrayList<>();
     mSiteComments.add(mSiteComment1);
@@ -65,10 +60,9 @@ public class MainAppControllerTest {
 
     // m_career test  =========================
     MCareer mCareer1 = new MCareer();
-    mCareer1.setCareerId(1);
-    mCareer1.setCareerDate(LocalDate.of(2016, 01, 01));
-    mCareer1.setTitle("就職");
-    mCareer1.setContents("プログラマになる");
+    mCareer1.setCareerDate("2016/01");
+    mCareer1.setCareerTitle("就職");
+    mCareer1.setCareerContents("プログラマになる");
 
     List<MCareer> mCareers = new ArrayList<>();
     mCareers.add(mCareer1);

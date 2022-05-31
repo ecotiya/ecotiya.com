@@ -9,7 +9,8 @@ import Landing from './components/pages/Landing';
 const useStyles = makeStyles({
   root: {
     minHeight: '100vh',
-    backgroundImage: `url(${`${process.env.PUBLIC_URL}/assets/dam.jpg`})`,
+    // backgroundImage: `url(${`${process.env.PUBLIC_URL}/assets/dam.jpg`})`,
+    backgroundColor: '#4169e1',
     backgroundRepeat: 'no-repeat',
     backgroundSize: 'cover',
   },
