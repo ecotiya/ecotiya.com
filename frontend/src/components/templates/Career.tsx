@@ -6,6 +6,7 @@ const Career = () => (
     section="career"
     viewtitle="【経歴】"
     viewsubtitle="コメントを書いた方が良いです。"
+    showFlg
   >
     <CareerTimeline />
   </CommonSection>

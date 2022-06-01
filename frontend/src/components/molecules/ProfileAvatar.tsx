@@ -1,8 +1,8 @@
 import { Avatar, Box, Grid, Typography } from '@mui/material';
 
-export type ProfileAvatarProps = {
-  avatar: string;
-  name: string;
+type ProfileAvatarProps = {
+  avatar: string | undefined;
+  name: string | undefined;
 };
 
 const ProfileAvatar = (props: ProfileAvatarProps) => {

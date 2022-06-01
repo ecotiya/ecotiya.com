@@ -1,7 +1,10 @@
 package com.app.ecotiya.domain.repository;
 
-import com.app.ecotiya.domain.entity.MSkill;
+import java.util.List;
+
 import org.apache.ibatis.annotations.Mapper;
+
+import com.app.ecotiya.domain.entity.MSkill;
 
 @Mapper
 public interface MSkillMapper {
@@ -29,4 +32,11 @@ public interface MSkillMapper {
    * @mbg.generated
    */
   MSkill selectByPrimaryKey(Integer skillId);
+
+  /**
+   * Select all records from database.
+   *
+   * @return all records stored in database
+   */
+  List<MSkill> selectAll();
 }

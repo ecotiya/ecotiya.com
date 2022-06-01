@@ -27,8 +27,10 @@ public class MainAppServiceImpl implements MainAppService {
     mainAppDataModel.setMSectionTitleList(mSectionTitleMapper.selectAll());
     mainAppDataModel.setMSectionCommentList(mSectionCommentMapper.selectAll());
     mainAppDataModel.setMCareerList(mCareerMapper.selectAll());
-    //    mainAppDataModel.setMSkillList(mSkillMapper.selectAll());
+    mainAppDataModel.setMSkillList(mSkillMapper.selectAll());
     mainAppDataModel.setMInquiryKindsList(mInquiryKindsMapper.selectAll());
+
+    // TODO おそらく各コンポーネント毎のModelを作成する必要がある想定。
 
     return mainAppDataModel;
   }

@@ -1,7 +1,7 @@
 import { Grid, Typography } from '@mui/material';
 import { makeStyles } from '@mui/styles';
 
-export type ProfileContentProps = {
+type ProfileContentProps = {
   content: string;
 };
 

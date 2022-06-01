@@ -19,7 +19,6 @@ public class MainAppModel {
 
   private List<MCareer> mCareerList;
 
-  // TODO
   private List<MSkill> mSkillList;
 
   private List<MInquiryKinds> mInquiryKindsList;

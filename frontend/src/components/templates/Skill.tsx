@@ -6,6 +6,7 @@ const Skill = () => (
     section="skill"
     viewtitle="【スキルセット】"
     viewsubtitle="コメントを書いた方が良いです。"
+    showFlg
   >
     <SkillTables />
   </CommonSection>

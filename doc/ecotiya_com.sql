@@ -8,7 +8,6 @@ DROP TABLE IF EXISTS m_inquiry_kinds;
 DROP TABLE IF EXISTS m_section_comment;
 DROP TABLE IF EXISTS m_section_title;
 DROP TABLE IF EXISTS m_skill;
-DROP TABLE IF EXISTS m_skill_division;
 
 
 
@@ -83,20 +82,11 @@ profile,skill,other',
 CREATE TABLE m_skill
 (
 	skill_id int NOT NULL COMMENT 'スキルID',
-	skill_division_id int NOT NULL COMMENT 'スキル種別ID',
+	skill_field_code varchar(255) COMMENT 'スキル分野コード',
+	skill_name varchar(255) NOT NULL COMMENT 'スキル名称',
 	experience_ym decimal(2,1) NOT NULL COMMENT '経験年数',
 	PRIMARY KEY (skill_id)
 ) COMMENT = 'スキルマスタ : 私のスキル情報を管理するための一覧。';
-
-
--- スキル種別マスタ : スキルの分類や言語を管理するためのマスタ。
-CREATE TABLE m_skill_division
-(
-	skill_division_id int NOT NULL COMMENT 'スキル種別ID',
-	skill_division_name varchar(255) NOT NULL COMMENT 'スキル種別名称',
-	skill_field_code varchar(255) NOT NULL COMMENT 'スキル分野コード',
-	PRIMARY KEY (skill_division_id)
-) COMMENT = 'スキル種別マスタ : スキルの分類や言語を管理するためのマスタ。';
 
 
 -- 問い合わせ一覧 : ユーザからの問い合わせを管理するための一覧。
@@ -118,14 +108,6 @@ CREATE TABLE t_inquiry_lists
 ALTER TABLE t_inquiry_lists
 	ADD FOREIGN KEY (inquiry_kind_code)
 	REFERENCES m_inquiry_kinds (inquiry_kind_code)
-	ON UPDATE RESTRICT
-	ON DELETE RESTRICT
-;
-
-
-ALTER TABLE m_skill
-	ADD FOREIGN KEY (skill_division_id)
-	REFERENCES m_skill_division (skill_division_id)
 	ON UPDATE RESTRICT
 	ON DELETE RESTRICT
 ;
