@@ -5,7 +5,8 @@ SET SESSION FOREIGN_KEY_CHECKS=0;
 DROP TABLE IF EXISTS m_career;
 DROP TABLE IF EXISTS t_inquiry_lists;
 DROP TABLE IF EXISTS m_inquiry_kinds;
-DROP TABLE IF EXISTS m_site_comment;
+DROP TABLE IF EXISTS m_section_comment;
+DROP TABLE IF EXISTS m_section_title;
 DROP TABLE IF EXISTS m_skill;
 DROP TABLE IF EXISTS m_skill_division;
 
@@ -42,29 +43,40 @@ CREATE TABLE m_inquiry_kinds
 ) COMMENT = '問い合わせ種別マスタ : ユーザからの問い合わせ種別を管理するマスタ。';
 
 
--- サイトコメントマスタ : サイトで表示するコメントを管理するためのマスタ。プロフィールやこのサイトについて等のコメントを
-CREATE TABLE m_site_comment
+-- セクションコメントマスタ
+CREATE TABLE m_section_comment
 (
 	-- 表示するsection毎にキーをつける
 	-- profile,skill,other
-	comment_kind_code varchar(255) NOT NULL COMMENT 'サイトコメント種別コード : 表示するsection毎にキーをつける
+	section_kind_code varchar(255) NOT NULL COMMENT 'セクション種別コード : 表示するsection毎にキーをつける
 profile,skill,other',
-	-- profile,skillなど、コメントを1つしか使用しないものについては、1固定
-	-- 新たにsectionを追加し、そのsection内で複数のコメントを使用する場合に、コメント行の数値を増やすことで、マルチコメントの対応をする。
-	comment_line int NOT NULL COMMENT 'コメント行 : profile,skillなど、コメントを1つしか使用しないものについては、1固定
-新たにsectionを追加し、そのsection内で複数のコメントを使用する場合に、コメント行の数値を増やすことで、マルチコメントの対応をする。',
-	-- profile,skillなど、コンポーネント内でタイトルをつける必要がないものには不要。
-	-- 新たにsectionを追加し、そのsection内でタイトルをつける必要があれば利用。
-	comment_title varchar(255) COMMENT 'サイトコメントタイトル : profile,skillなど、コンポーネント内でタイトルをつける必要がないものには不要。
-新たにsectionを追加し、そのsection内でタイトルをつける必要があれば利用。',
-	-- コメントを記載
-	comment_contents text NOT NULL COMMENT 'サイトコメント内容 : コメントを記載',
-	-- 画像のURLを保管する予定。
-	-- テーブルの中身を変更するだけで、画像を動的に変更可能にしておきたい。
-	comment_image varchar(255) COMMENT '画像 : 画像のURLを保管する予定。
-テーブルの中身を変更するだけで、画像を動的に変更可能にしておきたい。',
-	PRIMARY KEY (comment_kind_code, comment_line)
-) COMMENT = 'サイトコメントマスタ : サイトで表示するコメントを管理するためのマスタ。プロフィールやこのサイトについて等のコメントを';
+	section_comment_line int NOT NULL COMMENT 'セクションコメントライン',
+	section_comment text NOT NULL COMMENT 'セクションコメント',
+	-- 1…タイトル
+	-- 0…コメント
+	title_flg tinyint(1) NOT NULL COMMENT 'コメントタイトルフラグ : 1…タイトル
+0…コメント',
+	PRIMARY KEY (section_kind_code, section_comment_line)
+) COMMENT = 'セクションコメントマスタ';
+
+
+-- セクションタイトルマスタ : 各セクション(コンポーネント)のタイトル・サブタイトルを管理するためのマスタ。
+CREATE TABLE m_section_title
+(
+	-- 表示するsection毎にキーをつける
+	-- profile,skill,other
+	section_kind_code varchar(255) NOT NULL COMMENT 'セクション種別コード : 表示するsection毎にキーをつける
+profile,skill,other',
+	section_title varchar(255) NOT NULL COMMENT 'セクションタイトル',
+	section_sub_title varchar(255) NOT NULL COMMENT 'セクションサブタイトル',
+	remarks1 varchar(255) COMMENT '備考1',
+	remarks2 varchar(255) COMMENT '備考2',
+	-- 1…表示する
+	-- 0…表示しない
+	show_flg tinyint(1) NOT NULL COMMENT '表示フラグ : 1…表示する
+0…表示しない',
+	PRIMARY KEY (section_kind_code)
+) COMMENT = 'セクションタイトルマスタ : 各セクション(コンポーネント)のタイトル・サブタイトルを管理するためのマスタ。';
 
 
 -- スキルマスタ : 私のスキル情報を管理するための一覧。

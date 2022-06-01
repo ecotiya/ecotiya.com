@@ -1,7 +1,8 @@
 package com.app.ecotiya.domain.repository;
 
-import com.app.ecotiya.domain.entity.TInquiryLists;
 import org.apache.ibatis.annotations.Mapper;
+
+import com.app.ecotiya.domain.entity.TInquiryLists;
 
 @Mapper
 public interface TInquiryListsMapper {
