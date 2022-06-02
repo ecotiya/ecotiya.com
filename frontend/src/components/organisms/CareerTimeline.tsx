@@ -1,7 +1,6 @@
 import { Typography } from '@mui/material';
-
 import Timeline from '@mui/lab/Timeline';
-import CareerTimelineItem from '../molecules/CareerTimelineItem';
+import { CareerTimelineItem } from '../molecules/index';
 
 interface CareersData {
   yearmonth: string;

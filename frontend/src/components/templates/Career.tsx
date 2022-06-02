@@ -1,15 +1,23 @@
-import CommonSection from '../organisms/CommonSection';
-import CareerTimeline from '../organisms/CareerTimeline';
+import { CommonSection, CareerTimeline } from '../organisms/index';
+import { SectionTitles } from '../../interface/CommonInterface';
 
-const Career = () => (
-  <CommonSection
-    section="career"
-    viewtitle="【経歴】"
-    viewsubtitle="コメントを書いた方が良いです。"
-    showFlg
-  >
-    <CareerTimeline />
-  </CommonSection>
-);
+type CareerProps = {
+  sectionTitleData: SectionTitles;
+};
+
+const Career = (props: CareerProps) => {
+  const { sectionTitleData } = props;
+
+  return (
+    <CommonSection
+      section={sectionTitleData.sectionKindCode}
+      viewtitle={sectionTitleData.sectionTitle}
+      viewsubtitle={sectionTitleData.sectionSubTitle}
+      showFlg={sectionTitleData.showFlg}
+    >
+      <CareerTimeline />
+    </CommonSection>
+  );
+};
 
 export default Career;

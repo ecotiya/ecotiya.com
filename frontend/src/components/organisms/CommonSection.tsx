@@ -10,6 +10,8 @@ type CommonSectionProps = {
   showFlg: boolean;
 };
 
+// dataをまるごと受け取りたい。propsが2つになる想定。
+// ReactNodeとSectionTitle
 const CommonSection = (props: CommonSectionProps) => {
   const { children, section, viewtitle, viewsubtitle, showFlg } = props;
 

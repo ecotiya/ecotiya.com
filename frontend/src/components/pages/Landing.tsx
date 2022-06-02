@@ -1,11 +1,9 @@
-// import axios, { AxiosRequestConfig, AxiosResponse, AxiosError } from 'axios';
-// import { ApiRoutesPath } from '../../constants/CommonConstants';
-import Home from '../templates/Home';
-import Profile from '../templates/Profile';
-import Career from '../templates/Career';
-import Skill from '../templates/Skill';
-import Contact from '../templates/Contact';
-import { SectionTitle } from '../../interface/CommonInterface';
+/* eslint-disable @typescript-eslint/no-unused-vars */
+import * as React from 'react';
+import axios, { AxiosRequestConfig, AxiosResponse, AxiosError } from 'axios';
+import { ApiRoutesPath } from '../../constants/CommonConstants';
+import { MainApps, SectionTitles } from '../../interface/CommonInterface';
+import { Home, Profile, Career, Skill, Contact } from '../templates/index';
 
 const createSectionTitle = (
   sectionKindCode: string,
@@ -14,7 +12,7 @@ const createSectionTitle = (
   remarks1: string,
   remarks2: string,
   showFlg: boolean,
-): SectionTitle => ({
+): SectionTitles => ({
   sectionKindCode,
   sectionTitle,
   sectionSubTitle,
@@ -32,41 +30,67 @@ const profileSectionTitle = createSectionTitle(
   true,
 );
 
-const Landing = () => (
-  <>
-    <Home />
-    <Profile sectionTitleData={profileSectionTitle} />
-    <Career />
-    <Skill />
-    <Contact />
-  </>
+const careerSectionTitle = createSectionTitle(
+  'career',
+  '【経歴】',
+  'コメントを書いた方が良いです。',
+  '',
+  '',
+  true,
 );
 
+const skillSectionTitle = createSectionTitle(
+  'skill',
+  '【スキルセット】',
+  'コメントを書いた方が良いです。',
+  '',
+  '',
+  true,
+);
+
+const contactSectionTitle = createSectionTitle(
+  'contact',
+  '【お問い合わせ】',
+  'ここまで、ご覧いただきありがとうございます。私への問い合わせは、下記フォームをご利用ください😀',
+  '',
+  '',
+  true,
+);
+
+const options: AxiosRequestConfig = {
+  url: `${ApiRoutesPath.BASE_URL}`,
+  method: 'GET',
+};
+
+const Landing = () => {
+  const [mainApps, setMainApps] = React.useState<MainApps>();
+
+  const fetchMyProfileData = () => {
+    axios(options)
+      .then((res: AxiosResponse<MainApps>) => {
+        const { data } = res;
+        setMainApps(data);
+      })
+      .catch((e: AxiosError<{ error: string }>) => {
+        // エラー処理
+        // console.log(e.message);
+      });
+  };
+
+  // これでデータ取得する。
+  React.useEffect(() => {
+    fetchMyProfileData();
+  }, []);
+
+  return (
+    <>
+      <Home />
+      <Profile sectionTitleData={profileSectionTitle} />
+      <Career sectionTitleData={careerSectionTitle} />
+      <Skill sectionTitleData={skillSectionTitle} />
+      <Contact sectionTitleData={contactSectionTitle} />
+    </>
+  );
+};
+
 export default Landing;
-
-// const options: AxiosRequestConfig = {
-//   url: `${ApiRoutesPath.BASE_URL}`,
-//   method: 'GET',
-// };
-
-// const [name, setName] = React.useState<string | undefined>('');
-// const [image, setImage] = React.useState<string | undefined>('');
-// const [contents, setContents] = React.useState<string>('');
-
-// const fetchMyProfileData = () => {
-//   axios(options)
-//     .then((res: AxiosResponse<SiteComment>) => {
-//       const { data } = res;
-//       setName(data.commentTitle);
-//       setImage(data.commentImage);
-//       setContents(data.commentContents);
-//     })
-//     .catch((e: AxiosError<{ error: string }>) => {
-//       // エラー処理
-//       console.log(e.message);
-//     });
-// };
-
-// React.useEffect(() => {
-//   fetchMyProfileData();
-// }, []);

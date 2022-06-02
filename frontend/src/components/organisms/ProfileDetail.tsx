@@ -1,10 +1,10 @@
 import { Grid } from '@mui/material';
 import { ProfileAvatar, ProfileContent } from '../molecules/index';
 
-import { SectionTitle } from '../../interface/CommonInterface';
+import { SectionTitles } from '../../interface/CommonInterface';
 
 type ProfileDetailProps = {
-  sectionTitleData: SectionTitle;
+  sectionTitleData: SectionTitles;
 };
 
 const ProfileDetail = (props: ProfileDetailProps) => {

@@ -1,15 +1,23 @@
-import CommonSection from '../organisms/CommonSection';
-import SkillTables from '../organisms/SkillTables';
+import { CommonSection, SkillTables } from '../organisms/index';
+import { SectionTitles } from '../../interface/CommonInterface';
 
-const Skill = () => (
-  <CommonSection
-    section="skill"
-    viewtitle="【スキルセット】"
-    viewsubtitle="コメントを書いた方が良いです。"
-    showFlg
-  >
-    <SkillTables />
-  </CommonSection>
-);
+type SkillProps = {
+  sectionTitleData: SectionTitles;
+};
+
+const Skill = (props: SkillProps) => {
+  const { sectionTitleData } = props;
+
+  return (
+    <CommonSection
+      section={sectionTitleData.sectionKindCode}
+      viewtitle={sectionTitleData.sectionTitle}
+      viewsubtitle={sectionTitleData.sectionSubTitle}
+      showFlg={sectionTitleData.showFlg}
+    >
+      <SkillTables />
+    </CommonSection>
+  );
+};
 
 export default Skill;

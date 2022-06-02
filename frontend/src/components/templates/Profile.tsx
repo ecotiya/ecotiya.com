@@ -1,15 +1,14 @@
-import CommonSection from '../organisms/CommonSection';
-import ProfileDetail from '../organisms/ProfileDetail';
-
-import { SectionTitle } from '../../interface/CommonInterface';
+import { CommonSection, ProfileDetail } from '../organisms/index';
+import { SectionTitles } from '../../interface/CommonInterface';
 
 type ProfileProps = {
-  sectionTitleData: SectionTitle;
+  sectionTitleData: SectionTitles;
 };
 
 const Profile = (props: ProfileProps) => {
   const { sectionTitleData } = props;
 
+  // dataをまるごと渡したい。
   return (
     <CommonSection
       section={sectionTitleData.sectionKindCode}

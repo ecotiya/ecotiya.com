@@ -1,17 +1,25 @@
-import ContactTexts from '../organisms/ContactTexts';
-import CommonSection from '../organisms/CommonSection';
+import { ContactTexts, CommonSection } from '../organisms/index';
+import { SectionTitles } from '../../interface/CommonInterface';
 
-const Contact = () => (
-  <CommonSection
-    section="contact"
-    viewtitle="【お問い合わせ】"
-    viewsubtitle="ここまで、ご覧いただきありがとうございます。私への問い合わせは、下記フォームをご利用ください😀"
-    showFlg
-  >
-    <form>
-      <ContactTexts />
-    </form>
-  </CommonSection>
-);
+type ContactProps = {
+  sectionTitleData: SectionTitles;
+};
+
+const Contact = (props: ContactProps) => {
+  const { sectionTitleData } = props;
+
+  return (
+    <CommonSection
+      section={sectionTitleData.sectionKindCode}
+      viewtitle={sectionTitleData.sectionTitle}
+      viewsubtitle={sectionTitleData.sectionSubTitle}
+      showFlg={sectionTitleData.showFlg}
+    >
+      <form>
+        <ContactTexts />
+      </form>
+    </CommonSection>
+  );
+};
 
 export default Contact;

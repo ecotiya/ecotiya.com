@@ -1,5 +1,5 @@
 import { Grid } from '@mui/material';
-import SkillTable from '../molecules/SkillTable';
+import { SkillTable } from '../molecules/index';
 
 interface SkillTableData {
   skillName: string;

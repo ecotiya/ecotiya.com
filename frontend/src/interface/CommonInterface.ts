@@ -1,5 +1,14 @@
+// MainAppインターフェース
+export interface MainApps {
+  sectionTitles: SectionTitles;
+  sectionComments: SectionComments;
+  careers: Careers;
+  skills: Skills;
+  inquiryKinds: InquiryKinds;
+}
+
 // セクションタイトルマスタ
-export interface SectionTitle {
+export interface SectionTitles {
   sectionKindCode: string;
   sectionTitle: string;
   sectionSubTitle: string;
@@ -9,7 +18,7 @@ export interface SectionTitle {
 }
 
 // セクションコメントマスタ
-export interface SectionComment {
+export interface SectionComments {
   sectionKindCode: string;
   sectionCommentLine: number;
   sectionComment: string;
@@ -17,7 +26,7 @@ export interface SectionComment {
 }
 
 // 経歴マスタ
-export interface Career {
+export interface Careers {
   careerDate: string;
   careerDivision: string;
   careerTitle: string;
@@ -25,7 +34,7 @@ export interface Career {
 }
 
 // スキルマスタ
-export interface SkillTable {
+export interface Skills {
   skillId: number;
   skillFieldCode: string;
   skillName: string;
