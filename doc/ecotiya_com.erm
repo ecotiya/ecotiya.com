@@ -138,7 +138,7 @@
 			</connections>
 			<display>false</display>
 			<creation_date>2022-05-14 13:43:34</creation_date>
-			<updated_date>2022-06-01 23:37:39</updated_date>
+			<updated_date>2022-06-03 19:59:27</updated_date>
 			<model_property>
 				<name>プロジェクト名</name>
 				<value>ecotiya</value>
@@ -177,7 +177,7 @@
 	<dictionary>
 		<word>
 			<id>0</id>
-			<length>255</length>
+			<length>null</length>
 			<decimal>null</decimal>
 			<array>false</array>
 			<array_dimension>null</array_dimension>
@@ -189,7 +189,7 @@
 			<description></description>
 			<logical_name>経歴内容</logical_name>
 			<physical_name>career_contents</physical_name>
-			<type>varchar(n)</type>
+			<type>text</type>
 		</word>
 		<word>
 			<id>1</id>
@@ -1615,7 +1615,7 @@
 					<unique_key_name></unique_key_name>
 					<logical_name></logical_name>
 					<physical_name></physical_name>
-					<type>varchar(n)</type>
+					<type>text</type>
 					<constraint></constraint>
 					<default_value></default_value>
 					<auto_increment>false</auto_increment>

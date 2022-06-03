@@ -28,7 +28,7 @@ CREATE TABLE m_career
 2:Business
 3:Private',
 	career_title varchar(255) NOT NULL COMMENT '経歴タイトル',
-	career_contents varchar(255) NOT NULL COMMENT '経歴内容',
+	career_contents text NOT NULL COMMENT '経歴内容',
 	PRIMARY KEY (career_date, career_division)
 ) COMMENT = '経歴マスタ : 経歴情報を管理するマスタ';
 
