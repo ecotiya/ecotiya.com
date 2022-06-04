@@ -1,6 +1,7 @@
 import { Typography } from '@mui/material';
 import Timeline from '@mui/lab/Timeline';
 import { CareerTimelineItem } from '../molecules/index';
+import { ComponentSection } from '../../constants/CommonConstants';
 import { MainApps } from '../../interface/CommonInterface';
 
 type CareerTimelineProps = {
@@ -9,6 +10,10 @@ type CareerTimelineProps = {
 
 const CareerTimeline = (props: CareerTimelineProps) => {
   const { mainAppsData } = props;
+
+  const sectionComment = mainAppsData.sectionCommentList.find(
+    (obj) => obj.sectionKindCode === ComponentSection.CAREER,
+  );
 
   const getCareerTimelineItem = () =>
     mainAppsData.careerList.map(
@@ -29,7 +34,7 @@ const CareerTimeline = (props: CareerTimelineProps) => {
     <>
       <Timeline>{getCareerTimelineItem()}</Timeline>
       <Typography color="textPrimary" gutterBottom variant="body1">
-        ★ここに何かしら書いた方が良いかもしれません。timelineとの間隔空けて、中央揃え、画像を追加し、左画像・右文章のようなイメージ、ここも動的に変更可能にする。
+        {sectionComment?.sectionComment}
       </Typography>
     </>
   );

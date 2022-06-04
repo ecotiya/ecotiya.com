@@ -14,7 +14,7 @@ const Skill = (props: SkillProps) => {
       mainAppsData={mainAppsData}
       sectionConstants={ComponentSection.SKILL}
     >
-      <SkillTables />
+      <SkillTables mainAppsData={mainAppsData} />
     </CommonSection>
   );
 };

@@ -11,3 +11,10 @@ export const ComponentSection = {
   SKILL: 'skill',
   CONTACT: 'contact',
 };
+
+/** スキル分野 */
+export const SkillField = {
+  BACKEND: 'Backend',
+  FRONTEND: 'Frontend',
+  DEVOPS: 'DevOps',
+};

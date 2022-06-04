@@ -13,15 +13,11 @@ import { styled } from '@mui/material/styles';
 import Rating from '@mui/material/Rating';
 import StarIcon from '@mui/icons-material/Star';
 import Grid from '@mui/material/Grid';
-
-interface SkillTableData {
-  skillName: string;
-  experienceYm: number;
-}
+import { Skills } from '../../interface/CommonInterface';
 
 type SkillTableProps = {
   tabletitle: string;
-  table: SkillTableData[];
+  table: Skills[];
 };
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
