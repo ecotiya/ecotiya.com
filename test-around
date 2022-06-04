@@ -5,14 +5,14 @@
 #
 #   Riakuto! Project by Klemiwary Books
 
-targetProjects=(
-  "frontend"
-)
+#targetProjects=(
+#  "frontend"
+#)
 
 # execute each test
-rootDir=$(pwd | sed -r "s/\/\.git\/hooks//")
+#rootDir=$(pwd | sed -r "s/\/\.git\/hooks//")
 
-for project in ${targetProjects[@]}; do
-  cd "$rootDir/$project"
-  CI=true npm test
-done
+#for project in ${targetProjects[@]}; do
+#  cd "$rootDir/$project"
+#  CI=true npm test
+#done
