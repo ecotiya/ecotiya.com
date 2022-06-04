@@ -1,7 +1,5 @@
 package com.app.ecotiya.domain.entity;
 
-import java.time.LocalDate;
-
 public class MCareer {
 
   /**

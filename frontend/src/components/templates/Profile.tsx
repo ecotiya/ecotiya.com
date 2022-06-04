@@ -1,22 +1,20 @@
 import { CommonSection, ProfileDetail } from '../organisms/index';
-import { SectionTitles } from '../../interface/CommonInterface';
+import { MainApps } from '../../interface/CommonInterface';
+import { ComponentSection } from '../../constants/CommonConstants';
 
 type ProfileProps = {
-  sectionTitleData: SectionTitles;
+  mainAppsData: MainApps;
 };
 
 const Profile = (props: ProfileProps) => {
-  const { sectionTitleData } = props;
+  const { mainAppsData } = props;
 
-  // dataをまるごと渡したい。
   return (
     <CommonSection
-      section={sectionTitleData.sectionKindCode}
-      viewtitle={sectionTitleData.sectionTitle}
-      viewsubtitle={sectionTitleData.sectionSubTitle}
-      showFlg={sectionTitleData.showFlg}
+      mainAppsData={mainAppsData}
+      sectionConstants={ComponentSection.PROFILE}
     >
-      <ProfileDetail sectionTitleData={sectionTitleData} />
+      <ProfileDetail mainAppsData={mainAppsData} />
     </CommonSection>
   );
 };

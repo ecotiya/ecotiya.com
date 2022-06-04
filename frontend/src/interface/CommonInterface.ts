@@ -1,10 +1,10 @@
 // MainAppインターフェース
 export interface MainApps {
-  sectionTitles: SectionTitles;
-  sectionComments: SectionComments;
-  careers: Careers;
-  skills: Skills;
-  inquiryKinds: InquiryKinds;
+  sectionTitleList: SectionTitles[];
+  sectionCommentList: SectionComments[];
+  careerList: Careers[];
+  skillList: Skills[];
+  inquiryKindsList: InquiryKinds[];
 }
 
 // セクションタイトルマスタ

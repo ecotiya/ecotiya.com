@@ -13,13 +13,13 @@ import lombok.Data;
 @Data
 public class MainAppModel {
 
-  private List<MSectionTitle> mSectionTitleList;
+  private List<MSectionTitle> sectionTitleList;
 
-  private List<MSectionComment> mSectionCommentList;
+  private List<MSectionComment> sectionCommentList;
 
-  private List<MCareer> mCareerList;
+  private List<MCareer> careerList;
 
-  private List<MSkill> mSkillList;
+  private List<MSkill> skillList;
 
-  private List<MInquiryKinds> mInquiryKindsList;
+  private List<MInquiryKinds> inquiryKindsList;
 }

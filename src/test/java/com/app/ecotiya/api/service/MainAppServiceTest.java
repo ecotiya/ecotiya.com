@@ -1,13 +1,5 @@
 package com.app.ecotiya.api.service;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.mockito.Mockito.times;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
-
-import java.util.ArrayList;
-import java.util.List;
-
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -15,9 +7,7 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
-import com.app.ecotiya.api.model.MainAppModel;
 import com.app.ecotiya.api.service.impl.MainAppServiceImpl;
-import com.app.ecotiya.domain.entity.MCareer;
 import com.app.ecotiya.domain.repository.MCareerMapper;
 
 public class MainAppServiceTest {
@@ -61,22 +51,22 @@ public class MainAppServiceTest {
     //    mSiteComments.add(mSiteComment4);
     //    when(mSiteCommentMapper.selectAll()).thenReturn(mSiteComments);
 
-    // m_career test  =========================
-    MCareer mCareer1 = new MCareer();
-    mCareer1.setCareerDate("2016/01");
-    mCareer1.setCareerTitle("就職");
-    mCareer1.setCareerContents("プログラマになる");
-
-    List<MCareer> mCareers = new ArrayList<>();
-    mCareers.add(mCareer1);
-    when(mCareerMapper.selectAll()).thenReturn(mCareers);
-
-    // check  =========================
-    MainAppModel actuals = service.retrieve();
-    //    assertEquals(4, actuals.getMSiteCommentList().size());
-    //    verify(mSiteCommentMapper, times(1)).selectAll();
-
-    assertEquals(1, actuals.getMCareerList().size());
-    verify(mCareerMapper, times(1)).selectAll();
+    //    // m_career test  =========================
+    //    MCareer mCareer1 = new MCareer();
+    //    mCareer1.setCareerDate("2016/01");
+    //    mCareer1.setCareerTitle("就職");
+    //    mCareer1.setCareerContents("プログラマになる");
+    //
+    //    List<MCareer> mCareers = new ArrayList<>();
+    //    mCareers.add(mCareer1);
+    //    when(mCareerMapper.selectAll()).thenReturn(mCareers);
+    //
+    //    // check  =========================
+    //    MainAppModel actuals = service.retrieve();
+    //    //    assertEquals(4, actuals.getMSiteCommentList().size());
+    //    //    verify(mSiteCommentMapper, times(1)).selectAll();
+    //
+    //    assertEquals(1, actuals.getMCareerList().size());
+    //    verify(mCareerMapper, times(1)).selectAll();
   }
 }

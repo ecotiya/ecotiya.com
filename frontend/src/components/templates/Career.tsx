@@ -1,19 +1,18 @@
 import { CommonSection, CareerTimeline } from '../organisms/index';
-import { SectionTitles } from '../../interface/CommonInterface';
+import { MainApps } from '../../interface/CommonInterface';
+import { ComponentSection } from '../../constants/CommonConstants';
 
 type CareerProps = {
-  sectionTitleData: SectionTitles;
+  mainAppsData: MainApps;
 };
 
 const Career = (props: CareerProps) => {
-  const { sectionTitleData } = props;
+  const { mainAppsData } = props;
 
   return (
     <CommonSection
-      section={sectionTitleData.sectionKindCode}
-      viewtitle={sectionTitleData.sectionTitle}
-      viewsubtitle={sectionTitleData.sectionSubTitle}
-      showFlg={sectionTitleData.showFlg}
+      mainAppsData={mainAppsData}
+      sectionConstants={ComponentSection.CAREER}
     >
       <CareerTimeline />
     </CommonSection>

@@ -12,3 +12,7 @@ spring:
     username: ecotiya
     password: 8q_7PfepDM!Ect_7nvhh
     driverClassName: com.mysql.cj.jdbc.Driver
+
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true

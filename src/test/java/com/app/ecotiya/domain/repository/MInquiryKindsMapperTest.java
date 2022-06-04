@@ -2,6 +2,8 @@ package com.app.ecotiya.domain.repository;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+import java.util.List;
+
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,10 +25,7 @@ public class MInquiryKindsMapperTest extends EcotiyaBaseMapperTest {
   @DisplayName("INSERT TEST: Check if the data is inserted as expected.")
   @Test
   public void testInsert() {
-    MInquiryKinds mInquiryKinds = new MInquiryKinds();
-    mInquiryKinds.setInquiryKindCode("test");
-    mInquiryKinds.setInquiryKindName("テスト");
-
-    assertEquals(1, mapper.insert(mInquiryKinds));
+    List<MInquiryKinds> mInquiryKinds = mapper.selectAll();
+    assertEquals(3, mInquiryKinds.size());
   }
 }

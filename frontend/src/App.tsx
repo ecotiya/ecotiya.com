@@ -2,8 +2,7 @@ import { FC } from 'react';
 
 import CssBaseline from '@mui/material/CssBaseline';
 import { makeStyles } from '@mui/styles';
-import Header from './components/organisms/Header';
-import Footer from './components/organisms/Footer';
+import { Header, Footer } from './components/organisms/index';
 import Landing from './components/pages/Landing';
 
 const useStyles = makeStyles({

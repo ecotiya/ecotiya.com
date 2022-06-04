@@ -12,20 +12,20 @@ import org.springframework.context.annotation.Import;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.app.ecotiya.api.config.DbConfig;
-import com.app.ecotiya.domain.entity.MCareer;
+import com.app.ecotiya.domain.entity.MSectionComment;
 import com.app.ecotiya.domain.repository.base.EcotiyaBaseMapperTest;
 
 @SpringBootTest
 @Transactional
 @Import(DbConfig.class)
-public class MCareerMapperTest extends EcotiyaBaseMapperTest {
+public class MSectionCommentMapperTest extends EcotiyaBaseMapperTest {
 
-  @Autowired private MCareerMapper mapper;
+  @Autowired private MSectionCommentMapper mapper;
 
   @DisplayName("SELECT TEST: Check if all records retrieved.")
   @Test
   public void testSelectAll() {
-    List<MCareer> mCareers = mapper.selectAll();
-    assertEquals(9, mCareers.size());
+    List<MSectionComment> mSectionComment = mapper.selectAll();
+    assertEquals(2, mSectionComment.size());
   }
 }

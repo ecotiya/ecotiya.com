@@ -1,95 +1,96 @@
+/* eslint-disable @typescript-eslint/no-floating-promises */
+/* eslint-disable @typescript-eslint/no-unsafe-argument */
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import * as React from 'react';
+import applyCaseMiddleware from 'axios-case-converter';
 import axios, { AxiosRequestConfig, AxiosResponse, AxiosError } from 'axios';
 import { ApiRoutesPath } from '../../constants/CommonConstants';
-import { MainApps, SectionTitles } from '../../interface/CommonInterface';
-import { Home, Profile, Career, Skill, Contact } from '../templates/index';
+import { MainApps } from '../../interface/CommonInterface';
+import {
+  Home,
+  Profile,
+  Career,
+  Skill,
+  Contact,
+  NotFound,
+} from '../templates/index';
 
-const createSectionTitle = (
-  sectionKindCode: string,
-  sectionTitle: string,
-  sectionSubTitle: string,
-  remarks1: string,
-  remarks2: string,
-  showFlg: boolean,
-): SectionTitles => ({
-  sectionKindCode,
-  sectionTitle,
-  sectionSubTitle,
-  remarks1,
-  remarks2,
-  showFlg,
-});
+// ======================== Start
+// axios.defaults.xsrfCookieName = 'CSRF-TOKEN';
+// axios.defaults.xsrfHeaderName = 'X-CSRF-Token';
+// axios.defaults.withCredentials = true;
 
-const profileSectionTitle = createSectionTitle(
-  'profile',
-  '【私について】',
-  'コメントを書いた方が良いです。',
-  '/assets/ecotiya.png',
-  'ecotiya',
-  true,
-);
-
-const careerSectionTitle = createSectionTitle(
-  'career',
-  '【経歴】',
-  'コメントを書いた方が良いです。',
-  '',
-  '',
-  true,
-);
-
-const skillSectionTitle = createSectionTitle(
-  'skill',
-  '【スキルセット】',
-  'コメントを書いた方が良いです。',
-  '',
-  '',
-  true,
-);
-
-const contactSectionTitle = createSectionTitle(
-  'contact',
-  '【お問い合わせ】',
-  'ここまで、ご覧いただきありがとうございます。私への問い合わせは、下記フォームをご利用ください😀',
-  '',
-  '',
-  true,
-);
-
-const options: AxiosRequestConfig = {
-  url: `${ApiRoutesPath.BASE_URL}`,
-  method: 'GET',
+const options = {
+  headers: { 'Content-Type': 'application/json' },
+  withCredentials: true,
+  ignoreHeaders: true,
 };
+
+const client = applyCaseMiddleware(
+  axios.create({
+    baseURL: ApiRoutesPath.BASE_URL,
+  }),
+);
+// ======================== END
+
+// const options: AxiosRequestConfig = {
+//   headers: { 'Content-Type': 'application/json' },
+//   withCredentials: true,
+//   url: `${ApiRoutesPath.BASE_URL}`,
+//   method: 'GET',
+// };
+
+const showLanding = (mainApps: MainApps) => (
+  <>
+    <Home />
+    <Profile mainAppsData={mainApps} />
+    <Career mainAppsData={mainApps} />
+    <Skill mainAppsData={mainApps} />
+    <Contact mainAppsData={mainApps} />
+  </>
+);
+
+const showNotFound = () => <NotFound />;
 
 const Landing = () => {
   const [mainApps, setMainApps] = React.useState<MainApps>();
 
-  const fetchMyProfileData = () => {
-    axios(options)
-      .then((res: AxiosResponse<MainApps>) => {
-        const { data } = res;
+  const fetchMyProfileData = () =>
+    axios({
+      method: 'get',
+      url: 'http://localhost:8080/api/',
+      responseType: 'stream',
+    })
+      .then((response) => {
+        // 成功
+        console.log('registration res', response);
+        const { data } = response;
         setMainApps(data);
       })
-      .catch((e: AxiosError<{ error: string }>) => {
-        // エラー処理
-        // console.log(e.message);
+      .catch((error) => {
+        // 失敗
+        console.log('registration error', error);
+        alert('データベースへのアクセスに失敗しました。');
       });
-  };
-
+  // axios(options)
+  //   .then((res: AxiosResponse<MainApps>) => {
+  //     const { data } = res;
+  //     setMainApps(data);
+  //   })
+  //   .catch((e: AxiosError<{ error: string }>) =>
+  //     // エラー処理
+  //     console.log(e),
+  //   );
   // これでデータ取得する。
   React.useEffect(() => {
     fetchMyProfileData();
   }, []);
 
   return (
-    <>
-      <Home />
-      <Profile sectionTitleData={profileSectionTitle} />
-      <Career sectionTitleData={careerSectionTitle} />
-      <Skill sectionTitleData={skillSectionTitle} />
-      <Contact sectionTitleData={contactSectionTitle} />
-    </>
+    <div>
+      {typeof mainApps === 'undefined' ? showNotFound() : showLanding(mainApps)}
+    </div>
   );
 };
 

@@ -2,8 +2,8 @@ import Divider from '@mui/material/Divider';
 import Typography from '@mui/material/Typography';
 
 export type ViewTitleProps = {
-  title: string;
-  subtitle: string;
+  title: string | undefined;
+  subtitle: string | undefined;
 };
 
 const ViewTitle = (props: ViewTitleProps) => {

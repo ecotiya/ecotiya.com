@@ -2,7 +2,7 @@ import { Grid, Typography } from '@mui/material';
 import { makeStyles } from '@mui/styles';
 
 type ProfileContentProps = {
-  content: string;
+  content: string | undefined;
 };
 
 const useStyles = makeStyles({

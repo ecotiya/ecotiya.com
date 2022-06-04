@@ -24,11 +24,11 @@ public class MainAppServiceImpl implements MainAppService {
   public MainAppModel retrieve() {
 
     MainAppModel mainAppDataModel = new MainAppModel();
-    mainAppDataModel.setMSectionTitleList(mSectionTitleMapper.selectAll());
-    mainAppDataModel.setMSectionCommentList(mSectionCommentMapper.selectAll());
-    mainAppDataModel.setMCareerList(mCareerMapper.selectAll());
-    mainAppDataModel.setMSkillList(mSkillMapper.selectAll());
-    mainAppDataModel.setMInquiryKindsList(mInquiryKindsMapper.selectAll());
+    mainAppDataModel.setSectionTitleList(mSectionTitleMapper.selectAll());
+    mainAppDataModel.setSectionCommentList(mSectionCommentMapper.selectAll());
+    mainAppDataModel.setCareerList(mCareerMapper.selectAll());
+    mainAppDataModel.setSkillList(mSkillMapper.selectAll());
+    mainAppDataModel.setInquiryKindsList(mInquiryKindsMapper.selectAll());
 
     return mainAppDataModel;
   }

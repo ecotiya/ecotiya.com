@@ -1,22 +1,30 @@
 import { Grid } from '@mui/material';
 import { ProfileAvatar, ProfileContent } from '../molecules/index';
-
-import { SectionTitles } from '../../interface/CommonInterface';
+import { ComponentSection } from '../../constants/CommonConstants';
+import { MainApps } from '../../interface/CommonInterface';
 
 type ProfileDetailProps = {
-  sectionTitleData: SectionTitles;
+  mainAppsData: MainApps;
 };
 
 const ProfileDetail = (props: ProfileDetailProps) => {
-  const { sectionTitleData } = props;
+  const { mainAppsData } = props;
+
+  const sectionTitle = mainAppsData.sectionTitleList.find(
+    (obj) => obj.sectionKindCode === ComponentSection.PROFILE,
+  );
+
+  const sectionComment = mainAppsData.sectionCommentList.find(
+    (obj) => obj.sectionKindCode === ComponentSection.PROFILE,
+  );
 
   return (
     <Grid container spacing={1}>
       <ProfileAvatar
-        avatar={sectionTitleData.remarks1}
-        name={sectionTitleData.remarks2}
+        avatar={sectionTitle?.remarks1}
+        name={sectionTitle?.remarks2}
       />
-      <ProfileContent content="" />
+      <ProfileContent content={sectionComment?.sectionComment} />
     </Grid>
   );
 };
