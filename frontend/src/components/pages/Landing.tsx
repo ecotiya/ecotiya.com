@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import * as React from 'react';
 import axios, { AxiosRequestConfig, AxiosResponse, AxiosError } from 'axios';
 import { ApiRoutesPath } from '../../constants/CommonConstants';
