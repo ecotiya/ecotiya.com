@@ -15,7 +15,7 @@ const Contact = (props: ContactProps) => {
       sectionConstants={ComponentSection.CONTACT}
     >
       <form>
-        <ContactTexts />
+        <ContactTexts mainAppsData={mainAppsData} />
       </form>
     </CommonSection>
   );

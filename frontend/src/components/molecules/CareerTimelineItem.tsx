@@ -13,10 +13,10 @@ import DirectionsBikeIcon from '@mui/icons-material/DirectionsBike';
 import { makeStyles } from '@mui/styles';
 
 type CareerTimelineItemProps = {
-  yearmonth: string;
-  careerdivision: string;
-  careertitle: string;
-  careercontent: string;
+  careerDate: string;
+  careerDivision: string;
+  careerTitle: string;
+  careerContents: string;
 };
 
 const useStyles = makeStyles({
@@ -43,7 +43,7 @@ const getTimelineIcon = (careerdivision: string) => {
 };
 
 const CareerTimelineItem = (props: CareerTimelineItemProps) => {
-  const { yearmonth, careerdivision, careertitle, careercontent } = props;
+  const { careerDate, careerDivision, careerTitle, careerContents } = props;
   const classes = useStyles();
 
   return (
@@ -54,22 +54,22 @@ const CareerTimelineItem = (props: CareerTimelineItemProps) => {
         }}
       >
         <Typography variant="body2" color="textSecondary">
-          {yearmonth}
+          {careerDate}
         </Typography>
       </TimelineOppositeContent>
       <TimelineSeparator>
         {/* ↓iconに色を付けることができる */}
         <TimelineDot color="primary" variant="outlined">
-          {getTimelineIcon(careerdivision)}
+          {getTimelineIcon(careerDivision)}
         </TimelineDot>
         <TimelineConnector />
       </TimelineSeparator>
       <TimelineContent>
         <Paper elevation={3} className={classes.paper}>
           <Typography variant="h6" component="h1">
-            {careertitle}
+            {careerTitle}
           </Typography>
-          <Typography>{careercontent}</Typography>
+          <Typography>{careerContents}</Typography>
         </Paper>
       </TimelineContent>
     </TimelineItem>

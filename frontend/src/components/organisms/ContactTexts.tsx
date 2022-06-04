@@ -5,23 +5,16 @@ import Button from '@mui/material/Button';
 import Grid from '@mui/material/Grid';
 import ContactTextInput from '../atoms/ContactTextInput';
 import { ContactAlertError, ContactDialog } from '../molecules/index';
+import { MainApps } from '../../interface/CommonInterface';
 
-const inquiryKinds = [
-  {
-    value: 'question',
-    label: 'ご質問',
-  },
-  {
-    value: 'request',
-    label: 'ご要望',
-  },
-  {
-    value: 'others',
-    label: 'その他',
-  },
-];
+type ContactTextsProps = {
+  mainAppsData: MainApps;
+};
 
-const ContactTexts = () => {
+const ContactTexts = (props: ContactTextsProps) => {
+  const { mainAppsData } = props;
+  const inquiryKinds = mainAppsData.inquiryKindsList;
+
   const [username, setUserName] = React.useState<string>('');
   const [email, setEmail] = React.useState<string>('');
   const [inquiryKind, setInquiryKind] = React.useState<string>('');
@@ -55,9 +48,11 @@ const ContactTexts = () => {
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setInquiryKind(event.target.value);
 
-    const result = inquiryKinds.find((v) => v.value === event.target.value);
+    const result = inquiryKinds.find(
+      (v) => v.inquiryKindCode === event.target.value,
+    );
     if (result !== undefined) {
-      setInquiryKindLable(result.label);
+      setInquiryKindLable(result.inquiryKindName);
     }
   };
 
@@ -130,8 +125,11 @@ const ContactTexts = () => {
           sx={{ textAlign: 'left' }}
         >
           {inquiryKinds.map((option) => (
-            <MenuItem key={option.value} value={option.value}>
-              {option.label}
+            <MenuItem
+              key={option.inquiryKindCode}
+              value={option.inquiryKindCode}
+            >
+              {option.inquiryKindName}
             </MenuItem>
           ))}
         </TextField>

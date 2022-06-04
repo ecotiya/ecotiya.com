@@ -14,7 +14,7 @@ const Career = (props: CareerProps) => {
       mainAppsData={mainAppsData}
       sectionConstants={ComponentSection.CAREER}
     >
-      <CareerTimeline />
+      <CareerTimeline mainAppsData={mainAppsData} />
     </CommonSection>
   );
 };
