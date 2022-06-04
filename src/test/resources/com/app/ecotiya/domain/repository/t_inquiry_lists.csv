@@ -1,0 +1,4 @@
+inquiry_id,user_name,mail_address,inquiry_kind_code,contents,create_at
+1,ecotiya,ecotiya@ecotiya.com,question,質問です。,2022-05-14 05:14:00
+2,ecotiya,ecotiya@ecotiya.com,request,要望です。,2022-05-14 05:14:00
+3,ecotiya,ecotiya@ecotiya.com,others,その他です。,2022-05-14 05:14:00
