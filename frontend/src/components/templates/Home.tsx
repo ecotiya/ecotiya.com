@@ -1,4 +1,6 @@
 import { makeStyles } from '@mui/styles';
+import { HashLink } from 'react-router-hash-link';
+import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
 
 const useStyles = makeStyles({
   root: {
@@ -25,6 +27,13 @@ const useStyles = makeStyles({
   },
 });
 
+// HashLink用のイベント(移動場所が若干ずれるので、対応)
+const scrollWithOffset = (el: HTMLElement) => {
+  const yCoordinate = el.getBoundingClientRect().top + window.pageYOffset;
+  const yOffset = -80;
+  window.scrollTo({ top: yCoordinate + yOffset, behavior: 'smooth' });
+};
+
 const Home = () => {
   const classes = useStyles();
 
@@ -37,6 +46,9 @@ const Home = () => {
             My <span className={classes.colorText}>Page.</span>
           </h1>
           <h5 className={classes.subtitle}>ようこそ、ゲストさん</h5>
+          <HashLink to="#profile" scroll={(el) => scrollWithOffset(el)}>
+            <ArrowDownwardIcon fontSize="large" />
+          </HashLink>
         </div>
       </div>
     </section>
