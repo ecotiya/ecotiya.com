@@ -14,25 +14,8 @@ services:
       - ./mysql/data:/var/lib/mysql # 実データの永続化
       - ./mysql/log:/var/log/mysql  # logの永続化
 
-  dbclient:
-    image: phpmyadmin/phpmyadmin
-    container_name: ecotiya_dbclient
-    environment:
-      - PMA_ARBITRARY=1         # 任意のサーバーへの接続を許可
-      - PMA_HOST=ecotiya_mysql  # 接続先ホスト名　ここではdbサーバーのコンテナ名を指定
-      - PMA_USER=root           # MySQLの設定と合わせておく
-      - PMA_PASSWORD=root       # MySQLの設定と合わせておく
-    links:
-      - mysql
-    ports:
-      - 4200:100
-    volumes:
-      - ./dbclient/sessions:/sessions
-    depends_on:
-      - mysql # 「mysql」の後で起動
-
   # nginx:
-  #   container_name: wicum_nginx_container
+  #   container_name: ecotiya_web
   #   build:
   #     context: ./web
   #     dockerfile: Dockerfile
@@ -50,11 +33,11 @@ services:
     build:
       context: ./frontend
       dockerfile: Dockerfile
-    command: sh -c 'yarn start'
+    working_dir: /app-frontend
     volumes:
-      - ../../frontend:/app-frontend
+      - ../frontend:/app-frontend
     ports:
-      - "8080:3000"
+      - "3000:8080"
     tty: true
     depends_on:
       - backend
@@ -72,6 +55,5 @@ services:
       - ../backend:/app-backend # Spring Bootのプロジェクト
     ports:
       - 8080:8080 # 通常実行
-      - 5050:5050 # デバッグ用
     depends_on:
       - mysql # 「mysql」の後で起動

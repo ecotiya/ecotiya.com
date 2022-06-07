@@ -4,10 +4,6 @@ ENV NODE_VERSION 18.2.0
 ENV LANG=C.UTF-8  \
     TZ=Asia/Tokyo
 
-# # docker内に入った時の初期パスの指定及び、dockerへのローカルファイルコピー
-# WORKDIR /frontend
-# COPY ../../frontend /frontend
-
 # コンテナの使用ポート
 EXPOSE 3000
 
