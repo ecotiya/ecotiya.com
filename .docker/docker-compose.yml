@@ -1,32 +1,35 @@
 version: '3.8'
 services:
   mysql:
+    container_name: ecotiya_mysql
     build:
       context: ./mysql
       dockerfile: Dockerfile
-    container_name: ecotiya_mysql
+    restart: always
     env_file:
-      - ./mysql/db.env
+      - ./mysql/db.env.local
     ports:
-      - 3306:3306
+      - 3310:3306
     volumes:
-      - ./mysql/settings/initdb.d:/docker-entrypoint-initdb.d
       - ./mysql/data:/var/lib/mysql # 実データの永続化
       - ./mysql/log:/var/log/mysql  # logの永続化
+    networks:
+      - backend
 
-  # nginx:
-  #   container_name: ecotiya_web
-  #   build:
-  #     context: ./web
-  #     dockerfile: Dockerfile
-  #   restart: on-failure
-  #   volumes:
-  #     - public-data:/myapp/public
-  #     - tmp-data:/myapp/tmp
-  #   ports:
-  #     - "80:80"
-  #   depends_on:
-  #     - backend
+  proxy:
+    container_name: ecotiya_web
+    build:
+      context: ./web
+      dockerfile: Dockerfile
+    restart: on-failure
+    # volumes:
+    #   - public-data:/myapp/public
+    #   - tmp-data:/myapp/tmp
+    ports:
+      - "80:80"
+    depends_on:
+      - frontend
+
 
   frontend:
     container_name: ecotiya_frontend
@@ -37,23 +40,32 @@ services:
     volumes:
       - ../frontend:/app-frontend
     ports:
-      - "3000:8080"
+      - "3000:3000"
     tty: true
     depends_on:
       - backend
+    networks:
+      - frontend  
 
   backend:
+    container_name: ecotiya_backend
     build:
       context: ./backend
       dockerfile: Dockerfile
-    container_name: ecotiya_backend
     env_file:
-      - ./mysql/db.env # mysqlと同じものを指定
+      - ./mysql/db.env.local # mysqlと同じものを指定
     tty: true
     working_dir: /app-backend
     volumes:
       - ../backend:/app-backend # Spring Bootのプロジェクト
     ports:
-      - 8080:8080 # 通常実行
+      - 8080:8080
     depends_on:
       - mysql # 「mysql」の後で起動
+    networks:
+      - backend
+      - frontend
+
+networks:
+  backend:
+  frontend:  
