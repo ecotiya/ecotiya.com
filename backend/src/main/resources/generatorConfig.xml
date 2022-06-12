@@ -21,7 +21,7 @@
     <jdbcConnection 
     	connectionURL="jdbc:mysql://localhost:3306/ecotiya_com"
     	driverClass="com.mysql.cj.jdbc.Driver"
-    	password="8q_7PfepDM!Ect_7nvhh"
+    	password="ecotiya"
     	userId="ecotiya" >
     	<property name="nullCatalogMeansCurrent" value="true" />
     </jdbcConnection>

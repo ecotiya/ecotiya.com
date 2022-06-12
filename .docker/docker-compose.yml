@@ -13,22 +13,20 @@ services:
     volumes:
       - ./mysql/data:/var/lib/mysql # 実データの永続化
       - ./mysql/log:/var/log/mysql  # logの永続化
-    networks:
-      - backend
 
-  proxy:
-    container_name: ecotiya_web
-    build:
-      context: ./web
-      dockerfile: Dockerfile
-    restart: on-failure
+  #proxy:
+  #  container_name: ecotiya_web
+  #  build:
+  #    context: ./web
+  #    dockerfile: Dockerfile
+  #  restart: on-failure
     # volumes:
     #   - public-data:/myapp/public
     #   - tmp-data:/myapp/tmp
-    ports:
-      - "80:80"
-    depends_on:
-      - frontend
+  #  ports:
+  #    - "80:80"
+  #  depends_on:
+  #    - frontend
 
 
   frontend:
@@ -42,16 +40,15 @@ services:
     ports:
       - "3000:3000"
     tty: true
-    depends_on:
+    links:
       - backend
-    networks:
-      - frontend  
+    depends_on:
+      - mysql
+      - backend
 
   backend:
+    image: openjdk:17
     container_name: ecotiya_backend
-    build:
-      context: ./backend
-      dockerfile: Dockerfile
     env_file:
       - ./mysql/db.env.local # mysqlと同じものを指定
     tty: true
@@ -59,13 +56,8 @@ services:
     volumes:
       - ../backend:/app-backend # Spring Bootのプロジェクト
     ports:
-      - 8080:8080
+      - 8080:8080 # 通常実行
+    links:
+      - mysql
     depends_on:
-      - mysql # 「mysql」の後で起動
-    networks:
-      - backend
-      - frontend
-
-networks:
-  backend:
-  frontend:  
+      - mysql

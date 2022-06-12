@@ -8,9 +8,9 @@ spring:
   
   # Datasource
   datasource:
-    url: jdbc:mysql://localhost:3306/ecotiya_com
+    url: jdbc:mysql://localhost:3310/ecotiya_com
     username: ecotiya
-    password: 8q_7PfepDM!Ect_7nvhh
+    password: ecotiya
     driverClassName: com.mysql.cj.jdbc.Driver
 
 mybatis:
