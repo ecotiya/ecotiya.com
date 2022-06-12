@@ -19,7 +19,7 @@
             </transactionManager>
             <dataSource type="UNPOOLED">
                 <property name="driver" value="com.mysql.cj.jdbc.Driver" />
-                <property name="url" value="jdbc:mysql://localhost:3306/ecotiya_com" />
+                <property name="url" value="jdbc:mysql://localhost:3310/ecotiya_com" />
                 <property name="username" value="ecotiya" />
                 <property name="password" value="ecotiya" />
             </dataSource>

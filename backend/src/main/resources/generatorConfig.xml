@@ -19,7 +19,7 @@
     
     <!-- MySQL DBの接続先情報 -->
     <jdbcConnection 
-    	connectionURL="jdbc:mysql://localhost:3306/ecotiya_com"
+    	connectionURL="jdbc:mysql://localhost:3310/ecotiya_com"
     	driverClass="com.mysql.cj.jdbc.Driver"
     	password="ecotiya"
     	userId="ecotiya" >
