@@ -13,8 +13,6 @@ services:
     volumes:
       - ./mysql/data:/var/lib/mysql # 実データの永続化
       - ./mysql/log:/var/log/mysql  # logの永続化
-    #networks:
-    #  - backend-networks
 
   #proxy:
   #  container_name: ecotiya_web
@@ -37,6 +35,7 @@ services:
       context: ./frontend
       dockerfile: Dockerfile
     tty: true
+    restart: always
     working_dir: /app-frontend
     volumes:
       - ../frontend:/app-frontend
@@ -45,9 +44,6 @@ services:
     depends_on:
       backend:
           condition: service_started
-    #networks:
-    #  - frontend-networks
-    #  - backend-networks
 
   backend:
     container_name: ecotiya_backend
@@ -60,21 +56,14 @@ services:
       SPRING_DATASOURCE_URL: jdbc:mysql://db/ecotiya_com
     stdin_open: true
     tty: true
+    restart: always
     working_dir: /app-backend
     volumes:
       - ../backend:/app-backend # Spring Bootのプロジェクト
     command:
-      bash -c "./gradlew build && java -war build/libs/ecotiya-0.0.1-SNAPSHOT.war"
-      #bash -c "./gradlew build && java -war build/libs/ecotiya-0.0.1-SNAPSHOT.war --spring.datasource.url="jdbc:mysql://db:3310/ecotiya_com""
+      bash -c "./gradlew build && gradle bootRun"
     ports:
       - 8080:8080 # 通常実行
     depends_on:
       db:
         condition: service_started
-    #networks:
-    #  - backend-networks
-
-#networks:
-#  frontend-networks:
-#  backend-networks:
-#      external: true
