@@ -14,20 +14,30 @@ services:
       - ./mysql/data:/var/lib/mysql # 実データの永続化
       - ./mysql/log:/var/log/mysql  # logの永続化
 
-  #proxy:
-  #  container_name: ecotiya_web
-  #  build:
-  #    context: ./web
-  #    dockerfile: Dockerfile
-  #  restart: on-failure
-    # volumes:
-    #   - public-data:/myapp/public
-    #   - tmp-data:/myapp/tmp
-  #  ports:
-  #    - "80:80"
-  #  depends_on:
-  #    - frontend
+  nginx-proxy:
+    image: jwilder/nginx-proxy
+    container_name: ecotiya_nginx-proxy
+    ports:
+      - 80:80
+      - 443:443
+    volumes:
+      - conf:/etc/nginx/conf.d
+      - certs:/etc/nginx/certs:ro
+      - vhost:/etc/nginx/vhost.d
+      - html:/usr/share/nginx/html
+      - /var/run/docker.sock:/tmp/docker.sock:ro
+    restart: always
 
+  acme-companion:
+    image: nginxproxy/acme-companion
+    container_name: ecotiya_nginx-proxy-acme
+    volumes_from:
+      - nginx-proxy
+    volumes:
+      - certs:/etc/nginx/certs:rw
+      - acme:/etc/acme.sh
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+    restart: always
 
   frontend:
     container_name: ecotiya_frontend
@@ -67,3 +77,10 @@ services:
     depends_on:
       db:
         condition: service_started
+
+volumes:
+  conf:
+  certs:
+  vhost:
+  html:
+  acme:
