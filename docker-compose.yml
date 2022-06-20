@@ -21,7 +21,7 @@ services:
       dockerfile: Dockerfile
     restart: on-failure
     volumes:
-      - ./containers/nginx/:/etc/nginx/conf.d/
+      - ./nginx/:/etc/nginx/conf.d/
     ports:
       - 80:80
     depends_on:
@@ -37,9 +37,6 @@ services:
       dockerfile: Dockerfile
     tty: true
     restart: always
-    working_dir: /app-frontend
-    volumes:
-      - ../frontend:/app-frontend
     ports:
       - 3000:3000
     depends_on:
@@ -58,11 +55,6 @@ services:
     stdin_open: true
     tty: true
     restart: always
-    working_dir: /app-backend
-    volumes:
-      - ../backend:/app-backend
-    command:
-      bash -c "./gradlew build && gradle bootRun"
     ports:
       - 8080:8080
     depends_on:
