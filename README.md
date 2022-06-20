@@ -7,10 +7,10 @@
 docker-compose up -d --build
 
 #### 開発環境
-docker compose -f docker-compose-dev.yml up -d
+docker compose -f docker-compose-dev.yml up -d --build
 
 #### 本番環境
-docker compose -f docker-compose-prod.yml up -d
+docker compose -f docker-compose-prod.yml up -d --build
 
 
 ### ■停止

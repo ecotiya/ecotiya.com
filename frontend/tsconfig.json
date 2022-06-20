@@ -16,7 +16,7 @@
     "isolatedModules": true,                      /* 全てのコンパイル対象ファイルを単一のモジュールとしてコンパイルする。全ての対象ファイルにexport構文を含む必要がある。  */
     "noEmit": true,                               /* コンパイル結果を出力するか否か */
     "jsx": "react-jsx",                           /* コンパイルファイルの出力形式  */
-    "baseUrl": "./src",                             /* beseUrlを起点としたパス指定を可能にする */
+    "baseUrl": "./src",                           /* beseUrlを起点としたパス指定を可能にする */
 
     /* ========== コンパイル時の構文チェック ========== */
     "strict": true,                               /* 複数のエラーチェックをONにするか否か */
@@ -26,10 +26,10 @@
     "noImplicitReturns": true,                    /* 関数内の条件分岐で明示的なreturn文ない場合、コンパイルエラーにするか否か */
     "noFallthroughCasesInSwitch": true,           /* switch文のcase内でbreakが無い場合にコンパイルエラーにするか否か */
   },
-  "include": [                                     /* コンパイル対象ファイルを指定 */
+  "include": [                                    /* コンパイル対象ファイルを指定 */
     "src"
   ],
-  "exclude": [                                     /* コンパイル対象外ファイルを指定 */
+  "exclude": [                                    /* コンパイル対象外ファイルを指定 */
     "node_modules",
     "build",
   ],
