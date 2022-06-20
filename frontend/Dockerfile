@@ -35,11 +35,7 @@ RUN apk add --no-cache curl tzdata && \
 COPY --from=builder /tmp/node_modules ./node_modules
 COPY --from=builder /app/public ./public
 COPY --from=builder /app/src ./src
-COPY --from=builder /app/.eslintrc.js ./
-COPY --from=builder /app/.prettierrc ./
-COPY --from=builder /app/.stylelintrc.js ./
 COPY --from=builder /app/package.json ./
-COPY --from=builder /app/tsconfig.eslint.json ./
 COPY --from=builder /app/tsconfig.json ./
 
 ENV PORT 3000

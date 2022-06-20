@@ -46,7 +46,10 @@ const Home = () => {
             My <span className={classes.colorText}>Page.</span>
           </h1>
           <h5 className={classes.subtitle}>ようこそ、ゲストさん</h5>
-          <HashLink to="#profile" scroll={(el) => scrollWithOffset(el)}>
+          <HashLink
+            to="#profile"
+            scroll={(el: HTMLElement) => scrollWithOffset(el)}
+          >
             <ArrowDownwardIcon fontSize="large" />
           </HashLink>
         </div>
