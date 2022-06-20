@@ -1,0 +1,11 @@
+FROM gradle:7.4.2-jdk17-alpine as builder
+RUN mkdir -p /home/gradle/app
+WORKDIR /home/gradle/app
+ADD --chown=gradle:gradle . /home/gradle/app
+RUN /home/gradle/app/gradlew assemble
+
+###########
+FROM openjdk:17.0.1-jdk-slim
+EXPOSE 8080
+COPY --from=builder /home/gradle/app/build/libs/*.war /app.war
+CMD java -jar /app.war
