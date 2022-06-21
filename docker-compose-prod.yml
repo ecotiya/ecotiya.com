@@ -7,12 +7,12 @@ services:
       dockerfile: Dockerfile
     restart: always
     environment:
-      MYSQL_ROOT_HOST: ${MYSQL_ROOT_HOST:-%}
-      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:-root}
-      MYSQL_DATABASE: ${MYSQL_DATABASE:-ecotiya_com}
-      MYSQL_USER: ${MYSQL_USER:-ecotiya}
-      MYSQL_PASSWORD: ${MYSQL_PASSWORD:-ecotiya}
-      TZ: ${TZ:-Asia/Tokyo}
+      MYSQL_ROOT_HOST: ${MYSQL_ROOT_HOST}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+      TZ: ${TZ}
     ports:
       - 3310:3306
     volumes:
@@ -26,6 +26,8 @@ services:
       dockerfile: Dockerfile.prod
     tty: true
     restart: always
+    environment:
+      REACT_APP_API_BASE_URL: ${REACT_APP_API_BASE_URL}
     ports:
       - 80:80
     depends_on:
@@ -38,13 +40,13 @@ services:
       context: ./backend
       dockerfile: Dockerfile.prod
     environment:
-      MYSQL_ROOT_HOST: ${MYSQL_ROOT_HOST:-%}
-      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:-root}
-      MYSQL_DATABASE: ${MYSQL_DATABASE:-ecotiya_com}
-      MYSQL_USER: ${MYSQL_USER:-ecotiya}
-      MYSQL_PASSWORD: ${MYSQL_PASSWORD:-ecotiya}
-      TZ: ${TZ:-Asia/Tokyo}
-      SPRING_DATASOURCE_URL: ${SPRING_DATASOURCE_URL:-jdbc:mysql://db/ecotiya_com}
+      MYSQL_ROOT_HOST: ${MYSQL_ROOT_HOST}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+      TZ: ${TZ}
+      SPRING_DATASOURCE_URL: ${SPRING_DATASOURCE_URL}
     stdin_open: true
     tty: true
     restart: always

@@ -45,6 +45,8 @@ services:
     working_dir: /app-frontend
     volumes:
       - ./frontend:/app-frontend
+    environment:
+      REACT_APP_API_BASE_URL: ${REACT_APP_API_BASE_URL}
     ports:
       - 3000:3000
     depends_on:
@@ -52,10 +54,10 @@ services:
           condition: service_started
 
   backend:
-    container_name: ecotiya_backend_prod
+    container_name: ecotiya_backend_dev
     build:
       context: ./backend
-      dockerfile: Dockerfile.prod
+      dockerfile: Dockerfile.dev
     environment:
       MYSQL_ROOT_HOST: ${MYSQL_ROOT_HOST:-%}
       MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:-root}

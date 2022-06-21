@@ -7,19 +7,19 @@
 docker-compose up -d --build
 
 #### 開発環境
-docker compose -f docker-compose-dev.yml up -d --build
+docker-compose -f docker-compose-dev.yml up -d --build
 
 #### 本番環境
-docker compose -f docker-compose-prod.yml up -d --build
+docker-compose -f docker-compose-prod.yml up -d --build
 
 
 ### ■停止
 
 #### 開発環境
-docker compose -f docker-compose-dev.yml down
+docker-compose -f docker-compose-dev.yml down
 
 #### 本番環境
-docker compose -f docker-compose-prod.yml down
+docker-compose -f docker-compose-prod.yml down
 
 #### 全削除
 docker-compose -f docker-compose-dev.yml down --rmi all --volumes --remove-orphans

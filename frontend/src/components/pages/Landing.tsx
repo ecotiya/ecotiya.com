@@ -19,7 +19,7 @@ import {
 const options: AxiosRequestConfig = {
   headers: { 'Content-Type': 'application/json' },
   // withCredentials: true,
-  url: `${ApiRoutesPath.BASE_URL}`,
+  url: ApiRoutesPath.BASE_URL,
   method: 'GET',
 };
 
