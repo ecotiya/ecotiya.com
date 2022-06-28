@@ -1,4 +1,5 @@
-﻿insert into ecotiya_com.m_career(career_date,career_division,career_title,career_contents) values 
+﻿delete from ecotiya_com.m_career;
+insert into ecotiya_com.m_career(career_date,career_division,career_title,career_contents) values 
     ('2016/03','1','専門学校卒業','専門学校卒業')
   , ('2016/04','2','自社開発系企業入社','自社開発系企業入社')
   , ('2016/11','2','自社開発系企業退社','自社開発系企業退社')

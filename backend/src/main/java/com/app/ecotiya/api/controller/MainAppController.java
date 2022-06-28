@@ -1,5 +1,7 @@
 package com.app.ecotiya.api.controller;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -14,6 +16,8 @@ import com.app.ecotiya.api.service.MainAppService;
 @CrossOrigin("*")
 public class MainAppController {
 
+  Logger logger = LoggerFactory.getLogger(MainAppController.class);
+
   private MainAppService mainAppService;
 
   public MainAppController(MainAppService mainAppService) {
@@ -23,6 +27,7 @@ public class MainAppController {
   /** メインページを表示するために必要なデータを取得します。 */
   @GetMapping
   public MainAppModel getMainApp() {
+    logger.info("MainAppController.getMainApp()");
     return mainAppService.retrieve();
   }
 

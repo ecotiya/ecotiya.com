@@ -1,5 +1,7 @@
 package com.app.ecotiya.api.service.impl;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,15 +22,25 @@ public class MainAppServiceImpl implements MainAppService {
   @Autowired private MSkillMapper mSkillMapper;
   @Autowired private MInquiryKindsMapper mInquiryKindsMapper;
 
+  Logger logger = LoggerFactory.getLogger(MainAppServiceImpl.class);
+
   @Override
   public MainAppModel retrieve() {
 
     MainAppModel mainAppDataModel = new MainAppModel();
-    mainAppDataModel.setSectionTitleList(mSectionTitleMapper.selectAll());
-    mainAppDataModel.setSectionCommentList(mSectionCommentMapper.selectAll());
-    mainAppDataModel.setCareerList(mCareerMapper.selectAll());
-    mainAppDataModel.setSkillList(mSkillMapper.selectAll());
-    mainAppDataModel.setInquiryKindsList(mInquiryKindsMapper.selectAll());
+
+    try {
+      logger.info("ecotiyaサイト表示用のデータ取得 開始");
+      mainAppDataModel.setSectionTitleList(mSectionTitleMapper.selectAll());
+      mainAppDataModel.setSectionCommentList(mSectionCommentMapper.selectAll());
+      mainAppDataModel.setCareerList(mCareerMapper.selectAll());
+      mainAppDataModel.setSkillList(mSkillMapper.selectAll());
+      mainAppDataModel.setInquiryKindsList(mInquiryKindsMapper.selectAll());
+      logger.info("ecotiyaサイト表示用のデータ取得 終了");
+
+    } catch (Exception e) {
+      logger.error(e.getMessage());
+    }
 
     return mainAppDataModel;
   }

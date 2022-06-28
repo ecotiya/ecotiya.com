@@ -1,4 +1,5 @@
-﻿insert into ecotiya_com.m_skill(skill_id,skill_field_code,skill_name,experience_ym) values 
+﻿delete from ecotiya_com.m_skill;
+insert into ecotiya_com.m_skill(skill_id,skill_field_code,skill_name,experience_ym) values 
     (1,'Backend','Java',4.0)
   , (2,'Backend','VB.NET',2.0)
   , (3,'Backend','PHP',0.5)

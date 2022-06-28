@@ -11,7 +11,7 @@ spring:
     url: ${SPRING_DATASOURCE_URL:jdbc:mysql://localhost:3310/ecotiya_com}
     username: ${MYSQL_USER:ecotiya}
     password: ${MYSQL_PASSWORD:ecotiya}
-    driverClassName: com.mysql.cj.jdbc.Driver
+    driverClassName: ${SPRING_DRIVER_CLASS_NAME:com.mysql.cj.jdbc.Driver}
 
 mybatis:
   configuration:

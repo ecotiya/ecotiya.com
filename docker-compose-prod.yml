@@ -47,6 +47,7 @@ services:
       MYSQL_PASSWORD: ${MYSQL_PASSWORD}
       TZ: ${TZ}
       SPRING_DATASOURCE_URL: ${SPRING_DATASOURCE_URL}
+      SPRING_DRIVER_CLASS_NAME: ${SPRING_DRIVER_CLASS_NAME}
     stdin_open: true
     tty: true
     restart: always
