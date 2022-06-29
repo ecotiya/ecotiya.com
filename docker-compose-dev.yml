@@ -19,22 +19,6 @@ services:
       - ./mysql/data:/var/lib/mysql # 実データの永続化
       - ./mysql/log:/var/log/mysql  # logの永続化
 
-  nginx:
-    container_name: ecotiya_web_dev
-    build:
-      context: ./nginx
-      dockerfile: Dockerfile
-    restart: on-failure
-    volumes:
-      - ./nginx/:/etc/nginx/conf.d/
-    ports:
-      - 80:80
-    depends_on:
-      frontend:
-          condition: service_started
-    links:
-      - frontend
-
   frontend:
     container_name: ecotiya_frontend_dev
     build:
