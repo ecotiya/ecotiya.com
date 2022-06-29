@@ -29,8 +29,6 @@ services:
     working_dir: /app-frontend
     volumes:
       - ./frontend:/app-frontend
-    environment:
-      REACT_APP_API_BASE_URL: ${REACT_APP_API_BASE_URL}
     ports:
       - 3000:3000
     depends_on:
