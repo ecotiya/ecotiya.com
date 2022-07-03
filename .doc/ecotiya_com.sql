@@ -30,7 +30,7 @@ CREATE TABLE m_career
 	career_title varchar(255) NOT NULL COMMENT '経歴タイトル',
 	career_contents text NOT NULL COMMENT '経歴内容',
 	PRIMARY KEY (career_date, career_division)
-) COMMENT = '経歴マスタ : 経歴情報を管理するマスタ';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='経歴マスタ : 経歴情報を管理するマスタ';
 
 
 -- 問い合わせ種別マスタ : ユーザからの問い合わせ種別を管理するマスタ。
@@ -39,7 +39,7 @@ CREATE TABLE m_inquiry_kinds
 	inquiry_kind_code varchar(255) NOT NULL COMMENT '問い合わせ種別コード',
 	inquiry_kind_name varchar(255) NOT NULL COMMENT '問い合わせ種別名称',
 	PRIMARY KEY (inquiry_kind_code)
-) COMMENT = '問い合わせ種別マスタ : ユーザからの問い合わせ種別を管理するマスタ。';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='問い合わせ種別マスタ : ユーザからの問い合わせ種別を管理するマスタ。';
 
 
 -- セクションコメントマスタ
@@ -56,7 +56,7 @@ profile,skill,other',
 	title_flg tinyint(1) NOT NULL COMMENT 'コメントタイトルフラグ : 1…タイトル
 0…コメント',
 	PRIMARY KEY (section_kind_code, section_comment_line)
-) COMMENT = 'セクションコメントマスタ';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='セクションコメントマスタ';
 
 
 -- セクションタイトルマスタ : 各セクション(コンポーネント)のタイトル・サブタイトルを管理するためのマスタ。
@@ -75,7 +75,7 @@ profile,skill,other',
 	show_flg tinyint(1) NOT NULL COMMENT '表示フラグ : 1…表示する
 0…表示しない',
 	PRIMARY KEY (section_kind_code)
-) COMMENT = 'セクションタイトルマスタ : 各セクション(コンポーネント)のタイトル・サブタイトルを管理するためのマスタ。';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='セクションタイトルマスタ : 各セクション(コンポーネント)のタイトル・サブタイトルを管理するためのマスタ。';
 
 
 -- スキルマスタ : 私のスキル情報を管理するための一覧。
@@ -86,7 +86,7 @@ CREATE TABLE m_skill
 	skill_name varchar(255) NOT NULL COMMENT 'スキル名称',
 	experience_ym decimal(2,1) NOT NULL COMMENT '経験年数',
 	PRIMARY KEY (skill_id)
-) COMMENT = 'スキルマスタ : 私のスキル情報を管理するための一覧。';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='スキルマスタ : 私のスキル情報を管理するための一覧。';
 
 
 -- 問い合わせ一覧 : ユーザからの問い合わせを管理するための一覧。
@@ -99,7 +99,7 @@ CREATE TABLE t_inquiry_lists
 	contents text NOT NULL COMMENT '内容',
 	create_at datetime NOT NULL COMMENT '登録日時',
 	PRIMARY KEY (inquiry_id)
-) COMMENT = '問い合わせ一覧 : ユーザからの問い合わせを管理するための一覧。';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='問い合わせ一覧 : ユーザからの問い合わせを管理するための一覧。';
 
 
 
@@ -111,6 +111,3 @@ ALTER TABLE t_inquiry_lists
 	ON UPDATE RESTRICT
 	ON DELETE RESTRICT
 ;
-
-
-
