@@ -138,3 +138,6 @@ dist
 *.env.production.local
 *.env.*
 *.env
+
+# AWS手動デプロイ用(今後、自動でデプロイさせる想定ですが一旦、除外させる)
+Dockerfile
