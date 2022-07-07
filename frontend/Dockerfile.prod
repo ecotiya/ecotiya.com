@@ -7,11 +7,33 @@ COPY . .
 RUN yarn build
 
 ###########
-FROM nginx:1.21.6-alpine as prod
-RUN rm -f /etc/nginx/conf.d/*
-COPY nginx.conf /etc/nginx/nginx.conf
-WORKDIR /usr/share/nginx/html
-RUN rm -rf ./*
-COPY --from=builder /app/build .
+FROM nginx:1.21.6-alpine
+
+RUN wget https://github.com/progrium/entrykit/releases/download/v0.4.0/entrykit_0.4.0_linux_x86_64.tgz
+RUN tar -xvzf entrykit_0.4.0_linux_x86_64.tgz
+RUN rm entrykit_0.4.0_linux_x86_64.tgz
+RUN mv entrykit /usr/local/bin/
+RUN entrykit --symlink
+
+COPY --from=builder /app/build /var/www/_react/
+
+RUN rm /etc/nginx/conf.d/*
+COPY etc/nginx/nginx.conf.tmpl /etc/nginx/
+COPY etc/nginx/conf.d/ /etc/nginx/conf.d/
+
+WORKDIR /var/www
 EXPOSE 80
-CMD ["nginx", "-g", "daemon off;"]
+
+ENTRYPOINT [ \
+    "render", \
+        "/etc/nginx/nginx.conf", \
+        "--", \
+    "render", \
+        "/etc/nginx/conf.d/upstream.conf", \
+        "--", \
+    "render", \
+        "/etc/nginx/conf.d/public.conf", \
+        "--" \
+]
+
+CMD nginx -g "daemon off;"

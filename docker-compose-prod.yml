@@ -26,6 +26,17 @@ services:
       dockerfile: Dockerfile.prod
     tty: true
     restart: always
+    environment:
+      WORKER_PROCESSES: ${WORKER_PROCESSES}
+      WORKER_CONNECTIONS: ${WORKER_CONNECTIONS}
+      KEEPALIVE_TIMEOUT: ${KEEPALIVE_TIMEOUT}
+      GZIP: ${GZIP}
+      BACKEND_HOST: ${BACKEND_HOST}
+      BACKEND_MAX_FAILS: ${BACKEND_MAX_FAILS}
+      BACKEND_FAIL_TIMEOUT: ${BACKEND_FAIL_TIMEOUT}
+      SERVER_PORT: ${SERVER_PORT}
+      SERVER_NAME: ${SERVER_NAME}
+      LOG_STDOUT: ${LOG_STDOUT}
     ports:
       - 80:80
     depends_on:
