@@ -37,6 +37,7 @@ services:
       SERVER_PORT: ${SERVER_PORT}
       SERVER_NAME: ${SERVER_NAME}
       LOG_STDOUT: ${LOG_STDOUT}
+      PRODUCTION_FLG: ${PRODUCTION_FLG}
     ports:
       - 80:80
     depends_on:
