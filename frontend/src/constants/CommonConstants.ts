@@ -6,7 +6,6 @@ export const ApiRoutesPath = {
 
 /** セクション */
 export const ComponentSection = {
-  DEBUG: 'debug',
   HOME: 'home',
   PROFILE: 'profile',
   CAREER: 'career',
