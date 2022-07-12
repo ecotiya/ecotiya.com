@@ -1,11 +1,12 @@
 /** Java指定のパス */
 export const ApiRoutesPath = {
-  BASE_URL: process.env.REACT_APP_API_BASE_URL || 'http://localhost:8080',
+  BASE_URL: process.env.REACT_APP_API_BASE_URL || 'http://localhost',
   API: '/api',
 };
 
 /** セクション */
 export const ComponentSection = {
+  DEBUG: 'debug',
   HOME: 'home',
   PROFILE: 'profile',
   CAREER: 'career',

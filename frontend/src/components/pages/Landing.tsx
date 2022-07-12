@@ -12,10 +12,6 @@ import {
   NotFound,
 } from '../templates/index';
 
-// axios.defaults.xsrfCookieName = 'CSRF-TOKEN';
-// axios.defaults.xsrfHeaderName = 'X-CSRF-Token';
-// axios.defaults.withCredentials = true;
-
 const options: AxiosRequestConfig = {
   headers: {
     'Content-Type': 'application/json;charset=UTF-8',

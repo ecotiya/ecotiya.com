@@ -19,6 +19,30 @@ services:
       - ./mysql/data:/var/lib/mysql # 実データの永続化
       - ./mysql/log:/var/log/mysql  # logの永続化
 
+  nginx:
+    container_name: ecotiya_web_dev
+    build:
+      context: ./nginx
+      dockerfile: Dockerfile
+    restart: on-failure
+    environment:
+      WORKER_PROCESSES: ${WORKER_PROCESSES}
+      WORKER_CONNECTIONS: ${WORKER_CONNECTIONS}
+      KEEPALIVE_TIMEOUT: ${KEEPALIVE_TIMEOUT}
+      GZIP: ${GZIP}
+      FRONTEND_HOST: ${FRONTEND_HOST}
+      BACKEND_HOST: ${BACKEND_HOST}
+      BACKEND_MAX_FAILS: ${BACKEND_MAX_FAILS}
+      BACKEND_FAIL_TIMEOUT: ${BACKEND_FAIL_TIMEOUT}
+      SERVER_PORT: ${SERVER_PORT}
+      SERVER_NAME: ${SERVER_NAME}
+      LOG_STDOUT: ${LOG_STDOUT}
+    ports:
+      - 80:80
+    depends_on:
+      frontend:
+          condition: service_started
+
   frontend:
     container_name: ecotiya_frontend_dev
     build:
