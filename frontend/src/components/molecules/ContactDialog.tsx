@@ -24,6 +24,12 @@ type ContactDialogProps = {
   division: string;
   content: string;
   handleClose: () => void;
+  registerInquiryData: (
+    sendUserName: string,
+    sendEmail: string,
+    sendKindCode: string,
+    sendText: string,
+  ) => void;
 };
 
 const useStyles = makeStyles({
@@ -43,7 +49,15 @@ const Transition = React.forwardRef(
 
 const ContactDialog = (props: ContactDialogProps) => {
   const classes = useStyles();
-  const { open, username, email, division, content, handleClose } = props;
+  const {
+    open,
+    username,
+    email,
+    division,
+    content,
+    handleClose,
+    registerInquiryData,
+  } = props;
 
   return (
     <Dialog
@@ -65,7 +79,13 @@ const ContactDialog = (props: ContactDialogProps) => {
           <Typography sx={{ ml: 2, flex: 1 }} variant="h6" component="div">
             記載内容が問題なければ、送信お願いいたします。
           </Typography>
-          <Button autoFocus color="inherit" onClick={handleClose}>
+          <Button
+            autoFocus
+            color="inherit"
+            onClick={() =>
+              registerInquiryData(username, email, division, content)
+            }
+          >
             送信する
           </Button>
         </Toolbar>

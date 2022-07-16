@@ -30,4 +30,11 @@ public interface TInquiryListsMapper {
    * @mbg.generated
    */
   TInquiryLists selectByPrimaryKey(Long inquiryId);
+
+  /**
+   * ユーザからの問い合わせをデータベースに追加します。追加時にkeyを取得した上で、追加を行います。
+   *
+   * @return プライマリーキー
+   */
+  int insertReturnId(TInquiryLists row);
 }

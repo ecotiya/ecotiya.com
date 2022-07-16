@@ -1,11 +1,13 @@
 import * as React from 'react';
+import axios, { AxiosRequestConfig, AxiosError } from 'axios';
 import TextField from '@mui/material/TextField';
 import MenuItem from '@mui/material/MenuItem';
 import Button from '@mui/material/Button';
 import Grid from '@mui/material/Grid';
 import ContactTextInput from '../atoms/ContactTextInput';
 import { ContactAlertError, ContactDialog } from '../molecules/index';
-import { MainApps } from '../../interface/CommonInterface';
+import { MainApps, InquiryModel } from '../../interface/CommonInterface';
+import { ApiRoutesPath } from '../../constants/CommonConstants';
 
 type ContactTextsProps = {
   mainAppsData: MainApps;
@@ -85,6 +87,40 @@ const ContactTexts = (props: ContactTextsProps) => {
     setIsAlert(false);
   };
 
+  const registerInquiryData = (
+    sendUserName: string,
+    sendEmail: string,
+    sendKindCode: string,
+    sendText: string,
+  ) => {
+    const sendParams: InquiryModel = {
+      userName: sendUserName,
+      mailAddress: sendEmail,
+      inquiryKindCode: sendKindCode,
+      contents: sendText,
+    };
+
+    const options: AxiosRequestConfig = {
+      headers: {
+        'Content-Type': 'application/json;charset=UTF-8',
+      },
+      withCredentials: true,
+      url: `${ApiRoutesPath.BASE_URL}${ApiRoutesPath.API}`,
+      method: 'POST',
+      timeout: 30000,
+      data: sendParams,
+    };
+
+    axios(options)
+      .then((res) => {
+        console.log('registration res', res);
+      })
+      .catch((e: AxiosError<{ error: string }>) =>
+        // エラー処理
+        console.log(e),
+      );
+  };
+
   return (
     <Grid container spacing={1}>
       <Grid item xs={12}>
@@ -162,6 +198,7 @@ const ContactTexts = (props: ContactTextsProps) => {
           division={inquiryKindLabel}
           content={inquiryContent}
           handleClose={handleClose}
+          registerInquiryData={registerInquiryData}
         />
       </Grid>
     </Grid>

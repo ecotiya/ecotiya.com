@@ -2,12 +2,15 @@ package com.app.ecotiya.api.controller;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.app.ecotiya.api.model.InquiryModel;
 import com.app.ecotiya.api.model.MainAppModel;
 import com.app.ecotiya.api.service.MainAppService;
 
@@ -31,10 +34,10 @@ public class MainAppController {
     return mainAppService.retrieve();
   }
 
-  // TODO
   /** お問い合わせ内容をデータベースに保存及び、メール送信を行います。 */
   @PostMapping
-  public String postContact() {
-    return "postContact";
+  public void postContact(@Validated @RequestBody InquiryModel inquiryModel) {
+    logger.info("MainAppController.postContact()");
+    mainAppService.register(inquiryModel);
   }
 }

@@ -46,3 +46,11 @@ export interface InquiryKinds {
   inquiryKindCode: string;
   inquiryKindName: string;
 }
+
+// 問い合わせモデル
+export interface InquiryModel {
+  userName: string;
+  mailAddress: string;
+  inquiryKindCode: string;
+  contents: string;
+}
