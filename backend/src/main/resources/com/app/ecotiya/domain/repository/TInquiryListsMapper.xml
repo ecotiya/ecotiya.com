@@ -104,7 +104,7 @@
       </if>
     </trim>
   </insert>
-  <insert id="insertReturnId" parameterType="com.app.ecotiya.domain.entity.TInquiryLists" useGeneratedKeys="true" keyProperty="inquiryId" keyColumn="inquiry_id">
+  <insert id="insertReturnId" keyColumn="inquiry_id" keyProperty="inquiryId" parameterType="com.app.ecotiya.domain.entity.TInquiryLists" useGeneratedKeys="true">
     insert into t_inquiry_lists (inquiry_id, user_name, mail_address, 
       inquiry_kind_code, create_at, contents
       )

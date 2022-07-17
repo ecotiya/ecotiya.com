@@ -81,11 +81,12 @@ profile,skill,other',
 -- スキルマスタ : 私のスキル情報を管理するための一覧。
 CREATE TABLE m_skill
 (
-	skill_id int NOT NULL COMMENT 'スキルID',
-	skill_field_code varchar(255) COMMENT 'スキル分野コード',
+	skill_field_code varchar(255) NOT NULL COMMENT 'スキル分野コード',
 	skill_name varchar(255) NOT NULL COMMENT 'スキル名称',
+	skill_level decimal(2,1) NOT NULL COMMENT 'スキルレベル',
 	experience_ym decimal(2,1) NOT NULL COMMENT '経験年数',
-	PRIMARY KEY (skill_id)
+	explanation varchar(255) NOT NULL COMMENT '説明',
+	PRIMARY KEY (skill_field_code, skill_name)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='スキルマスタ : 私のスキル情報を管理するための一覧。';
 
 
@@ -111,3 +112,6 @@ ALTER TABLE t_inquiry_lists
 	ON UPDATE RESTRICT
 	ON DELETE RESTRICT
 ;
+
+
+

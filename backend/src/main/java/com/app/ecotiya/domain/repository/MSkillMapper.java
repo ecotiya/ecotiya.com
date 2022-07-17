@@ -5,6 +5,7 @@ import java.util.List;
 import org.apache.ibatis.annotations.Mapper;
 
 import com.app.ecotiya.domain.entity.MSkill;
+import org.apache.ibatis.annotations.Param;
 
 @Mapper
 public interface MSkillMapper {
@@ -31,7 +32,8 @@ public interface MSkillMapper {
    *
    * @mbg.generated
    */
-  MSkill selectByPrimaryKey(Integer skillId);
+  MSkill selectByPrimaryKey(
+      @Param("skillFieldCode") String skillFieldCode, @Param("skillName") String skillName);
 
   /**
    * Select all records from database.

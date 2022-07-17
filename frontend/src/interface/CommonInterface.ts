@@ -35,10 +35,11 @@ export interface Careers {
 
 // スキルマスタ
 export interface Skills {
-  skillId: number;
   skillFieldCode: string;
   skillName: string;
+  skillLevel: number;
   experienceYm: number;
+  explanation: string;
 }
 
 // 問い合わせ種別マスタ
