@@ -13,13 +13,11 @@ import {
 } from '../templates/index';
 
 const options: AxiosRequestConfig = {
-  headers: {
-    'Content-Type': 'application/json;charset=UTF-8',
-  },
-  withCredentials: true,
-  url: `${ApiRoutesPath.BASE_URL}${ApiRoutesPath.API}`,
   method: 'GET',
-  timeout: 30000,
+  url: `${ApiRoutesPath.BASE_URL}${ApiRoutesPath.API}`,
+  headers: { 'Content-Type': 'application/json;charset=UTF-8' },
+  withCredentials: true,
+  timeout: 5000,
 };
 
 const showLanding = (mainApps: MainApps) => (

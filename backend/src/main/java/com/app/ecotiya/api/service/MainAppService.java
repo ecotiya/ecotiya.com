@@ -15,7 +15,10 @@ public interface MainAppService {
   /**
    * お問い合わせ内容をデータベースに保存します。
    *
-   * @param お問い合わせモデル
+   * @param userName 名前
+   * @param mailAddress メールアドレス
+   * @param inquiryKindCode 問い合わせ種別コード
+   * @param contents 内容
    */
   void register(InquiryModel inquiryModel);
 }

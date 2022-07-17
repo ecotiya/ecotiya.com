@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import * as React from 'react';
 import axios, { AxiosRequestConfig, AxiosError } from 'axios';
 import TextField from '@mui/material/TextField';
@@ -101,13 +102,11 @@ const ContactTexts = (props: ContactTextsProps) => {
     };
 
     const options: AxiosRequestConfig = {
-      headers: {
-        'Content-Type': 'application/json;charset=UTF-8',
-      },
-      withCredentials: true,
-      url: `${ApiRoutesPath.BASE_URL}${ApiRoutesPath.API}`,
       method: 'POST',
-      timeout: 30000,
+      url: `${ApiRoutesPath.BASE_URL}${ApiRoutesPath.API}`,
+      headers: { 'Content-Type': 'application/json;charset=UTF-8' },
+      withCredentials: true,
+      timeout: 5000,
       data: sendParams,
     };
 

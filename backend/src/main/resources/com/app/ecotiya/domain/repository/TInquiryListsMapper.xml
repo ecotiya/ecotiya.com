@@ -104,15 +104,12 @@
       </if>
     </trim>
   </insert>
-  <insert id="insertReturnId" parameterType="com.app.ecotiya.domain.entity.TInquiryLists">
+  <insert id="insertReturnId" parameterType="com.app.ecotiya.domain.entity.TInquiryLists" useGeneratedKeys="true" keyProperty="inquiryId" keyColumn="inquiry_id">
     insert into t_inquiry_lists (inquiry_id, user_name, mail_address, 
       inquiry_kind_code, create_at, contents
       )
     values (#{inquiryId,jdbcType=BIGINT}, #{userName,jdbcType=VARCHAR}, #{mailAddress,jdbcType=VARCHAR}, 
       #{inquiryKindCode,jdbcType=VARCHAR}, #{createAt,jdbcType=TIMESTAMP}, #{contents,jdbcType=LONGVARCHAR}
       )
-  <selectKey resultType="BigInteger" keyProperty="inquiryId" order="AFTER">
-      select @@IDENTITY
-  </selectKey>
-</insert>
+  </insert>
 </mapper>
