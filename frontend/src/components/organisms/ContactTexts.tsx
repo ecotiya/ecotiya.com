@@ -6,7 +6,11 @@ import MenuItem from '@mui/material/MenuItem';
 import Button from '@mui/material/Button';
 import Grid from '@mui/material/Grid';
 import ContactTextInput from '../atoms/ContactTextInput';
-import { ContactAlertError, ContactDialog } from '../molecules/index';
+import {
+  ContactAlertError,
+  ContactAlertSuccess,
+  ContactDialog,
+} from '../molecules/index';
 import { MainApps, InquiryModel } from '../../interface/CommonInterface';
 import { ApiRoutesPath } from '../../constants/CommonConstants';
 
@@ -24,8 +28,11 @@ const ContactTexts = (props: ContactTextsProps) => {
   const [inquiryContent, setInquiryContent] = React.useState<string>('');
   const [open, setOpen] = React.useState(false);
   const [inquiryKindLabel, setInquiryKindLable] = React.useState<string>('');
-  const [isAlert, setIsAlert] = React.useState(false);
-  const [alertMessage, setAlertMessage] = React.useState<string>('');
+  const [isAlertError, setIsAlertError] = React.useState(false);
+  const [alertErrorMessage, setAlertErrorMessage] = React.useState<string>('');
+  const [isAlertSuccess, setIsAlertSuccess] = React.useState(false);
+  const [alertSuccessMessage, setAlertSuccessMessage] =
+    React.useState<string>('');
 
   const inputUserName = React.useCallback(
     (event: { target: { value: React.SetStateAction<string> } }) => {
@@ -49,34 +56,33 @@ const ContactTexts = (props: ContactTextsProps) => {
   );
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setInquiryKind(event.target.value);
-
     const result = inquiryKinds.find(
       (v) => v.inquiryKindCode === event.target.value,
     );
     if (result !== undefined) {
+      setInquiryKind(result.inquiryKindCode);
       setInquiryKindLable(result.inquiryKindName);
     }
   };
 
   const handleClickOpen = () => {
     if (username === '' || email === '' || inquiryContent === '') {
-      setIsAlert(true);
-      setAlertMessage('必須項目が未入力です。');
+      setIsAlertError(true);
+      setAlertErrorMessage('必須項目が未入力です。');
 
       return;
     }
 
     if (!email.match(/.+@.+\..+/)) {
-      setIsAlert(true);
-      setAlertMessage(
+      setIsAlertError(true);
+      setAlertErrorMessage(
         'メールアドレスの形式が不正です。もう1度お試しください。',
       );
 
       return;
     }
 
-    setIsAlert(false);
+    setIsAlertError(false);
     setOpen(true);
   };
 
@@ -84,8 +90,20 @@ const ContactTexts = (props: ContactTextsProps) => {
     setOpen(false);
   };
 
-  const AlertClose = () => {
-    setIsAlert(false);
+  const AlertErrorClose = () => {
+    setIsAlertError(false);
+  };
+
+  const AlertSuccessClose = () => {
+    setIsAlertSuccess(false);
+  };
+
+  const AllClears = () => {
+    setUserName('');
+    setEmail('');
+    setInquiryKind('');
+    setInquiryContent('');
+    setInquiryKindLable('');
   };
 
   const registerInquiryData = (
@@ -112,21 +130,39 @@ const ContactTexts = (props: ContactTextsProps) => {
 
     axios(options)
       .then((res) => {
+        // 送信完了Messageを表示
         console.log('registration res', res);
+        setOpen(false);
+        setIsAlertSuccess(true);
+        setAlertSuccessMessage(
+          'お問い合わせ情報を送信いたしました。回答まで、しばらくお待ちください。',
+        );
+        AllClears();
       })
-      .catch((e: AxiosError<{ error: string }>) =>
+      .catch((e: AxiosError<{ error: string }>) => {
         // エラー処理
-        console.log(e),
-      );
+        console.log(e);
+        setOpen(false);
+        setIsAlertError(true);
+        setAlertErrorMessage(
+          'お問い合わせ情報の送信に失敗いたしました。twitterより、管理者にお問い合わせください。',
+        );
+        AllClears();
+      });
   };
 
   return (
     <Grid container spacing={1}>
       <Grid item xs={12}>
         <ContactAlertError
-          message={alertMessage}
-          isError={isAlert}
-          alertClose={AlertClose}
+          message={alertErrorMessage}
+          isError={isAlertError}
+          alertErrorClose={AlertErrorClose}
+        />
+        <ContactAlertSuccess
+          message={alertSuccessMessage}
+          isSuccess={isAlertSuccess}
+          alertSuccessClose={AlertSuccessClose}
         />
         <ContactTextInput
           multiline={false}
@@ -182,7 +218,6 @@ const ContactTexts = (props: ContactTextsProps) => {
       </Grid>
       <Grid item xs={12}>
         <Button
-          // type="submit"
           variant="contained"
           color="primary"
           fullWidth
@@ -194,7 +229,8 @@ const ContactTexts = (props: ContactTextsProps) => {
           open={open}
           username={username}
           email={email}
-          division={inquiryKindLabel}
+          division={inquiryKind}
+          divisionLabel={inquiryKindLabel}
           content={inquiryContent}
           handleClose={handleClose}
           registerInquiryData={registerInquiryData}

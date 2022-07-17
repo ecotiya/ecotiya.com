@@ -1,7 +1,7 @@
 /** Java指定のパス */
 export const ApiRoutesPath = {
   BASE_URL: process.env.REACT_APP_API_BASE_URL || 'http://localhost',
-  API: '/api',
+  API: '/api/',
 };
 
 /** セクション */

@@ -22,6 +22,7 @@ type ContactDialogProps = {
   username: string;
   email: string;
   division: string;
+  divisionLabel: string;
   content: string;
   handleClose: () => void;
   registerInquiryData: (
@@ -54,6 +55,7 @@ const ContactDialog = (props: ContactDialogProps) => {
     username,
     email,
     division,
+    divisionLabel,
     content,
     handleClose,
     registerInquiryData,
@@ -100,7 +102,7 @@ const ContactDialog = (props: ContactDialogProps) => {
         </ListItem>
         <Divider />
         <ListItem button>
-          <ListItemText primary="お問い合わせ種別" secondary={division} />
+          <ListItemText primary="お問い合わせ種別" secondary={divisionLabel} />
         </ListItem>
         <Divider />
         <ListItem button>

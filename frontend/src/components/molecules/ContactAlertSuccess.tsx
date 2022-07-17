@@ -3,27 +3,27 @@ import Collapse from '@mui/material/Collapse';
 import CloseIcon from '@mui/icons-material/Close';
 import IconButton from '@mui/material/IconButton';
 
-type ContactAlertErrorProps = {
+type CContactAlertSuccessProps = {
   message: string;
-  isError: boolean;
-  alertErrorClose: () => void;
+  isSuccess: boolean;
+  alertSuccessClose: () => void;
 };
 
-const ContactAlertError = (props: ContactAlertErrorProps) => {
-  const { message, isError, alertErrorClose } = props;
+const ContactAlertSuccess = (props: CContactAlertSuccessProps) => {
+  const { message, isSuccess, alertSuccessClose } = props;
 
   return (
-    <Collapse in={isError}>
+    <Collapse in={isSuccess}>
       <Alert
         variant="filled"
-        severity="error"
+        severity="success"
         style={{ margin: '15px 5px' }}
         action={
           <IconButton
             aria-label="close"
             color="inherit"
             size="small"
-            onClick={alertErrorClose}
+            onClick={alertSuccessClose}
           >
             <CloseIcon fontSize="inherit" />
           </IconButton>
@@ -36,4 +36,4 @@ const ContactAlertError = (props: ContactAlertErrorProps) => {
   );
 };
 
-export default ContactAlertError;
+export default ContactAlertSuccess;
