@@ -41,10 +41,10 @@ interface Column {
 }
 
 const columns: Column[] = [
-  { id: 'skillName', label: 'スキル名称', minWidth: 120 },
+  { id: 'skillName', label: '名称', minWidth: 120 },
   {
     id: 'skillLevel',
-    label: 'スキルレベル',
+    label: 'レベル',
     minWidth: 100,
     isSkillLevel: true,
   },
@@ -54,7 +54,7 @@ const columns: Column[] = [
     minWidth: 100,
     isExperienceYm: true,
   },
-  { id: 'explanation', label: '説明', minWidth: 170 },
+  { id: 'explanation', label: '説明', minWidth: 150 },
 ];
 
 const targetRating = (value: number, isSkillLevel: boolean | undefined) => {
@@ -93,7 +93,7 @@ const SkillTable = (props: SkillTableProps) => {
       >
         <Paper sx={{ width: '100%' }}>
           <Grid container spacing={2} style={{ margin: '5px' }}>
-            <Grid item xs={7}>
+            <Grid item xs={8}>
               <Typography
                 sx={{ flex: '1 1 100%' }}
                 variant="h6"
@@ -103,11 +103,11 @@ const SkillTable = (props: SkillTableProps) => {
                 {tabletitle}
               </Typography>
             </Grid>
-            <Grid item xs={5}>
+            <Grid item xs={4}>
               <SkillTableDefModal skillDefTable={skillDefTable} />
             </Grid>
           </Grid>
-          <TableContainer sx={{ maxHeight: 450 }}>
+          <TableContainer sx={{ maxHeight: 750 }}>
             <Table stickyHeader aria-label="sticky table">
               <TableHead>
                 <TableRow>

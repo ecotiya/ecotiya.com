@@ -49,7 +49,7 @@ interface Column {
 }
 
 const columns: Column[] = [
-  { id: 'sectionCommentLine', label: 'スキルレベル', minWidth: 100 },
+  { id: 'sectionCommentLine', label: 'レベル', minWidth: 100 },
   { id: 'sectionComment', label: '説明', minWidth: 170 },
 ];
 
@@ -62,7 +62,7 @@ const SkillTableDefModal = (props: SkillTableDefModalProps) => {
   return (
     <div>
       <Button variant="outlined" onClick={handleOpen}>
-        スキルレベル定義
+        レベル定義
       </Button>
       <Modal
         aria-labelledby="transition-modal-title"
@@ -78,7 +78,7 @@ const SkillTableDefModal = (props: SkillTableDefModalProps) => {
         <Fade in={open}>
           <Box sx={style}>
             <Typography id="transition-modal-title" variant="h6" component="h2">
-              スキルレベル定義
+              レベル定義
             </Typography>
             <TableContainer sx={{ maxHeight: 500 }}>
               <Table stickyHeader aria-label="sticky table">
