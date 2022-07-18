@@ -1,4 +1,5 @@
 FROM gradle:7.4.2-jdk17-alpine as builder
+ENV TZ Asia/Tokyo
 RUN mkdir -p /home/gradle/app
 WORKDIR /home/gradle/app
 ADD --chown=gradle:gradle . /home/gradle/app

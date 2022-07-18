@@ -92,8 +92,13 @@ const SkillTable = (props: SkillTableProps) => {
         }}
       >
         <Paper sx={{ width: '100%' }}>
-          <Grid container spacing={2} style={{ margin: '5px' }}>
-            <Grid item xs={8}>
+          <Grid
+            container
+            style={{ padding: '5px', margin: '5px' }}
+            direction="row"
+            justifyContent="space-between"
+          >
+            <Grid item xs>
               <Typography
                 sx={{ flex: '1 1 100%' }}
                 variant="h6"
@@ -103,7 +108,7 @@ const SkillTable = (props: SkillTableProps) => {
                 {tabletitle}
               </Typography>
             </Grid>
-            <Grid item xs={4}>
+            <Grid item xs>
               <SkillTableDefModal skillDefTable={skillDefTable} />
             </Grid>
           </Grid>
