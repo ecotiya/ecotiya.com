@@ -37,9 +37,9 @@ export interface Careers {
 export interface Skills {
   skillFieldCode: string;
   skillName: string;
+  category: string;
   skillLevel: number;
   experienceYm: number;
-  explanation: string;
 }
 
 // 問い合わせ種別マスタ

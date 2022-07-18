@@ -32,7 +32,7 @@ const StyledTableCell = styled(TableCell)(({ theme }) => ({
 }));
 
 interface Column {
-  id: 'skillName' | 'skillLevel' | 'experienceYm' | 'explanation';
+  id: 'skillName' | 'category' | 'skillLevel' | 'experienceYm';
   label: string;
   minWidth?: number;
   align?: 'right';
@@ -41,7 +41,8 @@ interface Column {
 }
 
 const columns: Column[] = [
-  { id: 'skillName', label: '名称', minWidth: 120 },
+  { id: 'skillName', label: '名称', minWidth: 100 },
+  { id: 'category', label: 'カテゴリ', minWidth: 100 },
   {
     id: 'skillLevel',
     label: 'レベル',
@@ -54,7 +55,6 @@ const columns: Column[] = [
     minWidth: 100,
     isExperienceYm: true,
   },
-  { id: 'explanation', label: '説明', minWidth: 150 },
 ];
 
 const targetRating = (value: number, isSkillLevel: boolean | undefined) => {

@@ -88,9 +88,9 @@ CREATE TABLE m_skill
 (
 	skill_field_code varchar(255) NOT NULL COMMENT 'スキル分野コード',
 	skill_name varchar(255) NOT NULL COMMENT 'スキル名称',
+	category varchar(255) NOT NULL COMMENT 'カテゴリ',
 	skill_level int(1) NOT NULL COMMENT 'スキルレベル',
 	experience_ym decimal(2,1) NOT NULL COMMENT '経験年数',
-	explanation varchar(255) NOT NULL COMMENT '説明',
 	PRIMARY KEY (skill_field_code, skill_name)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='スキルマスタ : 私のスキル情報を管理するための一覧。';
 
