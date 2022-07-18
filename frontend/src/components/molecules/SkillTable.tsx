@@ -12,11 +12,13 @@ import TableRow from '@mui/material/TableRow';
 import { styled } from '@mui/material/styles';
 import Grid from '@mui/material/Grid';
 import { RatingSmile, RatingStar } from '../atoms/index';
-import { Skills } from '../../interface/CommonInterface';
+import SkillTableDefModal from './SkillTableDefModal';
+import { Skills, SectionComments } from '../../interface/CommonInterface';
 
 type SkillTableProps = {
   tabletitle: string;
   table: Skills[];
+  skillDefTable: SectionComments[];
 };
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
@@ -64,7 +66,7 @@ const targetRating = (value: number, isSkillLevel: boolean | undefined) => {
 };
 
 const SkillTable = (props: SkillTableProps) => {
-  const { tabletitle, table } = props;
+  const { tabletitle, table, skillDefTable } = props;
 
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(10);
@@ -90,14 +92,21 @@ const SkillTable = (props: SkillTableProps) => {
         }}
       >
         <Paper sx={{ width: '100%' }}>
-          <Typography
-            sx={{ flex: '1 1 100%' }}
-            variant="h6"
-            id="tableTitle"
-            component="div"
-          >
-            {tabletitle}
-          </Typography>
+          <Grid container spacing={2} style={{ margin: '5px' }}>
+            <Grid item xs={7}>
+              <Typography
+                sx={{ flex: '1 1 100%' }}
+                variant="h6"
+                id="tableTitle"
+                component="div"
+              >
+                {tabletitle}
+              </Typography>
+            </Grid>
+            <Grid item xs={5}>
+              <SkillTableDefModal skillDefTable={skillDefTable} />
+            </Grid>
+          </Grid>
           <TableContainer sx={{ maxHeight: 450 }}>
             <Table stickyHeader aria-label="sticky table">
               <TableHead>

@@ -93,5 +93,6 @@
   <!-- extends -->
   <select id="selectAll" resultType="com.app.ecotiya.domain.entity.MSectionComment">
     SELECT * FROM m_section_comment
+    order by section_kind_code asc, section_comment_line asc
   </select>
 </mapper>
