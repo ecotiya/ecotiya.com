@@ -138,7 +138,7 @@
 			</connections>
 			<display>false</display>
 			<creation_date>2022-05-14 13:43:34</creation_date>
-			<updated_date>2022-07-18 00:55:24</updated_date>
+			<updated_date>2022-07-18 09:58:46</updated_date>
 			<model_property>
 				<name>プロジェクト名</name>
 				<value>ecotiya</value>
@@ -513,8 +513,8 @@
 		</word>
 		<word>
 			<id>21</id>
-			<length>2</length>
-			<decimal>1</decimal>
+			<length>1</length>
+			<decimal>null</decimal>
 			<array>false</array>
 			<array_dimension>null</array_dimension>
 			<unsigned>false</unsigned>
@@ -525,7 +525,7 @@
 			<description></description>
 			<logical_name>スキルレベル</logical_name>
 			<physical_name>skill_level</physical_name>
-			<type>decimal(p,s)</type>
+			<type>int(n)</type>
 		</word>
 		<word>
 			<id>22</id>
@@ -1598,7 +1598,7 @@
 					<unique_key_name></unique_key_name>
 					<logical_name></logical_name>
 					<physical_name></physical_name>
-					<type>decimal(p,s)</type>
+					<type>int(n)</type>
 					<constraint></constraint>
 					<default_value></default_value>
 					<auto_increment>false</auto_increment>

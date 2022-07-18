@@ -10,9 +10,8 @@ import TableHead from '@mui/material/TableHead';
 import TablePagination from '@mui/material/TablePagination';
 import TableRow from '@mui/material/TableRow';
 import { styled } from '@mui/material/styles';
-import Rating from '@mui/material/Rating';
-import StarIcon from '@mui/icons-material/Star';
 import Grid from '@mui/material/Grid';
+import { RatingSmile, RatingStar } from '../atoms/index';
 import { Skills } from '../../interface/CommonInterface';
 
 type SkillTableProps = {
@@ -31,22 +30,38 @@ const StyledTableCell = styled(TableCell)(({ theme }) => ({
 }));
 
 interface Column {
-  id: 'skillName' | 'experienceYm';
+  id: 'skillName' | 'skillLevel' | 'experienceYm' | 'explanation';
   label: string;
   minWidth?: number;
   align?: 'right';
+  isSkillLevel?: boolean;
   isExperienceYm?: boolean;
 }
 
 const columns: Column[] = [
-  { id: 'skillName', label: 'スキル名称', minWidth: 170 },
+  { id: 'skillName', label: 'スキル名称', minWidth: 120 },
+  {
+    id: 'skillLevel',
+    label: 'スキルレベル',
+    minWidth: 100,
+    isSkillLevel: true,
+  },
   {
     id: 'experienceYm',
     label: '経験年数',
     minWidth: 100,
     isExperienceYm: true,
   },
+  { id: 'explanation', label: '説明', minWidth: 170 },
 ];
+
+const targetRating = (value: number, isSkillLevel: boolean | undefined) => {
+  if (isSkillLevel) {
+    return <RatingSmile value={value} />;
+  }
+
+  return <RatingStar value={value} />;
+};
 
 const SkillTable = (props: SkillTableProps) => {
   const { tabletitle, table } = props;
@@ -83,7 +98,7 @@ const SkillTable = (props: SkillTableProps) => {
           >
             {tabletitle}
           </Typography>
-          <TableContainer sx={{ maxHeight: 440 }}>
+          <TableContainer sx={{ maxHeight: 450 }}>
             <Table stickyHeader aria-label="sticky table">
               <TableHead>
                 <TableRow>
@@ -113,23 +128,9 @@ const SkillTable = (props: SkillTableProps) => {
 
                         return (
                           <TableCell key={column.id} align={column.align}>
-                            {column.isExperienceYm &&
-                            typeof value === 'number' ? (
-                              <Rating
-                                name="text-feedback"
-                                value={value}
-                                readOnly
-                                precision={0.5}
-                                emptyIcon={
-                                  <StarIcon
-                                    style={{ opacity: 0.55 }}
-                                    fontSize="inherit"
-                                  />
-                                }
-                              />
-                            ) : (
-                              value
-                            )}
+                            {typeof value === 'number'
+                              ? targetRating(value, column.isSkillLevel)
+                              : value}
                           </TableCell>
                         );
                       })}
