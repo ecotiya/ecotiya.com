@@ -22,9 +22,12 @@ const SkillTables = (props: SkillTablesProps) => {
     (v) => v.skillFieldCode === SkillField.DEVOPS,
   );
 
-  const rowsSkillDef = mainAppsData.sectionCommentList.filter(
-    (v) => v.sectionKindCode === ComponentSection.SKILL,
-  );
+  const rowsSkillDef = mainAppsData.sectionCommentList
+    .filter((v) => v.sectionKindCode === ComponentSection.SKILL)
+    .sort(
+      (first, second) =>
+        0 - (first.sectionCommentLine > second.sectionCommentLine ? 1 : -1),
+    );
 
   return (
     <Grid container spacing={1}>

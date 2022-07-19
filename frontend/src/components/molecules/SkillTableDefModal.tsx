@@ -81,7 +81,7 @@ const SkillTableDefModal = (props: SkillTableDefModalProps) => {
             <Typography id="transition-modal-title" variant="h6" component="h2">
               レベル定義
             </Typography>
-            <TableContainer sx={{ maxHeight: 500 }}>
+            <TableContainer sx={{ maxHeight: 600 }}>
               <Table stickyHeader aria-label="sticky table">
                 <TableHead>
                   <TableRow>
