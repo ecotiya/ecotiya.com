@@ -10,10 +10,10 @@
   , ('2022/05','2','フリーランスエンジニア','フリーランスエンジニア');
 
 
-insert into ecotiya_com.m_inquiry_kinds(inquiry_kind_code,inquiry_kind_name) values 
-    ('others','その他')
-  , ('question','ご質問')
-  , ('request','ご要望');
+insert into ecotiya_com.m_inquiry_kinds(inquiry_kind_code,inquiry_kind_name,sortno) values 
+    ('others','その他', 3)
+  , ('question','ご質問', 2)
+  , ('request','ご要望', 1);
 
 
 insert into ecotiya_com.m_section_comment(section_kind_code,section_comment_line,section_comment,title_flg) values 
@@ -28,25 +28,39 @@ insert into ecotiya_com.m_section_comment(section_kind_code,section_comment_line
 
 insert into ecotiya_com.m_section_title(section_kind_code,section_title,section_sub_title,remarks1,remarks2,show_flg) values 
     ('career','【経歴】','経歴のサブタイトル',null,null,'1')
-  , ('contact','【お問い合わせ】','ここまで、ご覧いただきありがとうございます。私への問い合わせは、下記フォームをご利用ください。',null,null,'1')
+  , ('contact','【お問い合わせ】','ここまで、ご覧いただきありがとうございます。私への問い合わせは、下記フォームもしくはTwitterのDMをご利用ください。',null,null,'1')
   , ('profile','【私について】','プロフィールのサブタイトル','/assets/ecotiya.png','ecotiya','1')
-  , ('skill','【スキルセット】','スキルセットのサブタイトル',null,null,'1');
+  , ('skill','【スキルセット】','私のスキルセットを下記テーブルにまとめました。',null,null,'1');
 
 
 insert into ecotiya_com.m_skill(skill_field_code,skill_name,category,skill_level,experience_ym) values 
-    ('Backend','Java','プログラミング言語',1,4.0)
-  , ('Backend','VB.NET','プログラミング言語',1,2.0)
-  , ('Backend','PHP','プログラミング言語',1,0.5)
-  , ('Backend','C#','プログラミング言語',1,0.5)
-  , ('Backend','PowerShell','スクリプト言語',1,0.5)
-  , ('Backend','Perl','プログラミング言語',1,0.5)
-  , ('Frontend','JavaScript','プログラミング言語',1,2.0)
-  , ('Frontend','Jquery','プログラミング言語',1,2.0)
-  , ('Frontend','JSP','プログラミング言語',1,1.0)
-  , ('Frontend','PHP','プログラミング言語',1,0.5)
-  , ('Frontend','Perl','プログラミング言語',1,0.5)
-  , ('Frontend','React.js','プログラミング言語',1,0.5)
-  , ('DevOps','MySQL','DB',1,2.0)
-  , ('DevOps','PostgreSQL','DB',1,2.0)
-  , ('DevOps','Caché','DB',1,1.0);
+    ('Backend','.NET Framework','フレームワーク',3,1.5)
+  , ('Backend','C#','プログラミング言語',2,0.5)
+  , ('Backend','Caché','データベース',3,1.5)
+  , ('Backend','Java','プログラミング言語',4,4.0)
+  , ('Backend','Microsoft SQL Server','データベース',2,0.5)
+  , ('Backend','MySQL','データベース',4,2.0)
+  , ('Backend','Oracle Database','データベース',2,0.5)
+  , ('Backend','Perl','プログラミング言語',2,0.5)
+  , ('Backend','PHP','プログラミング言語',2,0.5)
+  , ('Backend','PostgreSQL','データベース',4,2.0)
+  , ('Backend','PowerShell','スクリプト言語',3,0.5)
+  , ('Backend','Spring Boot','フレームワーク',4,3.0)
+  , ('Backend','VB.NET','プログラミング言語',3,1.5)
+  , ('Backend','VBA(Visual Basic for Applications)','プログラミング言語',4,1.0)
+  , ('DevOps','Amazon Web Services','クラウド',1,0.5)
+  , ('DevOps','Apache Subversion','バージョン管理',3,1.5)
+  , ('DevOps','Docker','コンテナ',1,0.5)
+  , ('DevOps','Docker Compose','コンテナ',1,0.5)
+  , ('DevOps','Git','バージョン管理',3,3.0)
+  , ('DevOps','GitHub','バージョン管理',3,3.0)
+  , ('DevOps','nginx','Webサーバ',1,0.5)
+  , ('DevOps','Vagrant','仮想環境',2,0.5)
+  , ('Frontend','Apache Velocity','テンプレートエンジン',4,2.0)
+  , ('Frontend','JavaScript','スクリプト言語',3,2.0)
+  , ('Frontend','jQuery','JavaScriptライブラリ',3,1.5)
+  , ('Frontend','JSP(JavaServer Page)','テンプレートエンジン',4,1.0)
+  , ('Frontend','MUI(‎Material-UI)','デザインライブラリ',1,0.5)
+  , ('Frontend','React','JavaScriptライブラリ',1,0.5)
+  , ('Frontend','TypeScript','プログラミング言語',1,0.5);
 

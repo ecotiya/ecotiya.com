@@ -43,6 +43,7 @@ CREATE TABLE m_inquiry_kinds
 (
 	inquiry_kind_code varchar(255) NOT NULL COMMENT '問い合わせ種別コード',
 	inquiry_kind_name varchar(255) NOT NULL COMMENT '問い合わせ種別名称',
+	sortno int NOT NULL COMMENT 'ソート番号',
 	PRIMARY KEY (inquiry_kind_code)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='問い合わせ種別マスタ : ユーザからの問い合わせ種別を管理するマスタ。';
 
