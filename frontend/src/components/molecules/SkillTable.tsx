@@ -112,7 +112,7 @@ const SkillTable = (props: SkillTableProps) => {
               <SkillTableDefModal skillDefTable={skillDefTable} />
             </Grid>
           </Grid>
-          <TableContainer sx={{ minHeight: 500, maxHeight: 700 }}>
+          <TableContainer sx={{ minHeight: 600, maxHeight: 600 }}>
             <Table stickyHeader aria-label="sticky table">
               <TableHead>
                 <TableRow>
