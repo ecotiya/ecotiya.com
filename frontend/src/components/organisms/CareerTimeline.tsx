@@ -1,4 +1,4 @@
-import { Box, Card, CardContent, Typography } from '@mui/material';
+import { Box, Card, CardContent, CardHeader, Typography } from '@mui/material';
 import Timeline from '@mui/lab/Timeline';
 import { makeStyles } from '@mui/styles';
 import { CareerTimelineItem } from '../molecules/index';
@@ -19,8 +19,14 @@ const CareerTimeline = (props: CareerTimelineProps) => {
   const classes = useStyles();
   const { mainAppsData } = props;
 
-  const sectionComment = mainAppsData.sectionCommentList.find(
-    (obj) => obj.sectionKindCode === ComponentSection.CAREER,
+  const sectionCommentTitle = mainAppsData.sectionCommentList.find(
+    (obj) =>
+      obj.sectionKindCode === ComponentSection.CAREER && obj.titleFlg === true,
+  );
+
+  const sectionCommentContent = mainAppsData.sectionCommentList.find(
+    (obj) =>
+      obj.sectionKindCode === ComponentSection.CAREER && obj.titleFlg === false,
   );
 
   const getCareerTimelineItem = () =>
@@ -44,13 +50,17 @@ const CareerTimeline = (props: CareerTimelineProps) => {
       <Box style={{ maxWidth: 1450, padding: '35px 5px', margin: '0 auto' }}>
         <Card>
           <CardContent>
+            <CardHeader
+              title={sectionCommentTitle?.sectionComment}
+              titleTypographyProps={{ variant: 'h4' }}
+            />
             <Typography
               color="textPrimary"
               gutterBottom
               variant="body1"
               className={classes.textContent}
             >
-              {sectionComment?.sectionComment}
+              {sectionCommentContent?.sectionComment}
             </Typography>
           </CardContent>
         </Card>

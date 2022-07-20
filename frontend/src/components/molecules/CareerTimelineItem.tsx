@@ -1,3 +1,4 @@
+import Divider from '@mui/material/Divider';
 import Paper from '@mui/material/Paper';
 import Typography from '@mui/material/Typography';
 import TimelineItem from '@mui/lab/TimelineItem';
@@ -25,6 +26,9 @@ const useStyles = makeStyles({
   },
   secondaryTail: {
     backgroundColor: '#fff',
+  },
+  textContent: {
+    whiteSpace: 'pre-line',
   },
 });
 
@@ -58,7 +62,6 @@ const CareerTimelineItem = (props: CareerTimelineItemProps) => {
         </Typography>
       </TimelineOppositeContent>
       <TimelineSeparator>
-        {/* ↓iconに色を付けることができる */}
         <TimelineDot color="primary" variant="outlined">
           {getTimelineIcon(careerDivision)}
         </TimelineDot>
@@ -69,7 +72,10 @@ const CareerTimelineItem = (props: CareerTimelineItemProps) => {
           <Typography variant="h6" component="h1">
             {careerTitle}
           </Typography>
-          <Typography>{careerContents}</Typography>
+          <Divider style={{ margin: '10px' }} />
+          <Typography className={classes.textContent}>
+            {careerContents}
+          </Typography>
         </Paper>
       </TimelineContent>
     </TimelineItem>

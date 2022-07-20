@@ -22,7 +22,7 @@ export interface SectionComments {
   sectionKindCode: string;
   sectionCommentLine: number;
   sectionComment: string;
-  commentTitleFlg: boolean;
+  titleFlg: boolean;
 }
 
 // 経歴マスタ
@@ -46,6 +46,7 @@ export interface Skills {
 export interface InquiryKinds {
   inquiryKindCode: string;
   inquiryKindName: string;
+  sortno: number;
 }
 
 // 問い合わせモデル
