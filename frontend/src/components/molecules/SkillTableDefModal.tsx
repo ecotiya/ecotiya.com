@@ -1,16 +1,22 @@
 import * as React from 'react';
-import Backdrop from '@mui/material/Backdrop';
-import Box from '@mui/material/Box';
-import Modal from '@mui/material/Modal';
-import Fade from '@mui/material/Fade';
-import Button from '@mui/material/Button';
-import Typography from '@mui/material/Typography';
-import Table from '@mui/material/Table';
-import TableBody from '@mui/material/TableBody';
-import TableCell, { tableCellClasses } from '@mui/material/TableCell';
-import TableContainer from '@mui/material/TableContainer';
-import TableHead from '@mui/material/TableHead';
-import TableRow from '@mui/material/TableRow';
+import {
+  Backdrop,
+  Box,
+  Button,
+  Fade,
+  Grid,
+  IconButton,
+  Modal,
+  Table,
+  TableBody,
+  TableCell,
+  tableCellClasses,
+  TableContainer,
+  TableHead,
+  TableRow,
+  Typography,
+} from '@mui/material';
+import CloseIcon from '@mui/icons-material/Close';
 import { styled } from '@mui/material/styles';
 import { RatingSmile } from '../atoms/index';
 import { SectionComments } from '../../interface/CommonInterface';
@@ -78,9 +84,27 @@ const SkillTableDefModal = (props: SkillTableDefModalProps) => {
       >
         <Fade in={open}>
           <Box sx={style}>
-            <Typography id="transition-modal-title" variant="h6" component="h2">
-              レベル定義
-            </Typography>
+            <Grid
+              container
+              style={{ padding: '5px', margin: '5px' }}
+              direction="row"
+              justifyContent="space-between"
+            >
+              <Grid item xs>
+                <Typography
+                  id="transition-modal-title"
+                  variant="h6"
+                  component="h2"
+                >
+                  レベル定義
+                </Typography>
+              </Grid>
+              <Grid item xs>
+                <IconButton onClick={handleClose}>
+                  <CloseIcon />
+                </IconButton>
+              </Grid>
+            </Grid>
             <TableContainer sx={{ maxHeight: 600 }}>
               <Table stickyHeader aria-label="sticky table">
                 <TableHead>

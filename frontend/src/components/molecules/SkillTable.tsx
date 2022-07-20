@@ -1,18 +1,21 @@
 import * as React from 'react';
-import Box from '@mui/material/Box';
-import Typography from '@mui/material/Typography';
-import Paper from '@mui/material/Paper';
-import Table from '@mui/material/Table';
-import TableBody from '@mui/material/TableBody';
-import TableCell, { tableCellClasses } from '@mui/material/TableCell';
-import TableContainer from '@mui/material/TableContainer';
-import TableHead from '@mui/material/TableHead';
-import TablePagination from '@mui/material/TablePagination';
-import TableRow from '@mui/material/TableRow';
+import {
+  Box,
+  Grid,
+  Paper,
+  Table,
+  TableBody,
+  TableCell,
+  tableCellClasses,
+  TableContainer,
+  TableHead,
+  TablePagination,
+  TableRow,
+  Typography,
+} from '@mui/material';
 import { styled } from '@mui/material/styles';
-import Grid from '@mui/material/Grid';
-import { RatingSmile, RatingStar } from '../atoms/index';
 import SkillTableDefModal from './SkillTableDefModal';
+import { RatingSmile, RatingStar } from '../atoms/index';
 import { Skills, SectionComments } from '../../interface/CommonInterface';
 
 type SkillTableProps = {
