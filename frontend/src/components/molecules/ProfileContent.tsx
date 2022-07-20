@@ -1,5 +1,7 @@
-import { Grid, Typography } from '@mui/material';
+import { Button, Divider, Grid, Typography } from '@mui/material';
 import { makeStyles } from '@mui/styles';
+import TwitterIcon from '@mui/icons-material/Twitter';
+import GitHubIcon from '@mui/icons-material/GitHub';
 
 type ProfileContentProps = {
   content: string | undefined;
@@ -25,6 +27,29 @@ const ProfileContent = (props: ProfileContentProps) => {
       >
         {content}
       </Typography>
+      <Divider style={{ margin: '20px' }} />
+      <Button
+        startIcon={<TwitterIcon />}
+        size="large"
+        color="primary"
+        target="_blank"
+        href="https://twitter.com/ecotiya"
+        sx={{ mx: 0.5 }}
+        disableRipple
+      >
+        Twitter
+      </Button>
+      <Button
+        startIcon={<GitHubIcon />}
+        size="large"
+        color="inherit"
+        target="_blank"
+        href="https://github.com/ecotiya"
+        sx={{ mx: 0.5 }}
+        disableRipple
+      >
+        Github
+      </Button>
     </Grid>
   );
 };

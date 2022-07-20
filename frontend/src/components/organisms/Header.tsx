@@ -237,6 +237,7 @@ const Header = () => {
         <Button
           startIcon={<TwitterIcon />}
           size="large"
+          target="_blank"
           href="https://twitter.com/ecotiya"
           sx={{ mx: 0.5 }}
           disableRipple
@@ -289,7 +290,7 @@ const Header = () => {
           }}
         >
           <div>{getDrawerChoices()}</div>
-          <Link href="https://twitter.com/ecotiya">
+          <Link target="_blank" href="https://twitter.com/ecotiya">
             <MenuItem>
               <TwitterIcon />
               Twitter
