@@ -1,4 +1,11 @@
-import { Box, Card, CardContent, CardHeader, Typography } from '@mui/material';
+import {
+  Box,
+  Card,
+  CardContent,
+  CardHeader,
+  Divider,
+  Typography,
+} from '@mui/material';
 import Timeline from '@mui/lab/Timeline';
 import { makeStyles } from '@mui/styles';
 import { CareerTimelineItem } from '../molecules/index';
@@ -54,6 +61,7 @@ const CareerTimeline = (props: CareerTimelineProps) => {
               title={sectionCommentTitle?.sectionComment}
               titleTypographyProps={{ variant: 'h4' }}
             />
+            <Divider style={{ margin: '20px' }} />
             <Typography
               color="textPrimary"
               gutterBottom
