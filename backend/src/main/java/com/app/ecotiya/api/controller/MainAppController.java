@@ -47,6 +47,23 @@ public class MainAppController {
 
     try {
       // DiscodeWebhook実施
+      logger.info("DiscodeWebhook 開始");
+      logger.info(
+          "【送信URL】"
+              + appProperties.getDiscordUrl()
+              + System.getProperty("line.separator")
+              + "【問い合わせID】"
+              + discordWebhookModel.getInquiryId()
+              + System.getProperty("line.separator")
+              + "【ユーザ名】"
+              + inquiryModel.getUserName()
+              + System.getProperty("line.separator")
+              + "【メールアドレス】"
+              + inquiryModel.getMailAddress()
+              + System.getProperty("line.separator")
+              + "【問い合わせ種別】"
+              + discordWebhookModel.getInquiryKindName());
+
       DiscordWebhook discordWebhook = new DiscordWebhook(appProperties.getDiscordUrl());
       discordWebhook.setUsername("ecotiya.com 自動送信");
       discordWebhook.setTts(false);
@@ -62,8 +79,9 @@ public class MainAppController {
       discordWebhook.addEmbed(embedObject);
 
       discordWebhook.execute();
+      logger.info("DiscodeWebhook 終了");
     } catch (Exception e) {
-      logger.error(e.getMessage());
+      logger.error("DiscodeWebhookの送信に失敗しました。 【エラー内容】" + e.getMessage());
     }
   }
 }

@@ -47,7 +47,7 @@ public class MainAppServiceImpl implements MainAppService {
       logger.info("ecotiyaサイト表示用のデータ取得 終了");
 
     } catch (Exception e) {
-      logger.error(e.getMessage());
+      logger.error("ecotiyaサイト表示用のデータ取得に失敗しました。 【エラー内容】" + e.getMessage());
     }
 
     return mainAppDataModel;
@@ -59,6 +59,7 @@ public class MainAppServiceImpl implements MainAppService {
     DiscordWebhookModel discordWebhookModel = new DiscordWebhookModel();
 
     try {
+      logger.info("問い合わせ一覧保存 開始");
       TInquiryLists tInquiryLists = new TInquiryLists();
       tInquiryLists.setUserName(inquiryModel.getUserName());
       tInquiryLists.setMailAddress(inquiryModel.getMailAddress());
@@ -72,9 +73,10 @@ public class MainAppServiceImpl implements MainAppService {
 
       discordWebhookModel.setInquiryId(tInquiryLists.getInquiryId());
       discordWebhookModel.setInquiryKindName(mInquiryKinds.getInquiryKindName());
+      logger.info("問い合わせ一覧保存 終了");
 
     } catch (Exception e) {
-      logger.error(e.getMessage());
+      logger.error("問い合わせ一覧保存に失敗しました。 【エラー内容】" + e.getMessage());
     }
 
     return discordWebhookModel;
