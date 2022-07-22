@@ -18,7 +18,7 @@ insert into ecotiya_com.m_skill(skill_field_code,skill_name,category,skill_level
   , ('DevOps','Apache Subversion','バージョン管理',3,1.5)
   , ('DevOps','Docker','コンテナ',1,0.5)
   , ('DevOps','Docker Compose','コンテナ',1,0.5)
-  , ('DevOps','Git','バージョン管理',3,4.0)
+  , ('DevOps','Git','バージョン管理',3,3.0)
   , ('DevOps','GitHub','バージョン管理',3,3.0)
   , ('DevOps','nginx','Webサーバ',1,0.5)
   , ('DevOps','Vagrant','仮想環境',2,0.5)

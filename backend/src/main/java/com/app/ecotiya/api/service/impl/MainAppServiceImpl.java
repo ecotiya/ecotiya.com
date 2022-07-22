@@ -7,9 +7,11 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.app.ecotiya.api.model.DiscordWebhookModel;
 import com.app.ecotiya.api.model.InquiryModel;
 import com.app.ecotiya.api.model.MainAppModel;
 import com.app.ecotiya.api.service.MainAppService;
+import com.app.ecotiya.domain.entity.MInquiryKinds;
 import com.app.ecotiya.domain.entity.TInquiryLists;
 import com.app.ecotiya.domain.repository.MCareerMapper;
 import com.app.ecotiya.domain.repository.MInquiryKindsMapper;
@@ -52,7 +54,9 @@ public class MainAppServiceImpl implements MainAppService {
   }
 
   @Override
-  public void register(InquiryModel inquiryModel) {
+  public DiscordWebhookModel register(InquiryModel inquiryModel) {
+
+    DiscordWebhookModel discordWebhookModel = new DiscordWebhookModel();
 
     try {
       TInquiryLists tInquiryLists = new TInquiryLists();
@@ -61,11 +65,18 @@ public class MainAppServiceImpl implements MainAppService {
       tInquiryLists.setInquiryKindCode(inquiryModel.getInquiryKindCode());
       tInquiryLists.setContents(inquiryModel.getContents());
       tInquiryLists.setCreateAt(LocalDateTime.now());
-
       tInquiryListsMapper.insertReturnId(tInquiryLists);
+
+      MInquiryKinds mInquiryKinds =
+          mInquiryKindsMapper.selectByPrimaryKey(inquiryModel.getInquiryKindCode());
+
+      discordWebhookModel.setInquiryId(tInquiryLists.getInquiryId());
+      discordWebhookModel.setInquiryKindName(mInquiryKinds.getInquiryKindName());
 
     } catch (Exception e) {
       logger.error(e.getMessage());
     }
+
+    return discordWebhookModel;
   }
 }

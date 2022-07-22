@@ -2,6 +2,7 @@ package com.app.ecotiya.api.controller;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -9,8 +10,12 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.app.ecotiya.api.config.AppProperties;
+import com.app.ecotiya.api.model.DiscordWebhookModel;
 import com.app.ecotiya.api.model.InquiryModel;
 import com.app.ecotiya.api.model.MainAppModel;
+import com.app.ecotiya.api.notify.DiscordWebhook;
+import com.app.ecotiya.api.notify.DiscordWebhook.EmbedObject;
 import com.app.ecotiya.api.service.MainAppService;
 
 @RestController
@@ -18,6 +23,8 @@ import com.app.ecotiya.api.service.MainAppService;
 public class MainAppController {
 
   Logger logger = LoggerFactory.getLogger(MainAppController.class);
+
+  @Autowired AppProperties appProperties;
 
   private MainAppService mainAppService;
 
@@ -36,6 +43,27 @@ public class MainAppController {
   @PostMapping
   public void postContact(@Validated @RequestBody InquiryModel inquiryModel) {
     logger.info("MainAppController.postContact()");
-    mainAppService.register(inquiryModel);
+    DiscordWebhookModel discordWebhookModel = mainAppService.register(inquiryModel);
+
+    try {
+      // DiscodeWebhook実施
+      DiscordWebhook discordWebhook = new DiscordWebhook(appProperties.getDiscordUrl());
+      discordWebhook.setUsername("ecotiya.com 自動送信");
+      discordWebhook.setTts(false);
+      discordWebhook.setContent("----------問合せがありました----------");
+      EmbedObject embedObject = new EmbedObject();
+      String sendContents = inquiryModel.getContents();
+      sendContents = sendContents.replace(System.getProperty("line.separator").toString(), "");
+      embedObject.addField("問い合わせID", String.valueOf(discordWebhookModel.getInquiryId()), false);
+      embedObject.addField("ユーザ名", inquiryModel.getUserName(), false);
+      embedObject.addField("メールアドレス", inquiryModel.getMailAddress(), false);
+      embedObject.addField("問い合わせ種別", discordWebhookModel.getInquiryKindName(), false);
+      embedObject.addField("問い合わせ内容", sendContents, false);
+      discordWebhook.addEmbed(embedObject);
+
+      discordWebhook.execute();
+    } catch (Exception e) {
+      logger.error(e.getMessage());
+    }
   }
 }

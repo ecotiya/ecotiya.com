@@ -73,6 +73,7 @@ services:
       TZ: ${TZ:-Asia/Tokyo}
       SPRING_DATASOURCE_URL: ${SPRING_DATASOURCE_URL:-jdbc:mysql://db/ecotiya_com}
       SPRING_DRIVER_CLASS_NAME: ${SPRING_DRIVER_CLASS_NAME-com.mysql.cj.jdbc.Driver}
+      DISCORD_WEBHOOK_URL: ${DISCORD_WEBHOOK_URL}
     stdin_open: true
     tty: true
     restart: always

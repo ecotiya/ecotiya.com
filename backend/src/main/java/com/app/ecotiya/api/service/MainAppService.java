@@ -1,5 +1,6 @@
 package com.app.ecotiya.api.service;
 
+import com.app.ecotiya.api.model.DiscordWebhookModel;
 import com.app.ecotiya.api.model.InquiryModel;
 import com.app.ecotiya.api.model.MainAppModel;
 
@@ -20,5 +21,5 @@ public interface MainAppService {
    * @param inquiryKindCode 問い合わせ種別コード
    * @param contents 内容
    */
-  void register(InquiryModel inquiryModel);
+  DiscordWebhookModel register(InquiryModel inquiryModel);
 }
