@@ -9,6 +9,9 @@ import lombok.Data;
 @Data
 public class AppProperties {
 
+  @Value("${app.webhook.isWebhookuse}")
+  private boolean isWebhookuse;
+
   @Value("${app.webhook.discordurl}")
   private String discordUrl;
 }

@@ -45,43 +45,48 @@ public class MainAppController {
     logger.info("MainAppController.postContact()");
     DiscordWebhookModel discordWebhookModel = mainAppService.register(inquiryModel);
 
-    try {
-      // DiscodeWebhook実施
-      logger.info("DiscodeWebhook 開始");
-      logger.info(
-          "【送信URL】"
-              + appProperties.getDiscordUrl()
-              + System.getProperty("line.separator")
-              + "【問い合わせID】"
-              + discordWebhookModel.getInquiryId()
-              + System.getProperty("line.separator")
-              + "【ユーザ名】"
-              + inquiryModel.getUserName()
-              + System.getProperty("line.separator")
-              + "【メールアドレス】"
-              + inquiryModel.getMailAddress()
-              + System.getProperty("line.separator")
-              + "【問い合わせ種別】"
-              + discordWebhookModel.getInquiryKindName());
+    if (appProperties.isWebhookuse()) {
+      try {
+        // DiscodeWebhook実施
+        logger.info("DiscodeWebhook 送信データ生成 開始");
+        logger.info(
+            "【送信URL】"
+                + appProperties.getDiscordUrl()
+                + System.getProperty("line.separator")
+                + "【問い合わせID】"
+                + discordWebhookModel.getInquiryId()
+                + System.getProperty("line.separator")
+                + "【ユーザ名】"
+                + inquiryModel.getUserName()
+                + System.getProperty("line.separator")
+                + "【メールアドレス】"
+                + inquiryModel.getMailAddress()
+                + System.getProperty("line.separator")
+                + "【問い合わせ種別】"
+                + discordWebhookModel.getInquiryKindName());
 
-      DiscordWebhook discordWebhook = new DiscordWebhook(appProperties.getDiscordUrl());
-      discordWebhook.setUsername("ecotiya.com 自動送信");
-      discordWebhook.setTts(false);
-      discordWebhook.setContent("----------問合せがありました----------");
-      EmbedObject embedObject = new EmbedObject();
-      String sendContents = inquiryModel.getContents();
-      sendContents = sendContents.replace(System.getProperty("line.separator").toString(), "");
-      embedObject.addField("問い合わせID", String.valueOf(discordWebhookModel.getInquiryId()), false);
-      embedObject.addField("ユーザ名", inquiryModel.getUserName(), false);
-      embedObject.addField("メールアドレス", inquiryModel.getMailAddress(), false);
-      embedObject.addField("問い合わせ種別", discordWebhookModel.getInquiryKindName(), false);
-      embedObject.addField("問い合わせ内容", sendContents, false);
-      discordWebhook.addEmbed(embedObject);
+        DiscordWebhook discordWebhook = new DiscordWebhook(appProperties.getDiscordUrl());
+        discordWebhook.setUsername("ecotiya.com 自動送信");
+        discordWebhook.setTts(false);
+        discordWebhook.setContent("----------問合せがありました----------");
+        EmbedObject embedObject = new EmbedObject();
+        String sendContents = inquiryModel.getContents();
+        sendContents = sendContents.replace(System.getProperty("line.separator").toString(), "");
+        embedObject.addField("問い合わせID", String.valueOf(discordWebhookModel.getInquiryId()), false);
+        embedObject.addField("ユーザ名", inquiryModel.getUserName(), false);
+        embedObject.addField("メールアドレス", inquiryModel.getMailAddress(), false);
+        embedObject.addField("問い合わせ種別", discordWebhookModel.getInquiryKindName(), false);
+        embedObject.addField("問い合わせ内容", sendContents, false);
+        discordWebhook.addEmbed(embedObject);
+        logger.info("DiscodeWebhook 送信データ生成 終了");
 
-      discordWebhook.execute();
-      logger.info("DiscodeWebhook 終了");
-    } catch (Exception e) {
-      logger.error("DiscodeWebhookの送信に失敗しました。 【エラー内容】" + e.getMessage());
+        logger.info("DiscodeWebhook 開始");
+        discordWebhook.execute();
+        logger.info("DiscodeWebhook 終了");
+
+      } catch (Exception e) {
+        logger.error("DiscodeWebhookの送信に失敗しました。 【エラー内容】" + e.getMessage());
+      }
     }
   }
 }

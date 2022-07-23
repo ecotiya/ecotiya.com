@@ -20,3 +20,4 @@ mybatis:
 app:
   webhook: 
     discordurl: ${DISCORD_WEBHOOK_URL:ecotiya}
+    isWebhookuse: ${IS_WEBHOOK_USE:false}
