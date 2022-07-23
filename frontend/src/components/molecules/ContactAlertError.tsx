@@ -6,11 +6,11 @@ import IconButton from '@mui/material/IconButton';
 type ContactAlertErrorProps = {
   message: string;
   isError: boolean;
-  alertClose: () => void;
+  alertErrorClose: () => void;
 };
 
 const ContactAlertError = (props: ContactAlertErrorProps) => {
-  const { message, isError, alertClose } = props;
+  const { message, isError, alertErrorClose } = props;
 
   return (
     <Collapse in={isError}>
@@ -23,7 +23,7 @@ const ContactAlertError = (props: ContactAlertErrorProps) => {
             aria-label="close"
             color="inherit"
             size="small"
-            onClick={alertClose}
+            onClick={alertErrorClose}
           >
             <CloseIcon fontSize="inherit" />
           </IconButton>

@@ -1,23 +1,27 @@
 import * as React from 'react';
-import Box from '@mui/material/Box';
-import Typography from '@mui/material/Typography';
-import Paper from '@mui/material/Paper';
-import Table from '@mui/material/Table';
-import TableBody from '@mui/material/TableBody';
-import TableCell, { tableCellClasses } from '@mui/material/TableCell';
-import TableContainer from '@mui/material/TableContainer';
-import TableHead from '@mui/material/TableHead';
-import TablePagination from '@mui/material/TablePagination';
-import TableRow from '@mui/material/TableRow';
+import {
+  Box,
+  Grid,
+  Paper,
+  Table,
+  TableBody,
+  TableCell,
+  tableCellClasses,
+  TableContainer,
+  TableHead,
+  TablePagination,
+  TableRow,
+  Typography,
+} from '@mui/material';
 import { styled } from '@mui/material/styles';
-import Rating from '@mui/material/Rating';
-import StarIcon from '@mui/icons-material/Star';
-import Grid from '@mui/material/Grid';
-import { Skills } from '../../interface/CommonInterface';
+import SkillTableDefModal from './SkillTableDefModal';
+import { RatingSmile, RatingStar } from '../atoms/index';
+import { Skills, SectionComments } from '../../interface/CommonInterface';
 
 type SkillTableProps = {
   tabletitle: string;
   table: Skills[];
+  skillDefTable: SectionComments[];
 };
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
@@ -31,15 +35,23 @@ const StyledTableCell = styled(TableCell)(({ theme }) => ({
 }));
 
 interface Column {
-  id: 'skillName' | 'experienceYm';
+  id: 'skillName' | 'category' | 'skillLevel' | 'experienceYm';
   label: string;
   minWidth?: number;
   align?: 'right';
+  isSkillLevel?: boolean;
   isExperienceYm?: boolean;
 }
 
 const columns: Column[] = [
-  { id: 'skillName', label: 'スキル名称', minWidth: 170 },
+  { id: 'skillName', label: '名称', minWidth: 100 },
+  { id: 'category', label: 'カテゴリ', minWidth: 100 },
+  {
+    id: 'skillLevel',
+    label: 'レベル',
+    minWidth: 100,
+    isSkillLevel: true,
+  },
   {
     id: 'experienceYm',
     label: '経験年数',
@@ -48,8 +60,16 @@ const columns: Column[] = [
   },
 ];
 
+const targetRating = (value: number, isSkillLevel: boolean | undefined) => {
+  if (isSkillLevel) {
+    return <RatingSmile value={value} />;
+  }
+
+  return <RatingStar value={value} />;
+};
+
 const SkillTable = (props: SkillTableProps) => {
-  const { tabletitle, table } = props;
+  const { tabletitle, table, skillDefTable } = props;
 
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(10);
@@ -75,15 +95,27 @@ const SkillTable = (props: SkillTableProps) => {
         }}
       >
         <Paper sx={{ width: '100%' }}>
-          <Typography
-            sx={{ flex: '1 1 100%' }}
-            variant="h6"
-            id="tableTitle"
-            component="div"
+          <Grid
+            container
+            style={{ padding: '5px', margin: '5px' }}
+            direction="row"
+            justifyContent="space-between"
           >
-            {tabletitle}
-          </Typography>
-          <TableContainer sx={{ maxHeight: 440 }}>
+            <Grid item xs>
+              <Typography
+                sx={{ flex: '1 1 100%' }}
+                variant="h6"
+                id="tableTitle"
+                component="div"
+              >
+                {tabletitle}
+              </Typography>
+            </Grid>
+            <Grid item xs>
+              <SkillTableDefModal skillDefTable={skillDefTable} />
+            </Grid>
+          </Grid>
+          <TableContainer sx={{ minHeight: 600, maxHeight: 600 }}>
             <Table stickyHeader aria-label="sticky table">
               <TableHead>
                 <TableRow>
@@ -113,23 +145,9 @@ const SkillTable = (props: SkillTableProps) => {
 
                         return (
                           <TableCell key={column.id} align={column.align}>
-                            {column.isExperienceYm &&
-                            typeof value === 'number' ? (
-                              <Rating
-                                name="text-feedback"
-                                value={value}
-                                readOnly
-                                precision={0.5}
-                                emptyIcon={
-                                  <StarIcon
-                                    style={{ opacity: 0.55 }}
-                                    fontSize="inherit"
-                                  />
-                                }
-                              />
-                            ) : (
-                              value
-                            )}
+                            {typeof value === 'number'
+                              ? targetRating(value, column.isSkillLevel)
+                              : value}
                           </TableCell>
                         );
                       })}

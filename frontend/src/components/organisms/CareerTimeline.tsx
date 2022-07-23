@@ -1,5 +1,13 @@
-import { Typography } from '@mui/material';
+import {
+  Box,
+  Card,
+  CardContent,
+  CardHeader,
+  Divider,
+  Typography,
+} from '@mui/material';
 import Timeline from '@mui/lab/Timeline';
+import { makeStyles } from '@mui/styles';
 import { CareerTimelineItem } from '../molecules/index';
 import { ComponentSection } from '../../constants/CommonConstants';
 import { MainApps } from '../../interface/CommonInterface';
@@ -8,11 +16,24 @@ type CareerTimelineProps = {
   mainAppsData: MainApps;
 };
 
+const useStyles = makeStyles({
+  textContent: {
+    whiteSpace: 'pre-line',
+  },
+});
+
 const CareerTimeline = (props: CareerTimelineProps) => {
+  const classes = useStyles();
   const { mainAppsData } = props;
 
-  const sectionComment = mainAppsData.sectionCommentList.find(
-    (obj) => obj.sectionKindCode === ComponentSection.CAREER,
+  const sectionCommentTitle = mainAppsData.sectionCommentList.find(
+    (obj) =>
+      obj.sectionKindCode === ComponentSection.CAREER && obj.titleFlg === true,
+  );
+
+  const sectionCommentContent = mainAppsData.sectionCommentList.find(
+    (obj) =>
+      obj.sectionKindCode === ComponentSection.CAREER && obj.titleFlg === false,
   );
 
   const getCareerTimelineItem = () =>
@@ -33,9 +54,25 @@ const CareerTimeline = (props: CareerTimelineProps) => {
   return (
     <>
       <Timeline>{getCareerTimelineItem()}</Timeline>
-      <Typography color="textPrimary" gutterBottom variant="body1">
-        {sectionComment?.sectionComment}
-      </Typography>
+      <Box style={{ maxWidth: 1450, padding: '35px 5px', margin: '0 auto' }}>
+        <Card>
+          <CardContent>
+            <CardHeader
+              title={sectionCommentTitle?.sectionComment}
+              titleTypographyProps={{ variant: 'h4' }}
+            />
+            <Divider style={{ margin: '20px' }} />
+            <Typography
+              color="textPrimary"
+              gutterBottom
+              variant="body1"
+              className={classes.textContent}
+            >
+              {sectionCommentContent?.sectionComment}
+            </Typography>
+          </CardContent>
+        </Card>
+      </Box>
     </>
   );
 };

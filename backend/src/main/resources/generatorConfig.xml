@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+  <context id="MySQL" targetRuntime="MyBatis3">
+  
+  	<property name="javaFileEncoding" value="UTF-8"/>
+  
+  	<!-- エンティティモデルにequalsメソッドとhashCodeメソッドを追加するためのプラグイン -->
+    <plugin type="org.mybatis.generator.plugins.EqualsHashCodePlugin"/>
+    
+    <!-- マッパクラスのアノテーションを制御するためのプラグイン -->
+    <plugin type="org.mybatis.generator.plugins.MapperAnnotationPlugin"/>
+    
+    <!-- コメント生成の制御(更新日付削除＆コメントは必須) -->
+    <commentGenerator>
+    	<property name="suppressDate" value="true" />
+        <property name="addRemarkComments" value="false" />
+    </commentGenerator>
+    
+    <!-- MySQL DBの接続先情報 -->
+    <jdbcConnection 
+    	connectionURL="jdbc:mysql://localhost:3310/ecotiya_com"
+    	driverClass="com.mysql.cj.jdbc.Driver"
+    	password="ecotiya"
+    	userId="ecotiya" >
+    	<property name="nullCatalogMeansCurrent" value="true" />
+    </jdbcConnection>
+    
+    <javaTypeResolver>
+    	<property name="useJSR310Types" value="true"/>
+	</javaTypeResolver>
+    
+    <!-- エンティティモデルの生成 -->
+    <javaModelGenerator targetPackage="com.app.ecotiya.domain.entity" targetProject="ecotiya/src/main/java" >
+    	<property name="constructorBased" value="false"/>
+    	<property name="enableSubPackages" value="true" />
+    	<property name="trimStrings" value="true" />
+    	<property name="immutable" value="false"/>
+ 	</javaModelGenerator>
+ 	
+ 	<!-- マッパーXMLの生成 -->
+    <sqlMapGenerator targetPackage="com.app.ecotiya.domain.repository" targetProject="ecotiya/src/main/resources">
+    	<property name="enableSubPackages" value="true" />
+    </sqlMapGenerator>
+    
+    <!-- マッパークラスの生成 -->
+    <javaClientGenerator targetPackage="com.app.ecotiya.domain.repository" targetProject="ecotiya/src/main/java" type="XMLMAPPER" >
+    	<property name="enableSubPackages" value="true" />
+    </javaClientGenerator>
+    
+    <!-- 自動生成対象のスキーマ情報 -->
+    <table schema="ecotiya_com"
+    	tableName="%"
+        enableInsert="true"
+        enableSelectByPrimaryKey="true"
+        enableSelectByExample="false"
+        enableUpdateByPrimaryKey="false"
+        enableUpdateByExample="false"
+        enableDeleteByPrimaryKey="false"
+        enableDeleteByExample="false"
+        enableCountByExample="false"
+        selectByExampleQueryId="false"
+        modelType="flat">
+        <property name="useActualColumnNames" value="false"/>
+    </table>
+    
+  </context>
+</generatorConfiguration>

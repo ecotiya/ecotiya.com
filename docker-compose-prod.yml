@@ -1,0 +1,70 @@
+version: '3.8'
+services:
+  db:
+    container_name: ecotiya_db_prod
+    build:
+      context: ./mysql
+      dockerfile: Dockerfile
+    restart: always
+    environment:
+      MYSQL_ROOT_HOST: ${MYSQL_ROOT_HOST}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+      TZ: ${TZ}
+    ports:
+      - 3310:3306
+    volumes:
+      - ./mysql/data:/var/lib/mysql # 実データの永続化
+      - ./mysql/log:/var/log/mysql  # logの永続化
+
+  frontend:
+    container_name: ecotiya_frontend_prod
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile.prod
+    tty: true
+    restart: always
+    environment:
+      WORKER_PROCESSES: ${WORKER_PROCESSES}
+      WORKER_CONNECTIONS: ${WORKER_CONNECTIONS}
+      KEEPALIVE_TIMEOUT: ${KEEPALIVE_TIMEOUT}
+      GZIP: ${GZIP}
+      BACKEND_HOST: ${BACKEND_HOST}
+      BACKEND_MAX_FAILS: ${BACKEND_MAX_FAILS}
+      BACKEND_FAIL_TIMEOUT: ${BACKEND_FAIL_TIMEOUT}
+      SERVER_PORT: ${SERVER_PORT}
+      SERVER_NAME: ${SERVER_NAME}
+      LOG_STDOUT: ${LOG_STDOUT}
+      PRODUCTION_FLG: ${PRODUCTION_FLG}
+    ports:
+      - 80:80
+    depends_on:
+      backend:
+          condition: service_started
+
+  backend:
+    container_name: ecotiya_backend_prod
+    build:
+      context: ./backend
+      dockerfile: Dockerfile.prod
+    environment:
+      MYSQL_ROOT_HOST: ${MYSQL_ROOT_HOST}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+      TZ: ${TZ}
+      SPRING_DATASOURCE_URL: ${SPRING_DATASOURCE_URL}
+      SPRING_DRIVER_CLASS_NAME: ${SPRING_DRIVER_CLASS_NAME}
+      IS_WEBHOOK_USE: ${IS_WEBHOOK_USE}
+      DISCORD_WEBHOOK_URL: ${DISCORD_WEBHOOK_URL}
+    stdin_open: true
+    tty: true
+    restart: always
+    ports:
+      - 8080:8080
+    depends_on:
+      db:
+        condition: service_started

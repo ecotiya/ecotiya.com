@@ -1,0 +1,12 @@
+{"properties": [
+  {
+    "name": "app.webhook.discordurl",
+    "type": "java.lang.String",
+    "description": "A description for 'app.webhook.discordurl'"
+  },
+  {
+    "name": "app.webhook.isWebhookuse",
+    "type": "java.lang.String",
+    "description": "A description for 'app.webhook.isWebhookuse'"
+  }
+]}

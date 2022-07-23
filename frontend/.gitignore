@@ -38,6 +38,7 @@ bower_components
 
 # Compiled binary addons (https://nodejs.org/api/addons.html)
 build/Release
+build/
 
 # Dependency directories
 node_modules/
@@ -129,3 +130,14 @@ dist
 
 # Local History for Visual Studio Code
 .history/
+
+# 環境ファイル
+*.env.local
+*.env.development.local
+*.env.test.local
+*.env.production.local
+*.env.*
+*.env
+
+# AWS手動デプロイ用(今後、自動でデプロイさせる想定ですが一旦、除外させる)
+Dockerfile

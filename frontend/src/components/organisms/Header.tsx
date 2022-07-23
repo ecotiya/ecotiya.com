@@ -146,7 +146,10 @@ const Header = () => {
       </Box>
       <Box sx={{ flex: 1, display: 'flex', justifyContent: 'flex-end' }}>
         <Button startIcon={<HomeIcon />} size="large" sx={{ mx: 0.5 }}>
-          <HashLink to="#home" scroll={(el) => scrollWithOffset(el)}>
+          <HashLink
+            to="#home"
+            scroll={(el: HTMLElement) => scrollWithOffset(el)}
+          >
             Home
           </HashLink>
         </Button>
@@ -191,7 +194,7 @@ const Header = () => {
                     >
                       <HashLink
                         to="#profile"
-                        scroll={(el) => scrollWithOffset(el)}
+                        scroll={(el: HTMLElement) => scrollWithOffset(el)}
                       >
                         <MenuItem onClick={handleClose}>
                           <AccountBoxIcon />
@@ -200,7 +203,7 @@ const Header = () => {
                       </HashLink>
                       <HashLink
                         to="#career"
-                        scroll={(el) => scrollWithOffset(el)}
+                        scroll={(el: HTMLElement) => scrollWithOffset(el)}
                       >
                         <MenuItem onClick={handleClose}>
                           <DirectionsRunIcon />
@@ -209,7 +212,7 @@ const Header = () => {
                       </HashLink>
                       <HashLink
                         to="#skill"
-                        scroll={(el) => scrollWithOffset(el)}
+                        scroll={(el: HTMLElement) => scrollWithOffset(el)}
                       >
                         <MenuItem onClick={handleClose}>
                           <BoltIcon />
@@ -224,13 +227,17 @@ const Header = () => {
           </Popper>
         </div>
         <Button startIcon={<MailOutlineIcon />} size="large" sx={{ mx: 0.5 }}>
-          <HashLink to="#contact" scroll={(el) => scrollWithOffset(el)}>
+          <HashLink
+            to="#contact"
+            scroll={(el: HTMLElement) => scrollWithOffset(el)}
+          >
             Contact
           </HashLink>
         </Button>
         <Button
           startIcon={<TwitterIcon />}
           size="large"
+          target="_blank"
           href="https://twitter.com/ecotiya"
           sx={{ mx: 0.5 }}
           disableRipple
@@ -247,7 +254,7 @@ const Header = () => {
     headersData.map(({ label, href, icon }) => (
       <HashLink
         {...{ to: href, style: { textDecoration: 'none' }, key: label }}
-        scroll={(el) => scrollWithOffset(el)}
+        scroll={(el: HTMLElement) => scrollWithOffset(el)}
       >
         <MenuItem>
           {icon}
@@ -283,7 +290,7 @@ const Header = () => {
           }}
         >
           <div>{getDrawerChoices()}</div>
-          <Link href="https://twitter.com/ecotiya">
+          <Link target="_blank" href="https://twitter.com/ecotiya">
             <MenuItem>
               <TwitterIcon />
               Twitter

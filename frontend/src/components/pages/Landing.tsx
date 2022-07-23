@@ -12,15 +12,12 @@ import {
   NotFound,
 } from '../templates/index';
 
-// axios.defaults.xsrfCookieName = 'CSRF-TOKEN';
-// axios.defaults.xsrfHeaderName = 'X-CSRF-Token';
-// axios.defaults.withCredentials = true;
-
 const options: AxiosRequestConfig = {
-  headers: { 'Content-Type': 'application/json' },
-  // withCredentials: true,
-  url: `${ApiRoutesPath.BASE_URL}`,
   method: 'GET',
+  url: `${ApiRoutesPath.BASE_URL}${ApiRoutesPath.API}`,
+  headers: { 'Content-Type': 'application/json;charset=UTF-8' },
+  withCredentials: true,
+  timeout: 5000,
 };
 
 const showLanding = (mainApps: MainApps) => (

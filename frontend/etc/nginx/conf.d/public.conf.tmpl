@@ -1,0 +1,47 @@
+server {
+    listen {{ var "SERVER_PORT" | default "80" }} default_server;
+    server_name {{ var "SERVER_NAME" | default "localhost" }};
+    charset utf-8;
+
+    location /api {
+        {{ if eq "true" (var "PRODUCTION_FLG") }}
+        proxy_pass_request_headers on;
+        proxy_set_header Host                   $host;
+        proxy_set_header X-Real-IP              $remote_addr;
+        proxy_set_header X-Forwarded-Proto      https;
+        proxy_set_header X-Forwarded-Host       $host;
+        proxy_set_header X-Forwarded-Server     $host;
+        proxy_set_header X-Forwarded-For        $proxy_add_x_forwarded_for;
+        proxy_pass http://backend;
+        proxy_redirect http:// https://;
+        {{ else }}
+        proxy_pass http://backend;
+        proxy_pass_request_headers on;
+        proxy_set_header host $host;
+        {{ end }}
+
+        {{ if var "LOG_STDOUT" }}
+        access_log  /dev/stdout json;
+        error_log   /dev/stderr;
+        {{ else }}
+        access_log  /var/log/nginx/backend_access.log json;
+        error_log   /var/log/nginx/backend_error.log;
+        {{ end }}
+
+        {{ if var "BASIC_AUTH_FILE" }}
+        auth_basic "Restricted";
+        auth_basic_user_file {{ var "BASIC_AUTH_FILE" }};
+        {{ end }}
+    }
+
+    location / {
+        alias /var/www/_react/$1;
+        {{ if var "LOG_STDOUT" }}
+        access_log  /dev/stdout json;
+        error_log   /dev/stderr;
+        {{ else }}
+        access_log  /var/log/nginx/backend_access.log json;
+        error_log   /var/log/nginx/backend_error.log;
+        {{ end }}
+    }
+}

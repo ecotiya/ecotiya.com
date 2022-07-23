@@ -1,0 +1,85 @@
+version: '3.8'
+services:
+  db:
+    container_name: ecotiya_db_dev
+    build:
+      context: ./mysql
+      dockerfile: Dockerfile
+    restart: always
+    environment:
+      MYSQL_ROOT_HOST: ${MYSQL_ROOT_HOST:-%}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:-root}
+      MYSQL_DATABASE: ${MYSQL_DATABASE:-ecotiya_com}
+      MYSQL_USER: ${MYSQL_USER:-ecotiya}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD:-ecotiya}
+      TZ: ${TZ:-Asia/Tokyo}
+    ports:
+      - 3310:3306
+    volumes:
+      - ./mysql/data:/var/lib/mysql # 実データの永続化
+      - ./mysql/log:/var/log/mysql  # logの永続化
+
+  nginx:
+    container_name: ecotiya_web_dev
+    build:
+      context: ./nginx
+      dockerfile: Dockerfile
+    restart: on-failure
+    environment:
+      WORKER_PROCESSES: ${WORKER_PROCESSES}
+      WORKER_CONNECTIONS: ${WORKER_CONNECTIONS}
+      KEEPALIVE_TIMEOUT: ${KEEPALIVE_TIMEOUT}
+      GZIP: ${GZIP}
+      FRONTEND_HOST: ${FRONTEND_HOST}
+      BACKEND_HOST: ${BACKEND_HOST}
+      BACKEND_MAX_FAILS: ${BACKEND_MAX_FAILS}
+      BACKEND_FAIL_TIMEOUT: ${BACKEND_FAIL_TIMEOUT}
+      SERVER_PORT: ${SERVER_PORT}
+      SERVER_NAME: ${SERVER_NAME}
+      LOG_STDOUT: ${LOG_STDOUT}
+    ports:
+      - 80:80
+    depends_on:
+      frontend:
+          condition: service_started
+
+  frontend:
+    container_name: ecotiya_frontend_dev
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile.dev
+    tty: true
+    restart: always
+    working_dir: /app-frontend
+    volumes:
+      - ./frontend:/app-frontend
+    ports:
+      - 3000:3000
+    depends_on:
+      backend:
+          condition: service_started
+
+  backend:
+    container_name: ecotiya_backend_dev
+    build:
+      context: ./backend
+      dockerfile: Dockerfile.dev
+    environment:
+      MYSQL_ROOT_HOST: ${MYSQL_ROOT_HOST:-%}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:-root}
+      MYSQL_DATABASE: ${MYSQL_DATABASE:-ecotiya_com}
+      MYSQL_USER: ${MYSQL_USER:-ecotiya}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD:-ecotiya}
+      TZ: ${TZ:-Asia/Tokyo}
+      SPRING_DATASOURCE_URL: ${SPRING_DATASOURCE_URL:-jdbc:mysql://db/ecotiya_com}
+      SPRING_DRIVER_CLASS_NAME: ${SPRING_DRIVER_CLASS_NAME-com.mysql.cj.jdbc.Driver}
+      IS_WEBHOOK_USE: ${IS_WEBHOOK_USE}
+      DISCORD_WEBHOOK_URL: ${DISCORD_WEBHOOK_URL}
+    stdin_open: true
+    tty: true
+    restart: always
+    ports:
+      - 8080:8080
+    depends_on:
+      db:
+        condition: service_started

@@ -1,0 +1,23 @@
+# Web
+server:
+  port: 8080
+  servlet:
+    context-path: /api
+
+spring:
+  
+  # Datasource
+  datasource:
+    url: ${SPRING_DATASOURCE_URL:jdbc:mysql://localhost:3310/ecotiya_com}
+    username: ${MYSQL_USER:ecotiya}
+    password: ${MYSQL_PASSWORD:ecotiya}
+    driverClassName: ${SPRING_DRIVER_CLASS_NAME:com.mysql.cj.jdbc.Driver}
+
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true
+
+app:
+  webhook: 
+    discordurl: ${DISCORD_WEBHOOK_URL:ecotiya}
+    isWebhookuse: ${IS_WEBHOOK_USE:false}
