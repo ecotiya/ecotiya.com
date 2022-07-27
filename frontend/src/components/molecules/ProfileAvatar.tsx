@@ -1,4 +1,5 @@
 import { Avatar, Box, Grid, Typography } from '@mui/material';
+import Zoom from 'react-reveal/Zoom';
 
 type ProfileAvatarProps = {
   avatar: string | undefined;
@@ -17,14 +18,16 @@ const ProfileAvatar = (props: ProfileAvatarProps) => {
           flexDirection: 'column',
         }}
       >
-        <Avatar
-          src={avatar}
-          sx={{
-            height: 160,
-            mb: 2,
-            width: 160,
-          }}
-        />
+        <Zoom>
+          <Avatar
+            src={avatar}
+            sx={{
+              height: 160,
+              mb: 2,
+              width: 160,
+            }}
+          />
+        </Zoom>
         <Typography color="textPrimary" gutterBottom variant="h5">
           {name}
         </Typography>

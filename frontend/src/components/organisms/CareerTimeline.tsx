@@ -8,6 +8,7 @@ import {
 } from '@mui/material';
 import Timeline from '@mui/lab/Timeline';
 import { makeStyles } from '@mui/styles';
+import Fade from 'react-reveal/Fade';
 import { CareerTimelineItem } from '../molecules/index';
 import { ComponentSection } from '../../constants/CommonConstants';
 import { MainApps } from '../../interface/CommonInterface';
@@ -56,21 +57,23 @@ const CareerTimeline = (props: CareerTimelineProps) => {
       <Timeline>{getCareerTimelineItem()}</Timeline>
       <Box style={{ maxWidth: 1450, padding: '35px 5px', margin: '0 auto' }}>
         <Card>
-          <CardContent>
-            <CardHeader
-              title={sectionCommentTitle?.sectionComment}
-              titleTypographyProps={{ variant: 'h4' }}
-            />
-            <Divider style={{ margin: '20px' }} />
-            <Typography
-              color="textPrimary"
-              gutterBottom
-              variant="body1"
-              className={classes.textContent}
-            >
-              {sectionCommentContent?.sectionComment}
-            </Typography>
-          </CardContent>
+          <Fade bottom>
+            <CardContent>
+              <CardHeader
+                title={sectionCommentTitle?.sectionComment}
+                titleTypographyProps={{ variant: 'h4' }}
+              />
+              <Divider style={{ margin: '20px' }} />
+              <Typography
+                color="textPrimary"
+                gutterBottom
+                variant="body1"
+                className={classes.textContent}
+              >
+                {sectionCommentContent?.sectionComment}
+              </Typography>
+            </CardContent>
+          </Fade>
         </Card>
       </Box>
     </>

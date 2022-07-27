@@ -1,6 +1,8 @@
 import { makeStyles } from '@mui/styles';
 import { HashLink } from 'react-router-hash-link';
 import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
+import Zoom from 'react-reveal/Zoom';
+import Fade from 'react-reveal/Fade';
 
 const useStyles = makeStyles({
   root: {
@@ -41,17 +43,23 @@ const Home = () => {
     <section id="home">
       <div className={classes.root}>
         <div className={classes.container}>
-          <h1 className={classes.title}>
-            Welcome to <br />
-            My <span className={classes.colorText}>Page.</span>
-          </h1>
-          <h5 className={classes.subtitle}>ようこそ、ゲストさん</h5>
-          <HashLink
-            to="#profile"
-            scroll={(el: HTMLElement) => scrollWithOffset(el)}
-          >
-            <ArrowDownwardIcon fontSize="large" />
-          </HashLink>
+          <Zoom>
+            <h1 className={classes.title}>
+              Welcome to <br />
+              My <span className={classes.colorText}>Page.</span>
+            </h1>
+          </Zoom>
+          <Fade bottom>
+            <h5 className={classes.subtitle}>ようこそ、ゲストさん</h5>
+          </Fade>
+          <Fade bottom>
+            <HashLink
+              to="#profile"
+              scroll={(el: HTMLElement) => scrollWithOffset(el)}
+            >
+              <ArrowDownwardIcon fontSize="large" />
+            </HashLink>
+          </Fade>
         </div>
       </div>
     </section>
