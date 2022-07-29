@@ -8,7 +8,7 @@ import Landing from './components/pages/Landing';
 const useStyles = makeStyles({
   root: {
     minHeight: '100vh',
-    backgroundColor: '#4169e1',
+    backgroundColor: '#121212',
     backgroundRepeat: 'no-repeat',
     backgroundSize: 'cover',
   },

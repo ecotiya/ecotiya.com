@@ -12,6 +12,7 @@ import BusinessIcon from '@mui/icons-material/Business';
 import HouseIcon from '@mui/icons-material/House';
 import DirectionsBikeIcon from '@mui/icons-material/DirectionsBike';
 import { makeStyles } from '@mui/styles';
+import Fade from 'react-reveal/Fade';
 
 type CareerTimelineItemProps = {
   careerDate: string;
@@ -68,15 +69,17 @@ const CareerTimelineItem = (props: CareerTimelineItemProps) => {
         <TimelineConnector />
       </TimelineSeparator>
       <TimelineContent>
-        <Paper elevation={3} className={classes.paper}>
-          <Typography variant="h6" component="h1">
-            {careerTitle}
-          </Typography>
-          <Divider style={{ margin: '10px' }} />
-          <Typography className={classes.textContent}>
-            {careerContents}
-          </Typography>
-        </Paper>
+        <Fade right>
+          <Paper elevation={3} className={classes.paper}>
+            <Typography variant="h6" component="h1">
+              {careerTitle}
+            </Typography>
+            <Divider style={{ margin: '10px' }} />
+            <Typography className={classes.textContent}>
+              {careerContents}
+            </Typography>
+          </Paper>
+        </Fade>
       </TimelineContent>
     </TimelineItem>
   );
