@@ -1,7 +1,5 @@
 package com.app.ecotiya.api.service.impl;
 
-import java.time.LocalDateTime;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -65,7 +63,6 @@ public class MainAppServiceImpl implements MainAppService {
       tInquiryLists.setMailAddress(inquiryModel.getMailAddress());
       tInquiryLists.setInquiryKindCode(inquiryModel.getInquiryKindCode());
       tInquiryLists.setContents(inquiryModel.getContents());
-      tInquiryLists.setCreateAt(LocalDateTime.now());
       tInquiryListsMapper.insertReturnId(tInquiryLists);
 
       MInquiryKinds mInquiryKinds =

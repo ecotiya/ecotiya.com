@@ -111,7 +111,7 @@
       inquiry_kind_code, create_at, contents
       )
     values (#{inquiryId,jdbcType=BIGINT}, #{userName,jdbcType=VARCHAR}, #{mailAddress,jdbcType=VARCHAR}, 
-      #{inquiryKindCode,jdbcType=VARCHAR}, #{createAt,jdbcType=TIMESTAMP}, #{contents,jdbcType=LONGVARCHAR}
+      #{inquiryKindCode,jdbcType=VARCHAR}, now(), #{contents,jdbcType=LONGVARCHAR}
       )
   </insert>
 </mapper>
