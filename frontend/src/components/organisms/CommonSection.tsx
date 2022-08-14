@@ -20,7 +20,7 @@ const CommonSection = (props: CommonSectionProps) => {
     <Collapse in={sectionTitle?.showFlg}>
       <section id={sectionTitle?.sectionKindCode}>
         <Box style={{ maxWidth: 1500, padding: '35px 5px', margin: '0 auto' }}>
-          <Card>
+          <Card variant="outlined">
             <CardContent>
               <ViewTitle
                 title={sectionTitle?.sectionTitle}

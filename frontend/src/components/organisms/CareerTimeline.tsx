@@ -56,7 +56,7 @@ const CareerTimeline = (props: CareerTimelineProps) => {
     <>
       <Timeline>{getCareerTimelineItem()}</Timeline>
       <Box style={{ maxWidth: 1450, padding: '35px 5px', margin: '0 auto' }}>
-        <Card>
+        <Card variant="outlined">
           <Fade bottom>
             <CardContent>
               <CardHeader
