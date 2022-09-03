@@ -22,10 +22,42 @@ public class MCareerMapperTest extends EcotiyaBaseMapperTest {
 
   @Autowired private MCareerMapper mapper;
 
-  @DisplayName("SELECT TEST: Check if all records retrieved.")
+  @DisplayName("testInsert From m_career")
+  @Test
+  public void testInsert() {
+    MCareer entity = new MCareer();
+    entity.setCareerDate("2030/05");
+    entity.setCareerDivision("2");
+    entity.setCareerTitle("テスト株式会社を創業");
+    entity.setCareerContents("テスト株式会社を創業");
+
+    assertEquals(1, mapper.insert(entity));
+  }
+
+  @DisplayName("testInsertSelective From m_career")
+  @Test
+  public void testInsertSelective() {
+    MCareer entity = new MCareer();
+    entity.setCareerDate("2030/05");
+    entity.setCareerDivision("2");
+    entity.setCareerTitle("テスト株式会社を創業");
+    entity.setCareerContents("テスト株式会社を創業");
+
+    assertEquals(1, mapper.insertSelective(entity));
+  }
+
+  @DisplayName("testSelectByPrimaryKey From m_career")
+  @Test
+  public void testSelectByPrimaryKey() {
+    MCareer actual = mapper.selectByPrimaryKey("1995/02", "3");
+    assertEquals("わたくし、誕生。", actual.getCareerTitle());
+    assertEquals("大分県に生まれる。", actual.getCareerContents());
+  }
+
+  @DisplayName("testSelectAll From m_career")
   @Test
   public void testSelectAll() {
     List<MCareer> mCareers = mapper.selectAll();
-    assertEquals(9, mCareers.size());
+    assertEquals(7, mCareers.size());
   }
 }

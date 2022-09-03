@@ -22,7 +22,46 @@ public class MSectionTitleMapperTest extends EcotiyaBaseMapperTest {
 
   @Autowired private MSectionTitleMapper mapper;
 
-  @DisplayName("SELECT TEST: Check if all records retrieved.")
+  @DisplayName("testInsert From m_section_title")
+  @Test
+  public void testInsert() {
+    MSectionTitle entity = new MSectionTitle();
+    entity.setSectionKindCode("test");
+    entity.setSectionTitle("【テスト】");
+    entity.setSectionSubTitle("登録テストです。");
+    entity.setRemarks1(null);
+    entity.setRemarks2(null);
+    entity.setShowFlg(false);
+
+    assertEquals(1, mapper.insert(entity));
+  }
+
+  @DisplayName("testInsertSelective From m_section_title")
+  @Test
+  public void testInsertSelective() {
+    MSectionTitle entity = new MSectionTitle();
+    entity.setSectionKindCode("test");
+    entity.setSectionTitle("【テスト】");
+    entity.setSectionSubTitle("登録テストです。");
+    entity.setRemarks1(null);
+    entity.setRemarks2(null);
+    entity.setShowFlg(false);
+
+    assertEquals(1, mapper.insertSelective(entity));
+  }
+
+  @DisplayName("testSelectByPrimaryKey From m_section_title")
+  @Test
+  public void testSelectByPrimaryKey() {
+    MSectionTitle actual = mapper.selectByPrimaryKey("career");
+    assertEquals("【経歴】", actual.getSectionTitle());
+    assertEquals("エンジニア人生を開始してから、今日までの歩みです。ぜひ、ご覧ください。", actual.getSectionSubTitle());
+    assertEquals("", actual.getRemarks1());
+    assertEquals("", actual.getRemarks2());
+    assertEquals(true, actual.getShowFlg());
+  }
+
+  @DisplayName("testSelectAll From m_section_title")
   @Test
   public void testSelectAll() {
     List<MSectionTitle> mSectionTitle = mapper.selectAll();

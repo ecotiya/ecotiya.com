@@ -22,10 +22,40 @@ public class MInquiryKindsMapperTest extends EcotiyaBaseMapperTest {
 
   @Autowired private MInquiryKindsMapper mapper;
 
-  @DisplayName("INSERT TEST: Check if the data is inserted as expected.")
+  @DisplayName("testInsert From m_inquiry_kinds")
   @Test
   public void testInsert() {
+    MInquiryKinds entity = new MInquiryKinds();
+    entity.setInquiryKindCode("test");
+    entity.setInquiryKindName("登録テスト");
+    entity.setSortno(6);
+
+    assertEquals(1, mapper.insert(entity));
+  }
+
+  @DisplayName("testInsertSelective From m_inquiry_kinds")
+  @Test
+  public void testInsertSelective() {
+    MInquiryKinds entity = new MInquiryKinds();
+    entity.setInquiryKindCode("test");
+    entity.setInquiryKindName("登録テスト");
+    entity.setSortno(6);
+
+    assertEquals(1, mapper.insertSelective(entity));
+  }
+
+  @DisplayName("testSelectByPrimaryKey From m_inquiry_kinds")
+  @Test
+  public void testSelectByPrimaryKey() {
+    MInquiryKinds actual = mapper.selectByPrimaryKey("about_work");
+    assertEquals("お仕事について", actual.getInquiryKindName());
+    assertEquals(1, actual.getSortno());
+  }
+
+  @DisplayName("testSelectAll From m_inquiry_kinds")
+  @Test
+  public void testSelectAll() {
     List<MInquiryKinds> mInquiryKinds = mapper.selectAll();
-    assertEquals(3, mInquiryKinds.size());
+    assertEquals(5, mInquiryKinds.size());
   }
 }

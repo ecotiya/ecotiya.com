@@ -22,10 +22,42 @@ public class MSectionCommentMapperTest extends EcotiyaBaseMapperTest {
 
   @Autowired private MSectionCommentMapper mapper;
 
-  @DisplayName("SELECT TEST: Check if all records retrieved.")
+  @DisplayName("testInsert From m_section_comment")
+  @Test
+  public void testInsert() {
+    MSectionComment entity = new MSectionComment();
+    entity.setSectionKindCode("test");
+    entity.setSectionCommentLine(1);
+    entity.setSectionComment("登録テストです。");
+    entity.setTitleFlg(false);
+
+    assertEquals(1, mapper.insert(entity));
+  }
+
+  @DisplayName("testInsertSelective From m_section_comment")
+  @Test
+  public void testInsertSelective() {
+    MSectionComment entity = new MSectionComment();
+    entity.setSectionKindCode("test");
+    entity.setSectionCommentLine(1);
+    entity.setSectionComment("登録テストです。");
+    entity.setTitleFlg(false);
+
+    assertEquals(1, mapper.insertSelective(entity));
+  }
+
+  @DisplayName("testSelectByPrimaryKey From m_section_comment")
+  @Test
+  public void testSelectByPrimaryKey() {
+    MSectionComment actual = mapper.selectByPrimaryKey("career", 1);
+    assertEquals("社会における小さな課題を解決できるエンジニアになる。", actual.getSectionComment());
+    assertEquals(true, actual.getTitleFlg());
+  }
+
+  @DisplayName("testSelectAll From m_section_comment")
   @Test
   public void testSelectAll() {
     List<MSectionComment> mSectionComment = mapper.selectAll();
-    assertEquals(2, mSectionComment.size());
+    assertEquals(8, mSectionComment.size());
   }
 }
