@@ -1,7 +1,4 @@
-# ecotiyaポートフォリオサイト
-
-## URL
-[https://ecotiya.com/](https://ecotiya.com/)
+# ポートフォリオサイト
 
 <br>
 
@@ -100,11 +97,10 @@ docker-compose -f docker-compose-prod.yml down --rmi all --volumes --remove-orph
 
 ## License
 
-- [MIT](https://raw.githubusercontent.com/ecotiya/ecotiya-portfolio-site/master/LICENSE.md)  
+- [MIT](https://raw.githubusercontent.com/kos0514/kos0514-portfolio-site/master/LICENSE.md)  
 
 <br>
 
 ## Author
 
-- [Github](https://github.com/ecotiya)
-- [Twitter](https://twitter.com/ecotiya)
+- [Github](https://github.com/kos0514)

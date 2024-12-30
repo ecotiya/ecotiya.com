@@ -1,0 +1,6 @@
+m_career
+m_inquiry_kinds
+m_section_comment
+m_section_title
+m_skill
+t_inquiry_lists

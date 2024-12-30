@@ -1,4 +1,4 @@
-﻿insert into ecotiya_com.m_career(career_date,career_division,career_title,career_contents) values 
+﻿insert into kos0514_com.m_career(career_date,career_division,career_title,career_contents) values 
     ('1995/02','3','わたくし、誕生。','大分県に生まれる。')
   , ('2013/04','1','情報専門学校','３年制の情報専門学校に通い、医療情報について学び、医療情報技師や基本情報技術者の資格を取得。')
   , ('2016/04','2','医療系自社開発企業','大学病院向けの新規電子カルテシステムの開発、モバイルアプリの開発に従事。')
@@ -10,7 +10,7 @@
 今後、Java以外の言語にも携わりたいと考えており、公式サイトの実装を通じて、業務で未経験のReact・TypeScript・Docker・AWSを学習中。');
 
 
-insert into ecotiya_com.m_inquiry_kinds(inquiry_kind_code,inquiry_kind_name,sortno) values 
+insert into kos0514_com.m_inquiry_kinds(inquiry_kind_code,inquiry_kind_name,sortno) values 
     ('about_work','お仕事について',1)
   , ('official_site','本サイトについて',4)
   , ('others','その他',5)
@@ -18,7 +18,7 @@ insert into ecotiya_com.m_inquiry_kinds(inquiry_kind_code,inquiry_kind_name,sort
   , ('request','ご要望',2);
 
 
-insert into ecotiya_com.m_section_comment(section_kind_code,section_comment_line,section_comment,title_flg) values 
+insert into kos0514_com.m_section_comment(section_kind_code,section_comment_line,section_comment,title_flg) values 
     ('career',1,'社会における小さな課題を解決できるエンジニアになる。','1')
   , ('career',2,'
 
@@ -56,14 +56,14 @@ Javaでの実装を得意とし、大手飲食チェーン店の自動でシフ�
   , ('skill',5,'深いレベルでの知識を有しており、コードレベルで理解している。','0');
 
 
-insert into ecotiya_com.m_section_title(section_kind_code,section_title,section_sub_title,remarks1,remarks2,show_flg) values 
+insert into kos0514_com.m_section_title(section_kind_code,section_title,section_sub_title,remarks1,remarks2,show_flg) values 
     ('career','【経歴】','エンジニア人生を開始してから、今日までの歩みです。ぜひ、ご覧ください。',null,null,'1')
   , ('contact','【お問い合わせ】','ここまで、ご覧いただきありがとうございます。私への問い合わせは、TwitterのDMもしくは、下記フォームをご利用ください。',null,null,'1')
-  , ('profile','【私について】','エンジニア「ecotiya」のポートフォリオサイトです。あなたに、私のことを知ってもらうために、経歴・スキルをまとめています。気軽にご覧ください。','/assets/ecotiya.png','ecotiya','1')
+  , ('profile','【私について】','エンジニア「kos0514」のポートフォリオサイトです。あなたに、私のことを知ってもらうために、経歴・スキルをまとめています。気軽にご覧ください。','/assets/kos0514.png','kos0514','1')
   , ('skill','【スキルセット】','私のスキルセットを下記テーブルにまとめました。テーブルの表示内容は[経験年数 降順] [レベル 降順]でソートしており、レベル1の技術に関しては今後、強みとしていきたい、勉強中の技術です。',null,null,'1');
 
 
-insert into ecotiya_com.m_skill(skill_field_code,skill_name,category,skill_level,experience_ym) values 
+insert into kos0514_com.m_skill(skill_field_code,skill_name,category,skill_level,experience_ym) values 
     ('Backend','.NET Framework','フレームワーク',3,1.5)
   , ('Backend','C#','プログラミング言語',2,0.5)
   , ('Backend','Caché','データベース',3,1.5)

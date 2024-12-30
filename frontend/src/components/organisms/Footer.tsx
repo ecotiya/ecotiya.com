@@ -11,7 +11,7 @@ const Footer = () => (
     >
       <Container maxWidth="lg">
         <Box textAlign="center" pt={{ xs: 5, sm: 5 }} pb={{ xs: 5, sm: 0 }}>
-          Copyright &copy; {new Date().getFullYear()} ecotiya
+          Copyright &copy; {new Date().getFullYear()} kos0514
         </Box>
       </Container>
     </Box>

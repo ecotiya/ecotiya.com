@@ -180,7 +180,7 @@ const ContactTexts = (props: ContactTextsProps) => {
           type="email"
           rows={1}
           label="メールアドレス"
-          placeholder="test@ecotiya.com"
+          placeholder="test@kos0514.com"
           value={email}
           onChange={inputEmail}
         />

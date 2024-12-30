@@ -8,9 +8,9 @@ spring:
   
   # Datasource
   datasource:
-    url: ${SPRING_DATASOURCE_URL:jdbc:mysql://localhost:3310/ecotiya_com}
-    username: ${MYSQL_USER:ecotiya}
-    password: ${MYSQL_PASSWORD:ecotiya}
+    url: ${SPRING_DATASOURCE_URL:jdbc:mysql://localhost:3310/kos0514_com}
+    username: ${MYSQL_USER:kos0514}
+    password: ${MYSQL_PASSWORD:kos0514}
     driverClassName: ${SPRING_DRIVER_CLASS_NAME:com.mysql.cj.jdbc.Driver}
 
 mybatis:
@@ -19,5 +19,5 @@ mybatis:
 
 app:
   webhook: 
-    discordurl: ${DISCORD_WEBHOOK_URL:ecotiya}
+    discordurl: ${DISCORD_WEBHOOK_URL:kos0514}
     isWebhookuse: ${IS_WEBHOOK_USE:false}
