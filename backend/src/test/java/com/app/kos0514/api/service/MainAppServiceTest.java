@@ -1,4 +1,4 @@
-package com.app.ecotiya.api.service;
+package com.app.kos0514.api.service;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -7,9 +7,9 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
-import com.app.ecotiya.api.model.MainAppModel;
-import com.app.ecotiya.api.service.impl.MainAppServiceImpl;
-import com.app.ecotiya.domain.repository.MCareerMapper;
+import com.app.kos0514.api.model.MainAppModel;
+import com.app.kos0514.api.service.impl.MainAppServiceImpl;
+import com.app.kos0514.domain.repository.MCareerMapper;
 
 public class MainAppServiceTest {
 

@@ -1,4 +1,4 @@
-package com.app.ecotiya.domain.repository;
+package com.app.kos0514.domain.repository;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -12,14 +12,14 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.annotation.Import;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.app.ecotiya.api.config.DbConfig;
-import com.app.ecotiya.domain.entity.MSkill;
-import com.app.ecotiya.domain.repository.base.EcotiyaBaseMapperTest;
+import com.app.kos0514.api.config.DbConfig;
+import com.app.kos0514.domain.entity.MSkill;
+import com.app.kos0514.domain.repository.base.kos0514BaseMapperTest;
 
 @SpringBootTest
 @Transactional
 @Import(DbConfig.class)
-public class MSkillMapperTest extends EcotiyaBaseMapperTest {
+public class MSkillMapperTest extends kos0514BaseMapperTest {
 
   @Autowired private MSkillMapper mapper;
 
