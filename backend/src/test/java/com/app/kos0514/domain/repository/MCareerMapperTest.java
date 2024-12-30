@@ -1,4 +1,4 @@
-package com.app.ecotiya.domain.repository;
+package com.app.kos0514.domain.repository;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -11,14 +11,14 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.annotation.Import;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.app.ecotiya.api.config.DbConfig;
-import com.app.ecotiya.domain.entity.MCareer;
-import com.app.ecotiya.domain.repository.base.EcotiyaBaseMapperTest;
+import com.app.kos0514.api.config.DbConfig;
+import com.app.kos0514.domain.entity.MCareer;
+import com.app.kos0514.domain.repository.base.kos0514BaseMapperTest;
 
 @SpringBootTest
 @Transactional
 @Import(DbConfig.class)
-public class MCareerMapperTest extends EcotiyaBaseMapperTest {
+public class MCareerMapperTest extends kos0514BaseMapperTest {
 
   @Autowired private MCareerMapper mapper;
 

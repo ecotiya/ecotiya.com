@@ -1,22 +1,22 @@
-package com.app.ecotiya.api.service.impl;
+package com.app.kos0514.api.service.impl;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.app.ecotiya.api.model.DiscordWebhookModel;
-import com.app.ecotiya.api.model.InquiryModel;
-import com.app.ecotiya.api.model.MainAppModel;
-import com.app.ecotiya.api.service.MainAppService;
-import com.app.ecotiya.domain.entity.MInquiryKinds;
-import com.app.ecotiya.domain.entity.TInquiryLists;
-import com.app.ecotiya.domain.repository.MCareerMapper;
-import com.app.ecotiya.domain.repository.MInquiryKindsMapper;
-import com.app.ecotiya.domain.repository.MSectionCommentMapper;
-import com.app.ecotiya.domain.repository.MSectionTitleMapper;
-import com.app.ecotiya.domain.repository.MSkillMapper;
-import com.app.ecotiya.domain.repository.TInquiryListsMapper;
+import com.app.kos0514.api.model.DiscordWebhookModel;
+import com.app.kos0514.api.model.InquiryModel;
+import com.app.kos0514.api.model.MainAppModel;
+import com.app.kos0514.api.service.MainAppService;
+import com.app.kos0514.domain.entity.MInquiryKinds;
+import com.app.kos0514.domain.entity.TInquiryLists;
+import com.app.kos0514.domain.repository.MCareerMapper;
+import com.app.kos0514.domain.repository.MInquiryKindsMapper;
+import com.app.kos0514.domain.repository.MSectionCommentMapper;
+import com.app.kos0514.domain.repository.MSectionTitleMapper;
+import com.app.kos0514.domain.repository.MSkillMapper;
+import com.app.kos0514.domain.repository.TInquiryListsMapper;
 
 @Service
 public class MainAppServiceImpl implements MainAppService {
@@ -36,16 +36,16 @@ public class MainAppServiceImpl implements MainAppService {
     MainAppModel mainAppDataModel = new MainAppModel();
 
     try {
-      logger.info("ecotiyaサイト表示用のデータ取得 開始");
+      logger.info("kos0514サイト表示用のデータ取得 開始");
       mainAppDataModel.setSectionTitleList(mSectionTitleMapper.selectAll());
       mainAppDataModel.setSectionCommentList(mSectionCommentMapper.selectAll());
       mainAppDataModel.setCareerList(mCareerMapper.selectAll());
       mainAppDataModel.setSkillList(mSkillMapper.selectAll());
       mainAppDataModel.setInquiryKindsList(mInquiryKindsMapper.selectAll());
-      logger.info("ecotiyaサイト表示用のデータ取得 終了");
+      logger.info("kos0514サイト表示用のデータ取得 終了");
 
     } catch (Exception e) {
-      logger.error("ecotiyaサイト表示用のデータ取得に失敗しました。 【エラー内容】" + e.getMessage());
+      logger.error("kos0514サイト表示用のデータ取得に失敗しました。 【エラー内容】" + e.getMessage());
     }
 
     return mainAppDataModel;
