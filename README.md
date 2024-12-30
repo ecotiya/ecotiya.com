@@ -1,7 +1,4 @@
-# ecotiyaポートフォリオサイト
-
-## URL
-[https://ecotiya.com/](https://ecotiya.com/)
+# ポートフォリオサイト
 
 <br>
 
@@ -28,6 +25,7 @@
 - [ECS](https://aws.amazon.com/jp/ecs/) - 安全性と信頼性に優れ、スケーラブルなコンテナ実行方法
 - [ECR](https://aws.amazon.com/jp/ecr/) - 完全マネージド型の Docker コンテナレジストリ: コンテナソフトウェアをパブリックまたはプライベートに共有およびデプロイ
 - [RDS](https://aws.amazon.com/jp/rds/) - マネージド型のリレーショナルデータベースサービス
+- [CloudFormation](https://aws.amazon.com/jp/cloudformation/) - テンプレートによるリソースの作成と管理
 - [Secrets Manager](https://aws.amazon.com/jp/secrets-manager/) - ライフサイクルを通じてシークレットを簡単に更新、管理、取得する
 - [Route 53](https://aws.amazon.com/jp/route53/) - スケーラブルな DNS とドメインネーム登録
 - [IAM](https://aws.amazon.com/jp/iam/) - AWS リソースへのアクセスの管理
@@ -99,11 +97,10 @@ docker-compose -f docker-compose-prod.yml down --rmi all --volumes --remove-orph
 
 ## License
 
-- [MIT](https://raw.githubusercontent.com/ecotiya/ecotiya-portfolio-site/master/LICENSE.md)  
+- [MIT](https://raw.githubusercontent.com/kos0514/kos0514-portfolio-site/master/LICENSE.md)  
 
 <br>
 
 ## Author
 
-- [Github](https://github.com/ecotiya)
-- [Twitter](https://twitter.com/ecotiya)
+- [Github](https://github.com/kos0514)

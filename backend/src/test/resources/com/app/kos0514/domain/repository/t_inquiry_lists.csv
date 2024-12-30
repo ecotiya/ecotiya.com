@@ -1,0 +1,4 @@
+inquiry_id,user_name,mail_address,inquiry_kind_code,contents,create_at
+1,kos0514,kos0514@kos0514.com,question,質問です。,2022-05-14 05:14:00
+2,kos0514,kos0514@kos0514.com,request,要望です。,2022-05-14 05:14:00
+3,kos0514,kos0514@kos0514.com,others,その他です。,2022-05-14 05:14:00

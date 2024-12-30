@@ -1,7 +1,7 @@
 version: '3.8'
 services:
   db:
-    container_name: ecotiya_db_prod
+    container_name: kos0514_db_prod
     build:
       context: ./mysql
       dockerfile: Dockerfile
@@ -20,7 +20,7 @@ services:
       - ./mysql/log:/var/log/mysql  # logの永続化
 
   frontend:
-    container_name: ecotiya_frontend_prod
+    container_name: kos0514_frontend_prod
     build:
       context: ./frontend
       dockerfile: Dockerfile.prod
@@ -45,7 +45,7 @@ services:
           condition: service_started
 
   backend:
-    container_name: ecotiya_backend_prod
+    container_name: kos0514_backend_prod
     build:
       context: ./backend
       dockerfile: Dockerfile.prod

@@ -9,7 +9,7 @@
     </settings>
 
     <typeAliases>
-        <package name="com.app.ecotiya.domain.entity" />
+        <package name="com.app.kos0514.domain.entity" />
     </typeAliases>
 
     <environments default="development">
@@ -19,14 +19,14 @@
             </transactionManager>
             <dataSource type="UNPOOLED">
                 <property name="driver" value="com.mysql.cj.jdbc.Driver" />
-                <property name="url" value="jdbc:mysql://localhost:3310/ecotiya_com" />
-                <property name="username" value="ecotiya" />
-                <property name="password" value="ecotiya" />
+                <property name="url" value="jdbc:mysql://localhost:3310/kos0514_com" />
+                <property name="username" value="kos0514" />
+                <property name="password" value="kos0514" />
             </dataSource>
         </environment>
     </environments>
 
     <mappers>
-        <package name="com.app.ecotiya.domain.repository" />
+        <package name="com.app.kos0514.domain.repository" />
     </mappers>
 </configuration>

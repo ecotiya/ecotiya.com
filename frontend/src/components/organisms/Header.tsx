@@ -141,7 +141,7 @@ const Header = () => {
     <Toolbar sx={{ justifyContent: 'space-between' }}>
       <Box sx={{ flex: 1, justifyContent: 'flex-start' }}>
         <a href="/">
-          <img src="/logo_transparent.png" alt="ecotiya Logo" width="128px" />
+          <img src="/logo_transparent.png" alt="kos0514 Logo" width="128px" />
         </a>
       </Box>
       <Box sx={{ flex: 1, display: 'flex', justifyContent: 'flex-end' }}>
@@ -238,7 +238,7 @@ const Header = () => {
           startIcon={<TwitterIcon />}
           size="large"
           target="_blank"
-          href="https://twitter.com/ecotiya"
+          href="https://twitter.com/kos0514"
           sx={{ mx: 0.5 }}
           disableRipple
         >
@@ -290,7 +290,7 @@ const Header = () => {
           }}
         >
           <div>{getDrawerChoices()}</div>
-          <Link target="_blank" href="https://twitter.com/ecotiya">
+          <Link target="_blank" href="https://twitter.com/kos0514">
             <MenuItem>
               <TwitterIcon />
               Twitter
@@ -300,7 +300,7 @@ const Header = () => {
 
         <Box sx={{ flex: 1, justifyContent: 'flex-start' }}>
           <a href="/">
-            <img src="/logo_transparent.png" alt="ecotiya Logo" width="128px" />
+            <img src="/logo_transparent.png" alt="kos0514 Logo" width="128px" />
           </a>
         </Box>
       </Toolbar>

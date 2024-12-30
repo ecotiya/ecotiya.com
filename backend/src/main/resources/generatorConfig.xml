@@ -19,10 +19,10 @@
     
     <!-- MySQL DBの接続先情報 -->
     <jdbcConnection 
-    	connectionURL="jdbc:mysql://localhost:3310/ecotiya_com"
+    	connectionURL="jdbc:mysql://localhost:3310/kos0514_com"
     	driverClass="com.mysql.cj.jdbc.Driver"
-    	password="ecotiya"
-    	userId="ecotiya" >
+    	password="kos0514"
+    	userId="kos0514" >
     	<property name="nullCatalogMeansCurrent" value="true" />
     </jdbcConnection>
     
@@ -31,7 +31,7 @@
 	</javaTypeResolver>
     
     <!-- エンティティモデルの生成 -->
-    <javaModelGenerator targetPackage="com.app.ecotiya.domain.entity" targetProject="ecotiya/src/main/java" >
+    <javaModelGenerator targetPackage="com.app.kos0514.domain.entity" targetProject="kos0514/src/main/java" >
     	<property name="constructorBased" value="false"/>
     	<property name="enableSubPackages" value="true" />
     	<property name="trimStrings" value="true" />
@@ -39,17 +39,17 @@
  	</javaModelGenerator>
  	
  	<!-- マッパーXMLの生成 -->
-    <sqlMapGenerator targetPackage="com.app.ecotiya.domain.repository" targetProject="ecotiya/src/main/resources">
+    <sqlMapGenerator targetPackage="com.app.kos0514.domain.repository" targetProject="kos0514/src/main/resources">
     	<property name="enableSubPackages" value="true" />
     </sqlMapGenerator>
     
     <!-- マッパークラスの生成 -->
-    <javaClientGenerator targetPackage="com.app.ecotiya.domain.repository" targetProject="ecotiya/src/main/java" type="XMLMAPPER" >
+    <javaClientGenerator targetPackage="com.app.kos0514.domain.repository" targetProject="kos0514/src/main/java" type="XMLMAPPER" >
     	<property name="enableSubPackages" value="true" />
     </javaClientGenerator>
     
     <!-- 自動生成対象のスキーマ情報 -->
-    <table schema="ecotiya_com"
+    <table schema="kos0514_com"
     	tableName="%"
         enableInsert="true"
         enableSelectByPrimaryKey="true"

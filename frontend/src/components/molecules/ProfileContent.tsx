@@ -33,7 +33,7 @@ const ProfileContent = (props: ProfileContentProps) => {
         size="large"
         color="primary"
         target="_blank"
-        href="https://twitter.com/ecotiya"
+        href="https://twitter.com/kos0514"
         sx={{ mx: 0.5 }}
         disableRipple
       >
@@ -44,7 +44,7 @@ const ProfileContent = (props: ProfileContentProps) => {
         size="large"
         color="inherit"
         target="_blank"
-        href="https://github.com/ecotiya"
+        href="https://github.com/kos0514"
         sx={{ mx: 0.5 }}
         disableRipple
       >
